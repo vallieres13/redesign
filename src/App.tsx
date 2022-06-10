@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NavLink, BrowserRouter, Routes, Route } from "react-router-dom";
 
 /* Styles */
 import './styles/app.css';
 
 /* Pages */
 import Index from './pages/Index';
-import Portfolio from './pages/Portfolio';
+import Projects from './pages/Projects';
+import Stories from './pages/Stories';
+import About from './pages/About';
 
 /* Components */
 import Navigation from './components/Navigation';
@@ -22,15 +24,13 @@ const App = () => {
 
 
 
-
-
     return (
         <BrowserRouter>
             <header className="container">
                 <div className="logo">
-                    <a href="#" onClick={() => window.location.reload()}>
+                    <NavLink to="/">
                         <img src={Logo} alt="Logo" />
-                    </a>
+                    </NavLink>
                 </div>
                 <Navigation />
             </header>
@@ -40,8 +40,14 @@ const App = () => {
                     {/* Index Routing */}
                     <Route index element={<Index />} />
 
-                    {/* Portfolio Routing */}
-                    <Route path="/portfolio" element={<Portfolio />} />
+                    {/* About Routing */}
+                    <Route path="/projects" element={<Projects />} />
+
+                    {/* Stories Routing */}
+                    <Route path="/Stories" element={<Stories />} />
+
+                    {/* Stories Routing */}
+                    <Route path="/About" element={<About />} />
 
                     {/* Any* Routing (404 Not Found) */}
                     <Route path="*" element={<NotFound />} />

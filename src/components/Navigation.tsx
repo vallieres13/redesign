@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import gsap from 'gsap';
-// import { debounce } from 'debounce';
 
 const Navigation = () => {
-
-	const { pathname } = useLocation();
 
 	const [ navigating, setNavigating ] = useState(false);
 
 	const clickedItem = (e: React.MouseEvent) => {
-		/*
-		const body = document.querySelector('body');
-		body!.style.backgroundColor = '#006464';
-		*/
+		e.preventDefault();
+
 		if(navigating) return;
 		setNavigating(true);
 
-		const anchor = (e.target as HTMLLIElement).querySelector('a');
+		gsap.to('.cursor__ball--big',  {
+			scale: 0,
+			duration: .08
+		});
 
-		gsap.to(anchor, {
+		gsap.to('.cursor__ball--small',  {
+			opacity: 0,
+			duration: .08
+		});
+
+		gsap.to(e.target, {
 			autoAlpha: 0,
 			repeat: 2,
 			yoyo: true,
 			duration: .1
 		});
-		gsap.to(anchor, {
+		gsap.to(e.target, {
 			autoAlpha: 1,
 			duration: .1,
 			delay: .3
@@ -34,58 +37,81 @@ const Navigation = () => {
 	};
 
 
-	// const [ isHovered, setIsHovered ] = useState(false);
+	const [ rememberBackground, setRememberBackground ] = useState('');
 
-	// const debouncedHandleMouseEnter = debounce(() => setIsHovered(true), 350);
+	const hoverItem = (e: React.MouseEvent) => {
+		const content = document.querySelector('.main');
 
-	const hoverItem = () => {
-		const content = document.querySelector('.content');
-
-		console.log('Mouse entered');
+		setRememberBackground(document.body.style.backgroundImage);
 
 		gsap.to(content, {
-			autoAlpha: .6,
+			autoAlpha: .5,
+			ease: 'power2',
 			duration: .3
 		});
 
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(90deg, rgba(142,0,170,1) 0%, rgba(189,0,127,1) 60%)'
+			backgroundImage: (e.target as HTMLAnchorElement).getAttribute('data-colour') as string,
+			duration: .3
 		});
 	};
 
-	/*
-	useEffect(() => {
-		if(!isHovered) return;
-		gsap.to('body', {
-			backgroundImage: 'linear-gradient(90deg, rgba(142,0,170,1) 0%, rgba(189,0,127,1) 60%)',
-			duration: .3
-		});
-	}, [isHovered]);
-	*/
 
 	const unhoverItem = () => {
-		const content = document.querySelector('.content');
+		const content = document.querySelector('.main');
 
-		// setIsHovered(false);
-		// debouncedHandleMouseEnter.clear();
+		if(navigating) {
+			setNavigating(false);
+			return;
+		}
 
 		gsap.to(content, {
 			autoAlpha: 1,
+			ease: 'power2',
 			duration: .3
 		});
 
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(90deg, rgba(0,57,100,1) 0%, rgba(0,100,100,1) 68%)'
+			backgroundImage: (rememberBackground === '' ? 'linear-gradient(90deg, black 0%, black 100%)' : rememberBackground),
+			duration: .3
 		});
 	};
+
+	const items = [
+		{
+			title: 'Projects',
+			url: 'projects',
+			colour: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 100%)'
+		},
+		{
+			title: 'Stories',
+			url: 'stories',
+			colour: 'linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+		},
+		{
+			title: 'About',
+			url: 'about',
+			colour: 'linear-gradient(90deg, black 0%, black 100%)'
+		},
+		{
+			title: 'Hire me',
+			url: 'hire',
+			colour: 'linear-gradient(90deg, #4be8c1 0%, #4be8c1 100%)'
+		},
+	];
 
 	return (
 		<div className="nav">
 			<ul>
-				<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem}><NavLink to="/Portfolio" className={([ '/' ].some(url => pathname.startsWith(url)) ? 'active' : '')} data-hover="Portfolio"><span>Portfolio</span></NavLink></li>
-				<li><NavLink to="/About" className={({ isActive }) => (isActive ? 'active' : '')} data-hover="Über mich"><span>Über mich</span></NavLink></li>
-				<li><NavLink to="/stories" className={({ isActive }) => (isActive ? 'active' : '')} data-hover="Stories"><span>Stories</span></NavLink></li>
-				<li><NavLink to="/Contact" className={({ isActive }) => (isActive ? 'active' : '')} data-hover="Kontakt"><span>Kontakt</span></NavLink></li>
+				{items.map((items, index) => {
+					return (
+						<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
+							<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
+								<span>{items.title}</span>
+							</NavLink>
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);

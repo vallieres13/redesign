@@ -6,7 +6,6 @@ import Cursor from '../Cursor';
 
 const Content = (props: { children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
 
-
 	const bigBall = document.querySelector('.cursor__ball--big') as HTMLDivElement;
 	const smallBall = document.querySelector('.cursor__ball--small') as HTMLDivElement;
 
@@ -22,7 +21,6 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 
 		if(!cursorInit) {
 			cursorInit = true;
-			// console.log('First time moving cursor.');
 			move = 0.1;
 		}
 
@@ -33,7 +31,7 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 			x: _epX,
 			y: _epY,
 			duration: move,
-			delay: .03,
+			delay: .025,
 			ease: 'sine'
 		});
 
@@ -43,7 +41,7 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 		gsap.to('.cursor__ball--small', {
 			x: epX,
 			y: epY,
-			duration: .1
+			duration: 0
 		});
 	}
 
@@ -58,9 +56,12 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 		animate();
 
-		console.log('Page switch');
-
 		initHoverableAnimation(false);
+
+		gsap.to('.pattern', {
+			opacity: 0,
+			duration: .5
+		});
 
 		// eslint-disable-next-line
 	}, [location]);
@@ -76,9 +77,6 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 			hoverables = document.querySelectorAll('.content a');
 		}
 
-
-		console.log('Called');
-		console.log(all);
 		for(let i = 0; i < hoverables.length; i++) {
 			hoverables[i].removeEventListener('mouseenter', onMouseHover);
 			hoverables[i].removeEventListener('mouseleave', onMouseHoverOut);
@@ -89,13 +87,12 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 
 		// Hover an element
 		function onMouseHover() {
-			// console.log('Hovering');
 			if(!bigBall) return;
 			if(!smallBall) return;
 
 			gsap.to(bigBall, {
 				scale: 4,
-				duration: .4,
+				duration: .3,
 				ease: 'sine',
 				opacity: 1
 			});
@@ -109,7 +106,8 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 
 			gsap.to(bigBall, {
 				scale: 1,
-				duration: .3,
+				delay: .1,
+				duration: .2,
 				ease: 'sine',
 				opacity: .1
 			});
@@ -120,12 +118,22 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 	}
 
 	useEffect(() => {
+		gsap.to('.pattern', {
+			x: -1000,
+			y: -500,
+			repeat: -1,
+			yoyo: true,
+			ease: 'none',
+			duration: 50
+		});
+
 		initHoverableAnimation(true);
 	});
 
 
+	/* Page Switch animation */
 	const animate = () => {
-		const content = document.querySelector('.content') as HTMLDivElement;
+		const content = document.querySelector('.main') as HTMLDivElement;
 
 		gsap.fromTo(content, {
 			autoAlpha: 0
@@ -133,16 +141,15 @@ const Content = (props: { children: boolean | React.ReactChild | React.ReactFrag
 			autoAlpha: 1,
 			duration: .5
 		})
-
-		setTimeout(() => {
-			content.style.mixBlendMode = 'difference';
-		}, 750);
 	};
 
 	return (
-		<div className="container content">
+		<div className="content">
 			<Cursor />
-			{props.children}
+			<div className="pattern" />
+			<div className="main">
+				{props.children}
+			</div>
 		</div>
 	);
 };

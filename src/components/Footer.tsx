@@ -4,7 +4,7 @@ const Footer = () => {
 
 	return (
 		<footer className="container">
-			Footer Area
+
 		</footer>
 	);
 
