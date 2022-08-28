@@ -12,16 +12,6 @@ const Navigation = () => {
 		if(navigating) return;
 		setNavigating(true);
 
-		gsap.to('.cursor__ball--big',  {
-			scale: 0,
-			duration: .08
-		});
-
-		gsap.to('.cursor__ball--small',  {
-			opacity: 0,
-			duration: .08
-		});
-
 		gsap.to(e.target, {
 			autoAlpha: 0,
 			repeat: 2,
@@ -34,6 +24,7 @@ const Navigation = () => {
 			delay: .3
 		});
 
+
 	};
 
 
@@ -41,10 +32,17 @@ const Navigation = () => {
 
 	const hoverItem = (e: React.MouseEvent) => {
 		const content = document.querySelector('.main');
+		const footer = document.querySelector('footer');
 
 		setRememberBackground(document.body.style.backgroundImage);
 
 		gsap.to(content, {
+			autoAlpha: .5,
+			ease: 'power2',
+			duration: .3
+		});
+
+		gsap.to(footer, {
 			autoAlpha: .5,
 			ease: 'power2',
 			duration: .3
@@ -56,13 +54,12 @@ const Navigation = () => {
 		});
 	};
 
-
 	const unhoverItem = () => {
 		const content = document.querySelector('.main');
+		const footer = document.querySelector('footer');
 
 		if(navigating) {
 			setNavigating(false);
-			return;
 		}
 
 		gsap.to(content, {
@@ -71,49 +68,57 @@ const Navigation = () => {
 			duration: .3
 		});
 
+		gsap.to(footer, {
+			autoAlpha: 1,
+			ease: 'power2',
+			duration: .3
+		});
+
 		gsap.to('body', {
-			backgroundImage: (rememberBackground === '' ? 'linear-gradient(90deg, black 0%, black 100%)' : rememberBackground),
+			backgroundImage: (rememberBackground === '' ? 'none' : rememberBackground),
 			duration: .3
 		});
 	};
 
 	const items = [
 		{
-			title: 'Projects',
-			url: 'projects',
-			colour: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 100%)'
+			title: 'Design Labs',
+			url: 'labs',
+			colour: 'none'
 		},
 		{
 			title: 'Stories',
 			url: 'stories',
-			colour: 'linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+			colour: 'none'
 		},
 		{
 			title: 'About',
 			url: 'about',
-			colour: 'linear-gradient(90deg, black 0%, black 100%)'
+			colour: 'none'
 		},
 		{
 			title: 'Hire me',
 			url: 'hire',
-			colour: 'linear-gradient(90deg, #4be8c1 0%, #4be8c1 100%)'
+			colour: 'none'
 		},
 	];
 
 	return (
-		<div className="nav">
-			<ul>
-				{items.map((items, index) => {
-					return (
-						<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
-							<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
-								<span>{items.title}</span>
-							</NavLink>
-						</li>
-					);
-				})}
-			</ul>
-		</div>
+		<>
+			<div className="nav">
+				<ul>
+					{items.map((items, index) => {
+						return (
+							<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
+								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
+									<span>{items.title}</span>
+								</NavLink>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		</>
 	);
 
 };

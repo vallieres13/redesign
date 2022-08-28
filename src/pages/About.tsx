@@ -1,22 +1,56 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 /* Images */
 import Person from '../static/images/portfolio.jpg';
+import Webdev from '../static/images/webdev.png';
+
+/* Logos */
+import LaravelLogo from '../static/images/logos/laravel.png';
+import ReactLogo from '../static/images/logos/react.png';
+import phpLogo from '../static/images/logos/php.png';
+import jsLogo from '../static/images/logos/javascript.png';
+import tsLogo from '../static/images/logos/typescript.png';
+import htmlLogo from '../static/images/logos/html.png';
+import LumenLogo from '../static/images/logos/lumen.png';
+
+import aeLogo from '../static/images/logos/video/ae.png';
+import meLogo from '../static/images/logos/video/me.png';
+import prLogo from '../static/images/logos/video/pr.png';
+import psLogo from '../static/images/logos/video/ps.png';
+import vegasLogo from '../static/images/logos/video/vegas.png';
+
 
 const About = () => {
 
 	const roles = [
-		'Full Stack Web Development',
-		'Live Interaction Design',
-		'Video Production',
-		'Freelancing'
+		{
+			title: 'Full Stack Web Development',
+			section: 'webdev'
+		},
+		{
+			title: 'Live Interaction Design',
+			section: 'design'
+		},
+		{
+			title: 'Video Production',
+			section: 'video'
+		},
+		{
+			title: 'Freelancing',
+			section: 'freelancing'
+		}
 	];
 
 	useEffect(() => {
+
+		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 		/* Change Background colour */
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(90deg, black 0%, black 100%)'
+			backgroundImage: 'none'
 		});
 
 		/* Animate Titles */
@@ -61,6 +95,20 @@ const About = () => {
 
 	});
 
+	const handleHoverRole = (e: React.MouseEvent) => {
+		gsap.to(e.target, {
+			autoAlpha: 1,
+			duration: .1
+		});
+	};
+
+	const handleUnhoverRole = (e: React.MouseEvent) => {
+		gsap.to(e.target, {
+			autoAlpha: .6,
+			duration: .1
+		})
+	};
+
 	const handleClickRole = (e: React.MouseEvent) => {
 		/* Flicker Effect */
 		gsap.to(e.target, {
@@ -70,33 +118,160 @@ const About = () => {
 			duration: .1
 		});
 		gsap.to(e.target, {
-			autoAlpha: 1,
+			autoAlpha: .6,
 			duration: .1,
 			delay: .3
 		});
 
-		/* Scroll after Flicker Effect ended */
+		(e.target as HTMLAnchorElement).classList.add('active');
+
+		setTimeout(() => {
+			/* Scroll after Flicker Effect ended */
+			const section = (e.target as HTMLSpanElement).getAttribute('data-section') as string;
+			goToSection(section);
+
+			(e.target as HTMLAnchorElement).classList.remove('active');
+		}, 400);
 
 	};
 
+	const goToSection = (section: string) => {
+		gsap.to(window, {
+			scrollTo: '.portfolio_' + section,
+			duration: 1,
+			overwrite: true
+		});
+	}
+
 	return (
 		<>
-			<section className="portfolio container">
-				<section className="portfolio_intro">
-					<img src={Person} className="person" alt="Felix Hebgen" />
-					<div className="title">
-						<h1 className="name">Felix Hebgen</h1>
-						<p className="roles">
-							{roles.map((role, index) => {
-								return (
-									<span className="role" onClick={handleClickRole} key={index}>
-										<a href="/">{role}</a><br />
-									</span>
-								);
-							})}
-						</p>
-
+			<section className="portfolio container-wide scroll-container">
+				<section className="section1 portfolio_intro">
+					<div className="intro_container">
+						<img src={Person} className="person" alt="Felix Hebgen" />
+						<div className="title">
+							<h1 className="name">Felix Hebgen</h1>
+							<p className="roles">
+								{roles.map(({ title, section }, index) => {
+									return (
+										<span className="role" onClick={handleClickRole} onMouseOver={handleHoverRole} onMouseLeave={handleUnhoverRole} key={index}>
+											<a href="#" className="nocursor" data-section={section}>{title}</a><br />
+										</span>
+									);
+								})}
+							</p>
+						</div>
 					</div>
+				</section>
+				<section className="section2 portfolio_webdev">
+					<div className="portfolio_container">
+						<div className="title">
+							<h1 className="name highlighted">Web&nbsp;&nbsp;<br />Development</h1>
+							<div className="description">
+								<div className="imessage">
+									<p className="from-me">
+										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									</p>
+								</div>
+							</div>
+							<div className="logos">
+								<img src={LaravelLogo} alt="Laravel" />
+								<img src={LumenLogo} alt="Lumen" />
+								<img src={ReactLogo} alt="React" />
+								<img src={jsLogo} alt="JavaScript" />
+								<img src={tsLogo} alt="TypeScript" />
+								<img src={htmlLogo} alt="HTML & CSS" />
+								<img src={phpLogo} alt="php" />
+							</div>
+							{/*
+							<div className="skills">
+
+								<div className="skill">
+									<div className="skill-name">PHP</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">JavaScript</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">React.js</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">Laravel</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
+									</div>
+								</div>
+							</div>
+							*/}
+						</div>
+						<img src={Webdev} className="show" alt="Web Development" />
+					</div>
+				</section>
+				<section className="section3 portfolio_design">
+					<h2>This is another section.</h2>
+				</section>
+				<section className="section2 portfolio_video">
+					<div className="portfolio_container">
+						<div className="title">
+							<h1 className="name highlighted">Video&nbsp;<br />Production</h1>
+							<div className="description">
+								<div className="imessage">
+									<p className="from-me">
+										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									</p>
+								</div>
+							</div>
+							<div className="logos">
+								<img src={prLogo} alt="Adobe Premiere Pro" />
+								<img src={aeLogo} alt="Adobe After Effects" />
+								<img src={meLogo} alt="Adobe Media Encoder" />
+								<img src={psLogo} alt="Adobe Photoshop" />
+								<img src={vegasLogo} alt="VEGAS Pro 19.0" />
+							</div>
+							{/*
+							<div className="skills">
+
+								<div className="skill">
+									<div className="skill-name">PHP</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">JavaScript</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">React.js</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
+									</div>
+								</div>
+								<div className="skill">
+									<div className="skill-name">Laravel</div>
+									<div className="skill-bar">
+										<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
+									</div>
+								</div>
+							</div>
+							*/}
+						</div>
+						<img src={Webdev} className="show" alt="Web Development" />
+					</div>
+				</section>
+				<section className="section3 portfolio_freelancing">
+					<h2>This is another section.</h2>
 				</section>
 			</section>
 		</>

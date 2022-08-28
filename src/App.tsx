@@ -6,9 +6,11 @@ import './styles/app.css';
 
 /* Pages */
 import Index from './pages/Index';
-import Projects from './pages/Projects';
+import Labs from './pages/Labs';
 import Stories from './pages/Stories';
 import About from './pages/About';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Imprint from './pages/Imprint';
 
 /* Components */
 import Navigation from './components/Navigation';
@@ -21,8 +23,6 @@ import Logo from "./static/logo.png";
 
 
 const App = () => {
-
-
 
     return (
         <BrowserRouter>
@@ -41,13 +41,19 @@ const App = () => {
                     <Route index element={<Index />} />
 
                     {/* About Routing */}
-                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/Labs" element={<Labs />} />
 
                     {/* Stories Routing */}
                     <Route path="/Stories" element={<Stories />} />
 
-                    {/* Stories Routing */}
+                    {/* About Routing */}
                     <Route path="/About" element={<About />} />
+
+                    {/* Privacy Policy Routing */}
+                    <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+
+                    {/* Imprint Routing */}
+                    <Route path="/Imprint" element={<Imprint />} />
 
                     {/* Any* Routing (404 Not Found) */}
                     <Route path="*" element={<NotFound />} />
