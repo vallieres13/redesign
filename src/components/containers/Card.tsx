@@ -10,7 +10,7 @@ interface componentProps {
 	gradient?: string,
 	go?: string,
 	style?: any,
-	children?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined
+	children?: boolean | React.ReactNode | React.ReactFragment | React.ReactPortal | null | undefined
 }
 
 const defaultProps: componentProps = {
@@ -26,7 +26,6 @@ const Card = (props: componentProps = defaultProps) => {
 	const navigate = useNavigate();
 
 	const go = (url: string) => {
-		// window.scrollTo({ top: 0, behavior: 'smooth' });
 		gsap.to(window, {
 			scrollTo: 0,
 			duration: .75,

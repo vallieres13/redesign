@@ -4,17 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 /* Images */
-import Person from '../static/images/portfolio.jpg';
-import Webdev from '../static/images/webdev.png';
+import Person from '../static/images/about/portfolio.jpg';
+import Webdev from '../static/images/about/webdev.png';
 
 /* Logos */
-import LaravelLogo from '../static/images/logos/laravel.png';
-import ReactLogo from '../static/images/logos/react.png';
-import phpLogo from '../static/images/logos/php.png';
-import jsLogo from '../static/images/logos/javascript.png';
-import tsLogo from '../static/images/logos/typescript.png';
-import htmlLogo from '../static/images/logos/html.png';
-import LumenLogo from '../static/images/logos/lumen.png';
+import LaravelLogo from '../static/images/logos/webdev/laravel.png';
+import ReactLogo from '../static/images/logos/webdev/react.png';
+import phpLogo from '../static/images/logos/webdev/php.png';
+import jsLogo from '../static/images/logos/webdev/javascript.png';
+import tsLogo from '../static/images/logos/webdev/typescript.png';
+import htmlLogo from '../static/images/logos/webdev/html.png';
+import LumenLogo from '../static/images/logos/webdev/lumen.png';
 
 import aeLogo from '../static/images/logos/video/ae.png';
 import meLogo from '../static/images/logos/video/me.png';

@@ -7,17 +7,22 @@ import Card from '../components/containers/Card';
 import Button from '../components/forms/Button';
 
 /* Static */
-import PersonDimmed from '../static/images/portfolio-dimmed.png';
-import CodeImage from '../static/images/code.png';
-import DesignImage from '../static/images/design.png';
-import StoryImage from '../static/images/stories.png';
-import ScrollDownGIF from '../static/images/scroll.gif';
+import PersonDimmed from '../static/images/landing/portfolio-dimmed.png';
+import CodeImage from '../static/images/landing/code.png';
+import DesignImage from '../static/images/landing/design.png';
+import StoryImage from '../static/images/landing/stories.png';
+import ScrollDownGIF from '../static/images/landing/scroll.gif';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
 
 	useEffect(() => {
+
+		/* Change Background colour */
+		gsap.to('body', {
+			backgroundImage: 'none'
+		});
 
 		let heading = document.querySelector('.title') as HTMLHeadingElement;
 		heading.innerHTML = heading.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
@@ -134,7 +139,7 @@ const Index = () => {
 					<Button style={{ margin: '10px 0 0 -3px' }}>Visit portfolio</Button>
 					<img src={CodeImage} alt="Code" id="cover_webdev" />
 				</Card>
-				<Card go="/co2" gradient="linear-gradient(to bottom, #203025 0%, #151516 100%)">
+				<Card go="/climate" gradient="linear-gradient(to bottom, #203025 0%, #151516 100%)">
 					<h2>CO2 🌿<br />Neutral.</h2>
 					<p>
 						This website is run entirely on renewable energy and supports the vision of a green future for everyone.<br />

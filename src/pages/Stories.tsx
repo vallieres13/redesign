@@ -8,10 +8,10 @@ import Card from "../components/containers/Card";
 import Button from "../components/forms/Button";
 
 /* Thumbnails */
-import Thumbnail from '../static/images/thumbnail.jpg';
-import Thumbnail2 from '../static/images/thumbnail4.jpg';
-import Thumbnail3 from '../static/images/thumbnail5.jpg';
-import Thumbnail4 from '../static/images/thumbnail6.jpg';
+import Thumbnail from '../static/images/articles/thumbnail.jpg';
+import Thumbnail2 from '../static/images/articles/thumbnail4.jpg';
+import Thumbnail3 from '../static/images/articles/thumbnail5.jpg';
+import Thumbnail4 from '../static/images/articles/thumbnail6.jpg';
 
 /* gsap Register */
 gsap.registerPlugin(CustomEase);
@@ -20,12 +20,12 @@ gsap.registerPlugin(CSSPlugin);
 
 const Stories = () => {
 
-	/* Change Background colour */
-	gsap.to('body', {
-		backgroundImage: 'none'
-	});
-
 	const animate = () => {
+
+		/* Change Background colour */
+		gsap.to('body', {
+			backgroundImage: 'none'
+		});
 
 		/* Heading Horizontal Line */
 		let hr = document.querySelector('.header hr') as HTMLHRElement;

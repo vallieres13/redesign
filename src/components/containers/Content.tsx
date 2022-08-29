@@ -5,7 +5,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Content = (props: { children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
+const Content = (props: { children: boolean | React.ReactNode | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
 
 	const location = useLocation();
 	const [ pastLocation, setPastLocation ] = useState('');

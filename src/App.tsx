@@ -9,6 +9,7 @@ import Index from './pages/Index';
 import Labs from './pages/Labs';
 import Stories from './pages/Stories';
 import About from './pages/About';
+import Climate from "./pages/Climate";
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Imprint from './pages/Imprint';
 
@@ -48,6 +49,9 @@ const App = () => {
 
                     {/* About Routing */}
                     <Route path="/About" element={<About />} />
+
+                    {/* Privacy Policy Routing */}
+                    <Route path="/Climate" element={<Climate />} />
 
                     {/* Privacy Policy Routing */}
                     <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
