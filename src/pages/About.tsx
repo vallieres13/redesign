@@ -183,41 +183,33 @@ const About = () => {
 								<img src={htmlLogo} alt="HTML & CSS" />
 								<img src={phpLogo} alt="php" />
 							</div>
-							{/*
-							<div className="skills">
-
-								<div className="skill">
-									<div className="skill-name">PHP</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">JavaScript</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">React.js</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">Laravel</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
-									</div>
-								</div>
-							</div>
-							*/}
 						</div>
 						<img src={Webdev} className="show" alt="Web Development" />
 					</div>
 				</section>
 				<section className="section3 portfolio_design">
-					<h2>This is another section.</h2>
+					<div className="portfolio_container">
+						<div className="title">
+							<h1 className="name highlighted">Interaction<br />&nbsp;Design</h1>
+							<div className="description">
+								<div className="imessage">
+									<p className="from-them">
+										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									</p>
+								</div>
+							</div>
+							<div className="logos">
+								<img src={LaravelLogo} alt="Laravel" />
+								<img src={LumenLogo} alt="Lumen" />
+								<img src={ReactLogo} alt="React" />
+								<img src={jsLogo} alt="JavaScript" />
+								<img src={tsLogo} alt="TypeScript" />
+								<img src={htmlLogo} alt="HTML & CSS" />
+								<img src={phpLogo} alt="php" />
+							</div>
+						</div>
+						<img src={Webdev} className="show" alt="Web Development" />
+					</div>
 				</section>
 				<section className="section2 portfolio_video">
 					<div className="portfolio_container">
@@ -271,7 +263,28 @@ const About = () => {
 					</div>
 				</section>
 				<section className="section3 portfolio_freelancing">
-					<h2>This is another section.</h2>
+					<div className="portfolio_container">
+						<div className="title">
+							<h1 className="name highlighted">Off-Work<br />Freelancing</h1>
+							<div className="description">
+								<div className="imessage">
+									<p className="from-them">
+										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									</p>
+								</div>
+							</div>
+							<div className="logos">
+								<img src={LaravelLogo} alt="Laravel" />
+								<img src={LumenLogo} alt="Lumen" />
+								<img src={ReactLogo} alt="React" />
+								<img src={jsLogo} alt="JavaScript" />
+								<img src={tsLogo} alt="TypeScript" />
+								<img src={htmlLogo} alt="HTML & CSS" />
+								<img src={phpLogo} alt="php" />
+							</div>
+						</div>
+						<img src={Webdev} className="show" alt="Web Development" />
+					</div>
 				</section>
 			</section>
 		</>

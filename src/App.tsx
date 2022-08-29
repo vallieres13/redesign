@@ -50,8 +50,8 @@ const App = () => {
                     {/* About Routing */}
                     <Route path="/About" element={<About />} />
 
-                    {/* Privacy Policy Routing */}
-                    <Route path="/Climate" element={<Climate />} />
+                    {/* Future & Climate Routing */}
+                    <Route path="/Future" element={<Climate />} />
 
                     {/* Privacy Policy Routing */}
                     <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />

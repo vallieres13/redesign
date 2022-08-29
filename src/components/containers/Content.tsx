@@ -15,7 +15,6 @@ const Content = (props: { children: boolean | React.ReactNode | React.ReactFragm
 
 		setPastLocation(location.pathname);
 
-		// window.scrollTo({ top: 0, behavior: 'smooth' });
 		gsap.to(window, {
 			scrollTo: 0,
 			duration: .75,

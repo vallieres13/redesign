@@ -32,13 +32,13 @@ const Footer = () => {
 		<footer className="container">
 			<div className="left">
 				<div className="copyright">
-					Copyright &copy; 2022 Felix Hebgen. All Rights Reserved.<br />
+					Copyright &copy; 2012 — 2022 Felix Hebgen. All Rights Reserved.<br />
 					Made in Höchst im Odenwald, Hessen, Germany. 🌳🌲
 				</div>
 			</div>
 			<div className="right">
 				<ul>
-					<li><a href="/climate" onClick={handleClick}>CO2 Disclaimer</a></li>
+					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
 					<li><a href="/sitemap" onClick={handleClick}>Sitemap</a></li>
 					<li><a href="/contact" onClick={handleClick}>Contact</a></li>
 					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>

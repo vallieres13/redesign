@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import gsap from 'gsap';
 
 /* Static */
-import DropImage from '../static/images/drop.jpg';
+import DropImage from '../static/images/labs/drop.jpg';
 
 const Labs = () => {
 
@@ -30,7 +30,7 @@ const Labs = () => {
 				<section className="header container">
 					<h1>A digital drop<br />of inspiration.</h1>
 					<div className="disclaimer">
-						This page will be published soon.
+						This section will be available soon.
 					</div>
 				</section>
 				<section className="container" style={{ marginTop: '25rem' }}>

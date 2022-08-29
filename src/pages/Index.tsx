@@ -139,7 +139,7 @@ const Index = () => {
 					<Button style={{ margin: '10px 0 0 -3px' }}>Visit portfolio</Button>
 					<img src={CodeImage} alt="Code" id="cover_webdev" />
 				</Card>
-				<Card go="/climate" gradient="linear-gradient(to bottom, #203025 0%, #151516 100%)">
+				<Card go="/future" gradient="linear-gradient(to bottom, #203025 0%, #151516 100%)">
 					<h2>CO2 🌿<br />Neutral.</h2>
 					<p>
 						This website is run entirely on renewable energy and supports the vision of a green future for everyone.<br />
