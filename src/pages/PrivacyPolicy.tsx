@@ -1,11 +1,13 @@
-import React from 'react';
-import gsap from "gsap";
+import React, {useEffect} from 'react';
+import gsap from 'gsap';
 
 const PrivacyPolicy = () => {
 
-	/* Change Background colour */
-	gsap.to('body', {
-		backgroundImage: 'linear-gradient(black)'
+	useEffect(() => {
+		/* Change Background colour */
+		gsap.to('body', {
+			backgroundImage: 'linear-gradient(black)'
+		});
 	});
 
 	return (
@@ -254,7 +256,7 @@ const PrivacyPolicy = () => {
 					<p>As a responsible company, we do not use automatic decision-making or profiling.</p>
 
 					<h2>Disclaimer</h2>
-					<p>The legal texts contained in our privacy policy generator have been provided and published by <a href="https://dg-datenschutz.de/">Prof. Dr. h.c. Heiko Jonny Maniero</a> from the German Association for Data Protection and <a href="https://www.wbs-law.de/" rel="nofollow">Christian Solmecke</a> from WBS law.</p>
+					<p>The legal texts have been provided and published by <a href="https://dg-datenschutz.de/" target="_blank" rel="noreferrer">Prof. Dr. h.c. Heiko Jonny Maniero</a> from the German Association for Data Protection and <a href="https://www.wbs-law.de/" target="_blank" rel="noreferrer">Christian Solmecke</a> from WBS law.</p>
 				</div>
 			</section>
 		</>

@@ -24,6 +24,7 @@ const Index = () => {
 			backgroundImage: 'none'
 		});
 
+		/* Animate Title */
 		let heading = document.querySelector('.title') as HTMLHeadingElement;
 		heading.innerHTML = heading.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
 
@@ -45,15 +46,6 @@ const Index = () => {
 				duration: .5
 			});
 		}, 650);
-
-		/* Display Pattern Background */
-		/* -- disable initial pattern display
-		gsap.to('.pattern', {
-			autoAlpha: .1,
-			delay: .75,
-			duration: 1
-		});
-		*/
 
 		gsap.to('.pattern', {
 			x: -1000,
@@ -111,24 +103,24 @@ const Index = () => {
 				<div className="span-3 scrolldown">
 					<img src={ScrollDownGIF} alt="Scroll Down" />
 				</div>
-				<Card className="span-2" gradient="linear-gradient(165deg, #2c4735 0%, #1d243e 60%, #101124 90%)" style={{ minHeight: '375px' }} go="/labs">
+				<Card className="span-2" gradient="linear-gradient(165deg, #2c4735 0%, #1d243e 60%, #101124 90%)" go="/labs">
 					<h2>Discover<br />new ideas.</h2>
 					<p>Take a look into a collection of my public canvases and get inspired by new and innovative design choices you might have never seen before.</p>
 					<p className="tags">#design #ideas #inspiration #labs</p>
-					<Button style={{ margin: '10px 0 0 -3px' }}>Get inspired</Button>
+					<Button>Get inspired</Button>
 					<img src={DesignImage} alt="Design" id="cover_design" />
 				</Card>
 				<Card go="/about" gradient={`url('` + PersonDimmed + `')`}>
 					<h2>Hi👋</h2>
 					<p style={{ maxWidth: "175px" }}>I’m Felix and welcome to my new website. Want to get to know me? Check out my profile or drop me a message if you like the page.</p>
-					<Button style={{ margin: '10px 0 0 -3px' }}>About Me</Button>
+					<Button>About Me</Button>
 				</Card>
 				<Card go="/stories" gradient="linear-gradient(155deg, hsl(240deg 2% 8%) 0%, hsl(225deg 16% 10%) 31%, hsl(218deg 28% 11%) 45%, hsl(215deg 35% 13%) 55%, hsl(215deg 42% 15%) 65%, hsl(214deg 43% 16%) 77%, hsl(215deg 41% 16%) 100%)">
 					<h2>Stories.</h2>
 					<p className="cutoff blue">
 						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 📷📷 At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 💯😅 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua ...
 						<br /><br />
-						<Button style={{ margin: '10px 0 0 -3px' }}>Read more</Button>
+						<Button>Read more</Button>
 					</p>
 					<img src={StoryImage} alt="Stories" id="cover_stories" />
 				</Card>
@@ -136,7 +128,7 @@ const Index = () => {
 					<h2>Web-<br />Development.</h2>
 					<p>My job has become to one of the most important things in today's era of technology.<br />Check out my development & design profile in the about section.</p>
 					<p className="tags">#webdev #react #laravel #rest #wordpress</p>
-					<Button style={{ margin: '10px 0 0 -3px' }}>Visit portfolio</Button>
+					<Button>Visit portfolio</Button>
 					<img src={CodeImage} alt="Code" id="cover_webdev" />
 				</Card>
 				<Card go="/future" gradient="linear-gradient(to bottom, #203025 0%, #151516 100%)">
@@ -150,7 +142,7 @@ const Index = () => {
 					<h2>Hire Me.</h2>
 					<p>You can offer me a job in software engineering or front-end web design? I'm always happy to see gigs I could be part in.</p>
 					<p>Feel free to get an impression of myself and evaluate if I qualify.</p>
-					<Button style={{ margin: '10px 0 0 -3px', backgroundImage: 'linear-gradient(210deg, hsl(0deg 0% 80%) 0%, hsl(0deg 0% 74%) 38%, hsl(0deg 0% 50%) 100%)', color: 'rgba(0, 0, 0, .8)' }}>Download CV</Button>
+					<Button style={{ backgroundImage: 'linear-gradient(210deg, hsl(0deg 0% 80%) 0%, hsl(0deg 0% 74%) 38%, hsl(0deg 0% 50%) 100%)', color: 'rgba(0, 0, 0, .8)' }}>Download CV</Button>
 				</Card>
 				<Card go="/sayhi">
 					<h2>Say Hi!</h2>

@@ -42,7 +42,7 @@ const Button = (props: componentProps = defaultProps) => {
 	};
 
 	return (
-		<button onClick={handleClickCard} className={`card ` + (props.className ?? '')} style={{ backgroundImage: props.gradient, ...props.style }}>
+		<button onClick={handleClickCard} className={(props.className ?? '')} style={{ backgroundImage: props.gradient, ...props.style }}>
 			{props.children}
 		</button>
 	);

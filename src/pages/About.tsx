@@ -137,155 +137,154 @@ const About = () => {
 
 	const goToSection = (section: string) => {
 		gsap.to(window, {
-			scrollTo: '.portfolio_' + section,
+			scrollTo: '.portfolio .' + section,
 			duration: 1,
-			overwrite: true
+			overwrite: true,
+			ease: 'power3'
 		});
 	}
 
 	return (
 		<>
-			<section className="portfolio container-wide scroll-container">
-				<section className="section1 portfolio_intro">
-					<div className="intro_container">
-						<img src={Person} className="person" alt="Felix Hebgen" />
-						<div className="title">
-							<h1 className="name">Felix Hebgen</h1>
-							<p className="roles">
-								{roles.map(({ title, section }, index) => {
-									return (
-										<span className="role" onClick={handleClickRole} onMouseOver={handleHoverRole} onMouseLeave={handleUnhoverRole} key={index}>
-											<a href="#" className="nocursor" data-section={section}>{title}</a><br />
-										</span>
-									);
-								})}
-							</p>
+			<section className="portfolio container-wide">
+				<section className="intro">
+					<img src={Person} className="person" alt="Felix Hebgen" />
+					<div className="title">
+						<h1 className="name">Felix Hebgen</h1>
+						<p className="roles">
+							{roles.map(({ title, section }, index) => {
+								return (
+									<span className="role" onClick={handleClickRole} onMouseOver={handleHoverRole} onMouseLeave={handleUnhoverRole} key={index}>
+										<a href="#" className="nocursor" data-section={section}>{title}</a><br />
+									</span>
+								);
+							})}
+						</p>
+					</div>
+				</section>
+				<section className="webdev right">
+					<div className="title">
+						<h2 className="name highlighted">Web&nbsp;&nbsp;<br />Development</h2>
+						<div className="description">
+							<div className="imessage">
+								<p className="from-me">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+							</div>
+						</div>
+						<div className="logos">
+							<img src={LaravelLogo} alt="Laravel" />
+							<img src={LumenLogo} alt="Lumen" />
+							<img src={ReactLogo} alt="React" />
+							<img src={jsLogo} alt="JavaScript" />
+							<img src={tsLogo} alt="TypeScript" />
+							<img src={htmlLogo} alt="HTML & CSS" />
+							<img src={phpLogo} alt="php" />
+						</div>
+					</div>
+					<div className="image">
+						<img src={Webdev} alt="Web Development" />
+					</div>
+				</section>
+				<section className="design left">
+					<div className="image">
+						<img src={Webdev} alt="Web Development" />
+					</div>
+					<div className="title">
+						<h2 className="name highlighted">Interaction<br />&nbsp;Design</h2>
+						<div className="description">
+							<div className="imessage">
+								<p className="from-them">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+							</div>
+						</div>
+						<div className="logos">
+							<img src={prLogo} alt="Adobe Premiere Pro" />
+							<img src={aeLogo} alt="Adobe After Effects" />
+							<img src={meLogo} alt="Adobe Media Encoder" />
+							<img src={psLogo} alt="Adobe Photoshop" />
+							<img src={vegasLogo} alt="VEGAS Pro 19.0" />
 						</div>
 					</div>
 				</section>
-				<section className="section2 portfolio_webdev">
-					<div className="portfolio_container">
-						<div className="title">
-							<h1 className="name highlighted">Web&nbsp;&nbsp;<br />Development</h1>
-							<div className="description">
-								<div className="imessage">
-									<p className="from-me">
-										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-									</p>
-								</div>
-							</div>
-							<div className="logos">
-								<img src={LaravelLogo} alt="Laravel" />
-								<img src={LumenLogo} alt="Lumen" />
-								<img src={ReactLogo} alt="React" />
-								<img src={jsLogo} alt="JavaScript" />
-								<img src={tsLogo} alt="TypeScript" />
-								<img src={htmlLogo} alt="HTML & CSS" />
-								<img src={phpLogo} alt="php" />
+				<section className="webdev right">
+					<div className="title">
+						<h2 className="name highlighted" style={{ marginLeft: '12rem' }}>Video&nbsp;<br />Production</h2>
+						<div className="description">
+							<div className="imessage">
+								<p className="from-me">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
 							</div>
 						</div>
-						<img src={Webdev} className="show" alt="Web Development" />
+						<div className="logos">
+							<img src={LaravelLogo} alt="Laravel" />
+							<img src={LumenLogo} alt="Lumen" />
+							<img src={ReactLogo} alt="React" />
+							<img src={jsLogo} alt="JavaScript" />
+							<img src={tsLogo} alt="TypeScript" />
+							<img src={htmlLogo} alt="HTML & CSS" />
+							<img src={phpLogo} alt="php" />
+						</div>
+					</div>
+					<div className="image">
+						<img src={Webdev} alt="Web Development" />
 					</div>
 				</section>
-				<section className="section3 portfolio_design">
-					<div className="portfolio_container">
-						<div className="title">
-							<h1 className="name highlighted">Interaction<br />&nbsp;Design</h1>
-							<div className="description">
-								<div className="imessage">
-									<p className="from-them">
-										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-									</p>
-								</div>
-							</div>
-							<div className="logos">
-								<img src={LaravelLogo} alt="Laravel" />
-								<img src={LumenLogo} alt="Lumen" />
-								<img src={ReactLogo} alt="React" />
-								<img src={jsLogo} alt="JavaScript" />
-								<img src={tsLogo} alt="TypeScript" />
-								<img src={htmlLogo} alt="HTML & CSS" />
-								<img src={phpLogo} alt="php" />
+				<section className="design left">
+					<div className="image">
+						<img src={Webdev} alt="Web Development" />
+					</div>
+					<div className="title">
+						<h2 className="name highlighted">&nbsp; Off-Work<br />Freelancing</h2>
+						<div className="description">
+							<div className="imessage">
+								<p className="from-them">
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
 							</div>
 						</div>
-						<img src={Webdev} className="show" alt="Web Development" />
+						<div className="logos">
+							<img src={prLogo} alt="Adobe Premiere Pro" />
+							<img src={aeLogo} alt="Adobe After Effects" />
+							<img src={meLogo} alt="Adobe Media Encoder" />
+							<img src={psLogo} alt="Adobe Photoshop" />
+							<img src={vegasLogo} alt="VEGAS Pro 19.0" />
+						</div>
 					</div>
 				</section>
-				<section className="section2 portfolio_video">
-					<div className="portfolio_container">
-						<div className="title">
-							<h1 className="name highlighted">Video&nbsp;<br />Production</h1>
-							<div className="description">
-								<div className="imessage">
-									<p className="from-me">
-										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-									</p>
-								</div>
-							</div>
-							<div className="logos">
-								<img src={prLogo} alt="Adobe Premiere Pro" />
-								<img src={aeLogo} alt="Adobe After Effects" />
-								<img src={meLogo} alt="Adobe Media Encoder" />
-								<img src={psLogo} alt="Adobe Photoshop" />
-								<img src={vegasLogo} alt="VEGAS Pro 19.0" />
-							</div>
-							{/*
-							<div className="skills">
+				{/*
+				<section>
+					<div className="skills">
 
-								<div className="skill">
-									<div className="skill-name">PHP</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">JavaScript</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">React.js</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
-									</div>
-								</div>
-								<div className="skill">
-									<div className="skill-name">Laravel</div>
-									<div className="skill-bar">
-										<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
-									</div>
-								</div>
-							</div>
-							*/}
-						</div>
-						<img src={Webdev} className="show" alt="Web Development" />
-					</div>
-				</section>
-				<section className="section3 portfolio_freelancing">
-					<div className="portfolio_container">
-						<div className="title">
-							<h1 className="name highlighted">Off-Work<br />Freelancing</h1>
-							<div className="description">
-								<div className="imessage">
-									<p className="from-them">
-										Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-									</p>
-								</div>
-							</div>
-							<div className="logos">
-								<img src={LaravelLogo} alt="Laravel" />
-								<img src={LumenLogo} alt="Lumen" />
-								<img src={ReactLogo} alt="React" />
-								<img src={jsLogo} alt="JavaScript" />
-								<img src={tsLogo} alt="TypeScript" />
-								<img src={htmlLogo} alt="HTML & CSS" />
-								<img src={phpLogo} alt="php" />
+						<div className="skill">
+							<div className="skill-name">PHP</div>
+							<div className="skill-bar">
+								<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
 							</div>
 						</div>
-						<img src={Webdev} className="show" alt="Web Development" />
+						<div className="skill">
+							<div className="skill-name">JavaScript</div>
+							<div className="skill-bar">
+								<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
+							</div>
+						</div>
+						<div className="skill">
+							<div className="skill-name">React.js</div>
+							<div className="skill-bar">
+								<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
+							</div>
+						</div>
+						<div className="skill">
+							<div className="skill-name">Laravel</div>
+							<div className="skill-bar">
+								<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
+							</div>
+						</div>
 					</div>
 				</section>
+				*/}
 			</section>
 		</>
 	);
