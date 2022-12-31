@@ -85,7 +85,7 @@ const Climate = () => {
 					<Card>
 						<h2>We plant <span>trees</span>.</h2>
 						<p>
-							Together with <a href="https://trees.org/" target="_blank" rel="noreferrer">Trees for the Future</a>, we donate to charity depending on how many page views we receive in a month.<br />
+							Together with <a href="https://trees.org/" target="_blank" rel="noreferrer">Trees for the Future</a>, I donate to charity depending on how many page views I receive in a month.<br />
 							<small>** 5,000 page views equal 1 tree. You make it happen.<br />The amount of trees donated is capped at 25 a month.</small>
 						</p>
 						<img src={SeedlingImage} alt="Seedling" id="cover_future" />
@@ -99,7 +99,7 @@ const Climate = () => {
 						<img src={Windmillimage} alt="Windmills" id="cover_windmill" />
 					</Card>
 					<Card gradient="linear-gradient(#2F2F2F 0%, #222222 100%)">
-						<h2 style={{ fontSize: '55pt', lineHeight: '65pt', marginRight: '-20px' }}>Ad-revenue for <span>charity</span>.</h2>
+						<h2 style={{ fontSize: '55pt', lineHeight: '65pt', marginRight: '-20px' }}>Ads for <span>charity</span>.</h2>
 						<p>
 							As a recurring donator to the non-profit organisation <a href="https://www.wwf.de/" target="_blank" rel="noreferrer">WWF</a>, I continue to aim towards an ongoing contribution to the preseveration of our precious nature.<br />
 							<small>** Complementary advertisements will be placed carefully, no pop-ups, placements or promoted inline links.</small>

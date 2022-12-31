@@ -1,0 +1,22 @@
+<svg id="f73157fd-9681-48de-87c5-ab31f98f78b4" data-name="b94c73a8-2521-4a7b-bc60-72759fb726d7" xmlns="http://www.w3.org/2000/svg" width="118" height="118" viewBox="0 0 118 118">
+  <defs>
+    <style>
+      .a7c0c82c-a163-4a44-94cb-594c94dababb {
+        fill: #999;
+      }
+
+      .bf432a02-52fe-4327-a28d-626c98d1c0f4 {
+        fill: none;
+        stroke: #999;
+        stroke-miterlimit: 10;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <title>cursor_magnify_focus</title>
+  <path class="a7c0c82c-a163-4a44-94cb-594c94dababb" d="M59,1.5A57.5,57.5,0,1,1,1.5,59,57.5,57.5,0,0,1,59,1.5M59,0a59,59,0,1,0,59,59A59,59,0,0,0,59,0Z"/>
+  <g>
+    <path class="bf432a02-52fe-4327-a28d-626c98d1c0f4" d="M82.306,82.092,64.9,64.682Z"/>
+    <ellipse class="bf432a02-52fe-4327-a28d-626c98d1c0f4" cx="52.775" cy="52.602" rx="17.081" ry="16.694"/>
+  </g>
+</svg>

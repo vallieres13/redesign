@@ -1,3 +1,8 @@
+:root {
+	--borderColor: transparent;
+	--opacityArticleTitle: 0;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -14,20 +19,6 @@ body {
 	min-height: 100vh;
 
 	overflow-y: scroll;
-}
-
-body .pattern {
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-image: url('../static/images/landing/pattern.svg');
-	background-repeat: repeat;
-	background-size: 600px;
-	opacity: .2;
-	width: 150%;
-	height: 150%;
-	z-index: -1;
-	overflow: hidden;
 }
 
 img {
@@ -58,9 +49,7 @@ img {
  =================================== */
 
 .logo {
-	font-family: 'Aesthico', sans-serif;
-	padding: 40px;
-	font-size: 20pt;
+	margin: 50px 0 45px;
 }
 
 .logo a {
@@ -76,13 +65,15 @@ img {
 
 .logo img:hover {
 	opacity: 1;
+	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
 }
 
 .logo img:focus,
 .logo img:active {
-	border: 1px solid #BFBFBF;
+	cursor: pointer;
+	border: 1px solid #999999;
 	padding: 10px 15px 15px;
-	margin: -8px 0 -16px -16px;
+	margin: -11px 0 -16px -16px;
 	transition: none;
 }
 
@@ -90,45 +81,33 @@ img {
 /* FONTS
  =================================== */
 
-/* Promo */
+/* Headings */
 
 @font-face {
-	font-family: 'Aesthico';
-	src: url("../static/fonts/Aesthico.ttf") format("truetype");
-}
-
-/* Portfolio Roles */
-
-@font-face {
-	font-family: 'Montserrat Light Alt1';
-	src: url("../static/fonts/Montserrat-Light-Alt1.otf") format("opentype");
+	font-family: 'Shark Grotesk DB Cyr Medium 22';
+	src: url("../static/fonts/Sharp-Grotesk-DB-Cyr-Medium.otf") format("opentype");
 }
 
 /* General */
 
 @font-face {
-	font-family: 'Roboto Thin';
-	src: url("../static/fonts/Roboto-Thin.ttf") format("truetype");
+	font-family: 'SF Pro Display Heavy';
+	src: url("../static/fonts/SFProDisplay-Heavy.otf") format("opentype");
 }
 
 @font-face {
-	font-family: 'Roboto Light';
-	src: url("../static/fonts/Roboto-Light.ttf") format("truetype");
+	font-family: 'SF Pro Display Medium';
+	src: url("../static/fonts/SFProDisplay-Medium.otf") format("opentype");
 }
 
 @font-face {
-	font-family: 'Roboto Regular';
-	src: url("../static/fonts/Roboto-Regular.ttf") format("truetype");
+	font-family: 'SF Pro Display Regular';
+	src: url("../static/fonts/SFProDisplay-Regular.otf") format("opentype");
 }
 
 @font-face {
-	font-family: 'Roboto Medium';
-	src: url("../static/fonts/Roboto-Medium.ttf") format("truetype");
-}
-
-@font-face {
-	font-family: 'Roboto Black';
-	src: url("../static/fonts/Roboto-Black.ttf") format("truetype");
+	font-family: 'SF Pro Display Thin';
+	src: url("../static/fonts/SFProDisplay-Thin.otf") format("opentype");
 }
 
 
@@ -136,40 +115,100 @@ img {
  =================================== */
 
 .promo {
-	padding: 30px;
+	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
+	background: none;
+
+	border-radius: 15px;
+	margin: 1rem auto 3rem;
+	padding: 40px 0;
+
+	position: relative;
+	z-index: 49;
 }
 
-.promo img {
-	height: 25px;
-	margin: 0 45px;
-	opacity: .85;
-	/* mix-blend-mode: difference; */
+.promo.switching {
+	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
 }
+
+.promo:active,
+.promo:focus {
+	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
+}
+
+.promo.visible {
+	background:
+		/* top, transparent black, faked with gradient */
+		linear-gradient(
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)
+		),
+		/* bottom image  */
+		url('../static/images/promo/landing2.png');
+}
+
+.promo.visible {
+	background-position: 0 1650px;
+	background-repeat: no-repeat;
+}
+
+.promo.ready {
+	background-repeat: repeat !important;
+}
+
+.promo.ready:hover {
+	background:
+		/* top, transparent black, faked with gradient */
+		linear-gradient(
+			rgba(0, 0, 0, 0.62),
+			rgba(0, 0, 0, 0.62)
+		),
+		/* bottom image  */
+		url('../static/images/promo/landing2.png');
+}
+
+
+/*
+.promo:hover {
+	outline: 4px solid rgba(255, 255, 255, .15);
+	transition: .2s;
+}
+*/
 
 .promo h1 {
+	visibility: hidden;
+
 	position: relative;
 	overflow: hidden;
 
-	font-family: 'Aesthico', serif;
-	font-size: 78pt;
-	font-weight: normal;
-	/* mix-blend-mode: difference; */
-	opacity: .95;
-	margin: 17rem 0 14rem 2rem;
-	line-height: 150pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', serif;
 
-	max-width: 1600px;
+	font-size: 60pt;
+	font-weight: bold;
+	line-height: 65pt;
+	padding: 6rem .25em .15em 50px;
+
+	margin: 0;
+	max-width: 850px;
 
 	color: white;
-	padding-left: 10px;
-}
-
-.promo h1 .word {
-	display: inline-block;
 }
 
 .promo h1 span {
-	padding-left: 10px;
+	color: #e191d7;
+}
+
+.promo button {
+	visibility: hidden;
+	text-transform: none;
+
+	margin: 2rem 0 6rem 50px;
+	background-color: #FAEBF8;
+}
+
+.promo button img {
+	height: 1rem;
+	margin-bottom: -0.08rem;
+	margin-left: .25rem;
 }
 
 
@@ -192,18 +231,29 @@ img {
 	background-color: #222222;
 	border-radius: 15px;
 	padding: 40px 50px;
-	transition: .2s transform;
 	transform: scale(1);
 }
 
+.dashboard > .card .description {
+	opacity: .6;
+	transition: opacity .2s;
+}
+
+.dashboard > .card:hover .description {
+	opacity: 1;
+	transition: opacity .2s;
+}
+
 .dashboard > .card:hover {
-	transform: scale(1.01);
-	transition: .2s transform;
-	cursor: pointer;
+	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
+	z-index: 99;
 }
 
 .dashboard > .card:focus,
 .dashboard > .card:active {
+	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
+	z-index: 99;
+
 	transform: scale(.99);
 	transition: .2s transform;
 }
@@ -213,8 +263,14 @@ img {
 	border-radius: 15px 0 0 15px;
 	margin: -40px 0 -40px -50px;
 	background-position: center;
-	background-size: cover;
+	background-size: 1000px;
 	height: calc(100% + 80px);
+	transition: background-size .25s;
+}
+
+.dashboard > .card.article.article-big:hover > div.thumbnail {
+	background-size: 1025px;
+	transition: background-size .25s;
 }
 
 .dashboard > .card.article > div.thumbnail {
@@ -223,7 +279,23 @@ img {
 	border-radius: 15px 15px 0 0;
 	margin: -40px -50px -40px -50px;
 	background-position: center;
-	background-size: cover;
+	background-size: 1000px;
+	transition: background-size .25s;
+}
+
+.dashboard > .card.article:hover > div.thumbnail {
+	background-size: 1025px;
+	transition: background-size .25s;
+}
+
+.dashboard > .card.article.span-1 > div.thumbnail {
+	background-size: 500px;
+	transition: background-size .25s;
+}
+
+.dashboard > .card.article.span-1:hover > div.thumbnail {
+	background-size: 525px;
+	transition: background-size .25s;
 }
 
 .dashboard > .separator {
@@ -238,7 +310,7 @@ img {
 .dashboard > .separator span {
 	padding: 0 15px;
 	background-color: black;
-	font-family: 'Roboto Regular', sans-serif;
+	font-family: 'SF Pro Display Regular', sans-serif;
 	color: #777777;
 	text-transform: uppercase;
 }
@@ -276,13 +348,12 @@ img {
 	filter: blur(0px);
 }
 
-/*noinspection ALL*/
 .dashboard > .card img#cover_future {
 	position: absolute;
 	top: 0;
 	right: 0;
 	border-radius: 15px;
-	height: 254px;
+	width: 100%;
 	z-index: -1;
 	opacity: .125;
 }
@@ -292,7 +363,7 @@ img {
 	top: 0;
 	right: 0;
 	border-radius: 15px;
-	width: 466px;
+	width: 100%;
 	z-index: -1;
 	opacity: .125;
 }
@@ -302,46 +373,48 @@ img {
 	top: 0;
 	right: 0;
 	border-radius: 15px;
-	height: 354px;
+	width: 100%;
 	z-index: -1;
 	opacity: .125;
 }
 
 .dashboard > .card h2 {
-	font-family: 'Roboto Medium', sans-serif;
-	line-height: 70pt;
-	font-size: 65pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	line-height: 65pt;
+	font-size: 50pt;
 	margin: 0;
 	hyphens: auto;
 	word-wrap: break-word;
 }
 
 .dashboard > .card.article.article-big h3 {
-	font-family: 'Aesthico', sans-serif;
-	font-size: 25pt;
-	line-height: 50pt;
-	font-weight: normal;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 36pt;
+	line-height: 47pt;
 	color: white;
-	margin: 3px 0 40px -200px;
+	margin: 3px 0 40px -280px;
 	background-color: #1F1F1F;
 	box-shadow: #111111 5px 10px 100px;
 	padding: 30px 40px;
 	border-radius: 15px;
 }
 
+.dashboard > .card.article.article-big .details {
+	margin: -.8rem 0 1.25rem;
+}
+
 .dashboard > .card.article h3 {
-	font-family: 'Aesthico', sans-serif;
-	font-size: 20pt;
-	line-height: 45pt;
-	font-weight: normal;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 32pt;
+
+	margin: 1.25rem 0;
+	line-height: 42pt;
 	color: white;
-	padding: 75px 0 10px;
-	margin: 0;
 	border-radius: 15px;
 }
 
 .dashboard > .card p {
-	font-family: 'Roboto Medium', sans-serif;
+	font-family: 'SF Pro Display Medium', sans-serif;
 	color: #BFBFBF;
 	max-width: 700px;
 	font-size: 14pt;
@@ -349,16 +422,54 @@ img {
 
 .dashboard > .card.article p {
 	max-width: none;
+	font-family: 'SF Pro Display Regular', sans-serif;
 }
 
-.dashboard > .card.article p {
-	font-family: 'Roboto Regular', sans-serif;
+.dashboard > .card.article .details {
+	display: block;
+	margin: 4.2rem 0 1.25rem;
 }
+
+.dashboard > .card.article .details ul.tags {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.dashboard > .card.article .details ul.tags li {
+	display: inline-block;
+	margin-right: 10px;
+	padding: 5px 15px;
+	background-color: rgba(255, 255, 255, .75);
+	color: black;
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	border-radius: 5px;
+	backdrop-filter: blur(15px);
+}
+
+.dashboard > .card.article .timestamp p {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	color: #555555;
+	letter-spacing: .05rem;
+}
+
 
 .dashboard > .card p.cutoff {
 	max-height: 250px;
 	overflow-y: scroll;
 	padding-right: 20px;
+}
+
+.dashboard > .card p.cutoff p {
+	margin-top: 0;
+}
+
+.dashboard > .card p.cutoff.long {
+	max-height: 300px;
 }
 
 .dashboard > .card p.cutoff::-webkit-scrollbar-track {
@@ -390,13 +501,17 @@ img {
 	background: linear-gradient(transparent 450px, rgba(34, 34, 34, 1));
 }
 
+.dashboard > .card p.cutoff.long::before {
+	background: linear-gradient(transparent 500px, rgba(34, 34, 34, 1));
+}
+
 .dashboard > .card p.cutoff.blue::before {
 	background: linear-gradient(transparent 250px, rgba(24, 38, 58, 1));
 }
 
 .dashboard > .card p.tags {
 	color: rgba(255, 255, 255, .45);
-	font-family: 'Roboto Light', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
 }
 
 
@@ -435,32 +550,32 @@ header {
 .nav ul {
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
 	white-space: nowrap;
+	margin: -5px -20px 0 0;
 }
 
 .nav ul li {
-	margin: 0 10px;
 	display: inline-block;
 }
 
 .nav ul li a {
 	display: block;
-	color: #F6F6F6;
-	padding: 20px 15px;
+	color: #C6C6C6;
+	padding: 25px;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-family: 'Roboto Thin', sans-serif;
+	font-family: 'SF Pro Display Regular', sans-serif;
+	letter-spacing: .5pt;
 	font-size: 18pt;
-
-	font-weight: 700;
 	text-shadow: none;
 }
 
+/* -- Change font for active item
 .nav ul li a.active::before,
 .nav ul li a.active span {
-	/* font-family: 'Roboto Regular', sans-serif; */
+	font-family: 'Montserrat', sans-serif;
 }
+*/
 
 .nav ul li a span {
 	display: block;
@@ -470,8 +585,19 @@ header {
 	transition: transform .3s, opacity .15s;
 }
 
+.nav ul li a:hover {
+	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+}
+
+.nav ul li a:active,
+.nav ul li a:focus {
+	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
+}
+
+.nav ul li a.active span,
 .nav ul li a:hover span,
 .nav ul li a:focus span {
+	color: #F2F2F2;
 	display: block;
 	transform: translateY(-.375em);
 	-webkit-transition: transform .2s ease, opacity .15s;
@@ -492,7 +618,7 @@ header {
 	transition: transform .3s, opacity .15s;
 }
 
-
+.nav ul li a.active::before,
 .nav ul li a:hover::before,
 .nav ul li a:focus::before {
 	display: block;
@@ -510,7 +636,7 @@ header {
 
 .portfolio .intro {
 	display: flex;
-	margin: 7.5rem 0 0 5rem;
+	margin: 7.5rem 0 0 13rem;
 }
 
 .portfolio .intro img {
@@ -525,34 +651,49 @@ header {
 }
 
 .portfolio .intro img:hover {
+	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+
 	filter: none;
 	transition: .2s filter;
 }
 
 .portfolio .intro .title {
-	margin-left: -13rem;
+	margin-left: 4rem;
+	margin-top: -5rem;
 }
 
 .portfolio .intro .title h1 {
 	position: relative;
 
-	font-family: 'Aesthico', sans-serif;
-	font-size: 108pt;
+	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 132pt;
+	max-width: 780px;
+	line-height: 125pt;
 }
 
 .portfolio .intro .title h1 .letter {
 	display: inline-block;
 }
 
-.portfolio .intro .title p {
+.portfolio .intro .title p.roles {
 	position: relative;
-	margin-top: -11rem;
-	margin-right: 25.5rem;
+	margin-top: -7rem;
+	margin-left: 2.5rem;
 
-	text-align: right;
-	font-family: 'Montserrat Light Alt1', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
 	font-size: 35pt;
+	letter-spacing: .15rem;
 	text-transform: uppercase;
+}
+
+.portfolio .intro .title p:before {
+	position: absolute;
+	content: '';
+	margin: .65rem 0 0 -2rem;
+	border-left: 2px solid;
+	border-color: var(--borderColor);
+	height: 2100%;
+	z-index: 0;
 }
 
 .portfolio .intro .title p .role {
@@ -584,13 +725,19 @@ header {
 
 .portfolio > section:not(.intro) {
 	display: flex;
+	margin-top: 10rem;
+	margin-bottom: 10rem;
+	padding: 120px 0;
 }
 
 .portfolio > section:not(.intro) .image img {
+	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+
 	width: 100%;
 	filter: grayscale(1);
 	transition: .2s filter;
 	border-radius: 15px;
+
 }
 
 .portfolio > section:not(.intro) .image img:hover {
@@ -612,7 +759,7 @@ header {
 .portfolio > section:not(.intro) .title .description {
 	margin-top: 33rem;
 	font-size: 20pt;
-	font-family: 'Roboto Light', sans-serif;
+	font-family: 'SF Pro Display Regular', sans-serif;
 }
 
 .portfolio > section:not(.intro) .title .logos img {
@@ -690,6 +837,21 @@ header {
 }
 
 
+/* Portfolio Section: Customers */
+
+.portfolio .customers {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.portfolio .customers h3 {
+	font-family: 'Aesthico', sans-serif;
+	font-size: 32pt;
+	text-align: center;
+}
+
+
 /* STORIES
  =================================== */
 
@@ -702,8 +864,8 @@ header {
 .stories .header h1 {
 	position: relative;
 	display: inline-block;
-	font-family: 'Aesthico', sans-serif;
-	font-size: 74pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 92pt;
 	background-color: black;
 	padding: 0 75px;
 	margin-left: -75px;
@@ -718,12 +880,250 @@ header {
 .notfound .header hr,
 .stories .header hr {
 	position: absolute;
-	margin: -12.5rem 0 15rem;
+	margin: -12.75rem 0 15rem;
 	z-index: -1;
 	left: 0;
 	width: 99.85%;
 	overflow: hidden;
 	border: 1px solid #666666;
+}
+
+
+/* STORY (ARTICLE)
+ =================================== */
+
+.story {
+	display: block;
+	position: relative;
+}
+
+.story .header {
+	margin-top: 4rem;
+}
+
+.story .header h1 {
+	position: relative;
+	display: block;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 92pt;
+	margin-left: -12rem;
+	margin-top: 10rem;
+	color: white;
+	z-index: 399;
+	max-width: 1100px;
+}
+
+.story .header .phantom {
+	position: absolute;
+	display: block;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 92pt;
+	margin-top: -18rem;
+	color: black;
+	opacity: var(--opacityArticleTitle);
+	text-shadow: 0 0 2px #181818,
+		0 0 2px #181818,
+		0 0 2px #181818,
+		0 0 2px #181818;
+	z-index: 0;
+	pointer-events: none;
+	user-select: none;
+	max-width: 1100px;
+}
+
+.story .header h1:after {
+	position: absolute;
+	z-index: 0;
+}
+
+.story .header .word {
+	display: inline-block;
+}
+
+.story .header .image {
+	position: absolute;
+	border-radius: 15px;
+	margin-left: 30rem;
+	margin-top: -45rem;
+	z-index: 199;
+	transition: filter .2s;
+	filter: grayscale(.3);
+
+	width: 1150px;
+	height: 765px;
+	object-fit: cover;
+}
+
+.story .header .image:hover {
+	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	filter: grayscale(0);
+	transition: filter .2s;
+}
+
+.story .header .image:focus,
+.story .header .image:active {
+	cursor: url("../static/images/cursors/cursor_magnify_focus.svg") 60 60, auto;
+}
+
+.story .header .author {
+	position: absolute;
+	z-index: 99;
+	background-color: rgba(41, 41, 41, .6);
+	display: inline-block;
+	padding: 15px 18px;
+	border-radius: 15px;
+	margin: -6.75rem 0 0 12rem;
+	transition: background-color .05s;
+}
+
+.story .header .author:hover {
+	cursor: pointer;
+	background-color: rgba(31, 31, 31, 1);
+	transition: background-color .05s;
+}
+
+.story .header .author:focus,
+.story .header .author:active {
+	outline: 3px solid #444444;
+	transition: background-color .05s;
+}
+
+.story .header .author img {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	vertical-align: middle;
+}
+
+.story .header .author p small img {
+	filter: invert(1);
+	position: absolute;
+	opacity: .4;
+	border-radius: 0;
+	height: 12px;
+	width: 12px;
+	margin-left: 4px;
+	margin-top: -.156rem;
+}
+
+.story .header .author p {
+	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-weight: normal;
+	display: inline-block;
+	margin: 0 17px;
+	vertical-align: -.8rem;
+	font-size: 13pt;
+	text-align: left;
+	line-height: .55rem;
+}
+
+.story .header .author small {
+	font-family: 'SF Pro Display Thin', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #999999;
+	display: inline-block;
+	font-size: 9pt;
+}
+
+.story .article-content {
+	padding-top: 15rem;
+	margin: 5rem 5rem;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	font-size: 18pt;
+	line-height: 2.35rem;
+	letter-spacing: .075rem;
+	color: #D4D4D4;
+}
+
+.story .readmore hr {
+	position: absolute;
+	display: inline-block;
+	margin: 2.5rem 0;
+	z-index: -1;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid #666666;
+}
+
+.story .readmore h3 {
+	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-weight: normal;
+	font-size: 45pt;
+	margin: 0;
+	background-color: black;
+	display: inline-block;
+	padding: 0 2rem 0 0;
+}
+
+
+/* Article Meta Information */
+
+.story .meta {
+	display: block;
+	margin: 2.5rem 5rem 8rem;
+}
+
+.story .meta > div {
+	display: inline-block;
+	position: relative;
+	z-index: 99;
+	background-color: #222222;
+	padding: 30px 40px;
+	border-radius: 15px;
+	max-width: 50%;
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.story .meta > div:hover {
+	cursor: default;
+	background-color: #191919;
+}
+
+.story .meta > div:nth-child(1):hover {
+	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, pointer;
+}
+
+.story .meta > div:focus,
+.story .meta > div:active {
+	transform: scale(.99);
+}
+
+.story .meta > div:nth-child(1):focus,
+.story .meta > div:nth-child(1):active {
+	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, pointer;
+}
+
+.story .meta .author-card img {
+	border-radius: 50%;
+	height: 70px;
+	width: 70px;
+	object-fit: cover;
+	vertical-align: -.35rem;
+}
+
+.story .meta .author-card .details {
+	display: inline-block;
+	margin: 0 2rem;
+}
+
+.story .meta > div .details h3 {
+	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-weight: normal;
+	font-size: 25pt;
+	padding: 0;
+	margin: -.25rem 0 .5rem;
+}
+
+.story .meta > div .details p {
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	text-transform: uppercase;
+	color: #888888;
+	padding: 0;
+	margin: 0;
+	font-size: 13pt;
 }
 
 
@@ -767,7 +1167,7 @@ header {
 
 .labs .header p {
 	text-align: right;
-	font-family: 'Roboto Medium', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
 	color: white;
 	mix-blend-mode: overlay;
 	font-size: 14pt;
@@ -779,7 +1179,8 @@ header {
 	float: right;
 	width: 350px;
 	text-align: center;
-	font-family: 'Roboto Thin', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .5pt;
 	color: rgba(255, 255, 255, .9);
 	background-color: rgba(0, 0, 0, .3);
 	border-radius: 25px;
@@ -794,9 +1195,15 @@ header {
 
 .climate .heading h1 {
 	position: relative;
-	font-family: 'Aesthico', sans-serif;
-	font-size: 68pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', serif;
+
+	font-size: 100pt;
+	font-weight: bold;
+	letter-spacing: -2pt;
+	line-height: 115pt;
+
 	max-width: 1000px;
+	margin-top: 8rem;
 	margin-bottom: 0;
 }
 
@@ -846,9 +1253,9 @@ header {
  =================================== */
 
 .page-text h1 {
-	font-family: 'Aesthico', sans-serif;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	text-align: center;
-	font-size: 32pt;
+	font-size: 62pt;
 	margin: 40px 0 20px;
 }
 
@@ -859,8 +1266,8 @@ ul.breadcrumbs,
 	color: #C8C8C8;
 	list-style-type: none;
 	padding: 0;
-	font-family: 'Roboto Regular', sans-serif;
-	font-size: 13pt;
+	font-family: 'SF Pro Display Regular', sans-serif;
+	font-size: 12.5pt;
 	text-transform: uppercase;
 }
 
@@ -920,13 +1327,15 @@ ul.breadcrumbs li:not(:last-child)::after,
 
 .page-text .page-text-content p {
 	color: #D1D1D1;
-	font-family: 'Roboto Light', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .4pt;
 	font-size: 14pt;
 	text-align: justify;
 }
 
 .page-text .page-text-content h2 {
-	font-family: 'Roboto Thin', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .7pt;
 	color: #DFDFDF;
 	padding: 25px 0 0;
 	font-size: 24pt;
@@ -940,13 +1349,15 @@ ul.breadcrumbs li:not(:last-child)::after,
 
 .page-text .page-text-content ul li::marker {
 	content: counter(list-item, lower-alpha) ')  ';
-	font-family: 'Roboto Light', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .5pt;
 	font-size: 14pt;
 	color: #BFBFBF;
 }
 
 .page-text .page-text-content h3 {
-	font-family: 'Roboto Thin', sans-serif;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .5pt;
 	color: #DFDFDF;
 	padding: 15px 0 0;
 	margin: 0 0 -8px;
@@ -998,7 +1409,7 @@ small {
 button {
 	background-color: white;
 	color: #444444;
-	font-family: 'Roboto Black', sans-serif;
+	font-family: 'SF Pro Display Heavy', sans-serif;
 	font-size: 14pt;
 	text-align: center;
 	padding: 10px 20px;
@@ -1017,14 +1428,48 @@ button:hover {
 }
 
 
+/* PRELOADER
+ =================================== */
+
+.preloader {
+	margin: 35vh auto 45vh;
+}
+
+.preloader .spinner {
+	border: 2px solid #222222;
+	border-top: 2px solid white;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	animation: spin .4s linear infinite;
+	margin: 0 auto;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.preloader p {
+	margin: 0 auto 0 12px;
+	text-align: center;
+	font-family: 'SF Pro Display Thin', sans-serif;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	color: #666666;
+	padding: 20px 0;
+	font-size: 9pt;
+}
+
+
 /* FOOTER
  =================================== */
 
 footer {
 	position: relative;
 	z-index: 99;
-	font-family: 'Roboto Regular', sans-serif;
-	padding: 70px 0;
+	font-family: 'SF Pro Display Medium', sans-serif;
+	padding: 80px 0;
 	display: block;
 	color: #B0B0B0;
 }
@@ -1146,66 +1591,6 @@ p.from-them::after {
 	left: 20px;
 	transform: translate(-30px, -2px);
 	width: 10px;
-}
-
-
-/* Skills */
-
-.skill-name {
-	font-size: 18px;
-	font-weight: 700;
-	color: #f1f1f1;
-	text-transform: uppercase;
-	margin: 20px 0;
-	font-family: 'Roboto Light', sans-serif;
-}
-
-.skill-bar {
-	height: 14px;
-	background: #282828;
-	border-radius: 10px;
-}
-
-.skill-per {
-	height: 14px;
-	background: linear-gradient(270deg, rgba(233,233,233,01) 0%, rgba(209,209,209,.6) 100%);
-	border-radius: 10px;
-	position: relative;
-	animation: fillBars 2.5s 1;
-}
-
-.skill-per::before {
-	color: black;
-	content: attr(data-per);
-	font-family: 'Roboto Light', sans-serif;
-	position: absolute;
-	padding: 4px 8px;
-	background: #f1f1f1;
-	border-radius: 4px;
-	font-size: 12px;
-	top: -35px;
-	right: 0;
-	transform: translateX(50%);
-}
-
-.skill-per::after {
-	content: "";
-	position: absolute;
-	width: 8px;
-	height: 7px;
-	background: #f1f1f1;
-	top: -17px;
-	right: 0;
-	transform: translateX(50%) rotate(45deg);
-}
-
-@keyframes fillBars {
-	from {
-		width: 0;
-	}
-	to {
-		width: 100%;
-	}
 }
 
 

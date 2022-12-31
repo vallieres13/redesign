@@ -39,6 +39,7 @@ const Footer = () => {
 			<div className="right">
 				<ul>
 					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
+					<li><a href="/rss" onClick={handleClick}>RSS Feed</a></li>
 					<li><a href="/sitemap" onClick={handleClick}>Sitemap</a></li>
 					<li><a href="/contact" onClick={handleClick}>Contact</a></li>
 					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>

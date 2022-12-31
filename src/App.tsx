@@ -10,6 +10,7 @@ import Labs from './pages/Labs';
 import Stories from './pages/Stories';
 import About from './pages/About';
 import Climate from "./pages/Climate";
+import Article from "./pages/Article";
 import Hire from "./pages/Hire";
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Imprint from './pages/Imprint';
@@ -28,6 +29,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            <div className="altcursor"></div>
             <header className="container">
                 <div className="logo">
                     <NavLink to="/">
@@ -53,6 +55,9 @@ const App = () => {
 
                     {/* Future & Climate Routing */}
                     <Route path="/Future" element={<Climate />} />
+
+                    {/* Article Routing */}
+                    <Route path="/Article/:id" element={<Article />} />
 
                     {/* Hire Me Routing */}
                     <Route path="/Hire" element={<Hire />} />

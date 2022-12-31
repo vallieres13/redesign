@@ -6,6 +6,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 /* Images */
 import Person from '../static/images/about/portfolio.jpg';
 import Webdev from '../static/images/about/webdev.png';
+import Design from '../static/images/about/design.png';
 
 /* Logos */
 import LaravelLogo from '../static/images/logos/webdev/laravel.png';
@@ -22,6 +23,13 @@ import prLogo from '../static/images/logos/video/pr.png';
 import psLogo from '../static/images/logos/video/ps.png';
 import vegasLogo from '../static/images/logos/video/vegas.png';
 
+import xdLogo from '../static/images/logos/design/xd.png';
+import figmaLogo from '../static/images/logos/design/figma.png';
+import webflowLogo from '../static/images/logos/design/webflow.png';
+import aiLogo from '../static/images/logos/design/ai.png';
+
+/* GSAP Register */
+gsap.registerPlugin(ScrollToPlugin);
 
 const About = () => {
 
@@ -39,14 +47,19 @@ const About = () => {
 			section: 'video'
 		},
 		{
-			title: 'Freelancing',
-			section: 'freelancing'
+			title: 'My Customers',
+			section: 'customers'
+		},
+		{
+			title: 'Portfolio',
+			section: 'portfolio'
 		}
 	];
 
 	useEffect(() => {
 
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+		root.style.setProperty('--borderColor', 'transparent');
 
 		/* Change Background colour */
 		gsap.to('body', {
@@ -93,20 +106,33 @@ const About = () => {
 			});
 		}, 750);
 
+
+		/* Fade in vertical line */
+		setTimeout(() => {
+			root.style.setProperty('--borderColor', '#111111');
+		}, 1000)
+
 	});
+
+
+	const root = document.querySelector(':root') as HTMLElement;
 
 	const handleHoverRole = (e: React.MouseEvent) => {
 		gsap.to(e.target, {
 			autoAlpha: 1,
 			duration: .1
 		});
+
+		root.style.setProperty('--borderColor', '#333333');
 	};
 
 	const handleUnhoverRole = (e: React.MouseEvent) => {
 		gsap.to(e.target, {
 			autoAlpha: .6,
 			duration: .1
-		})
+		});
+
+		root.style.setProperty('--borderColor', '#111111');
 	};
 
 	const handleClickRole = (e: React.MouseEvent) => {
@@ -142,7 +168,7 @@ const About = () => {
 			overwrite: true,
 			ease: 'power3'
 		});
-	}
+	};
 
 	return (
 		<>
@@ -150,7 +176,7 @@ const About = () => {
 				<section className="intro">
 					<img src={Person} className="person" alt="Felix Hebgen" />
 					<div className="title">
-						<h1 className="name">Felix Hebgen</h1>
+						<h1 className="name">Felix &nbsp;&nbsp;&nbsp;&nbsp; Hebgen</h1>
 						<p className="roles">
 							{roles.map(({ title, section }, index) => {
 								return (
@@ -168,7 +194,7 @@ const About = () => {
 						<div className="description">
 							<div className="imessage">
 								<p className="from-me">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									I'm a Full-Stack Developer. From database management, to complex interface design with JavaScript libraries, to writing an API from scratch or using Backend frameworks like Kotlin with Bootspring. I've done just about everything.
 								</p>
 							</div>
 						</div>
@@ -188,60 +214,32 @@ const About = () => {
 				</section>
 				<section className="design left">
 					<div className="image">
-						<img src={Webdev} alt="Web Development" />
+						<img src={Design} alt="Interaction Design" />
 					</div>
 					<div className="title">
 						<h2 className="name highlighted">Interaction<br />&nbsp;Design</h2>
 						<div className="description">
 							<div className="imessage">
 								<p className="from-them">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									I make full enterprise-ready webdesigns that never fail to impress. My qualities range from simple one-pagers to full structures of creative, modern, responsive and smart UI / UX design.
 								</p>
 							</div>
 						</div>
 						<div className="logos">
-							<img src={prLogo} alt="Adobe Premiere Pro" />
-							<img src={aeLogo} alt="Adobe After Effects" />
-							<img src={meLogo} alt="Adobe Media Encoder" />
-							<img src={psLogo} alt="Adobe Photoshop" />
-							<img src={vegasLogo} alt="VEGAS Pro 19.0" />
+							<img src={xdLogo} alt="Adobe Experience Design" />
+							<img src={aiLogo} alt="Adobe Illustrator" />
+							<img src={figmaLogo} alt="Figma" />
+							<img src={webflowLogo} alt="Webflow" />
 						</div>
 					</div>
 				</section>
-				<section className="webdev right">
+				<section className="video right">
 					<div className="title">
 						<h2 className="name highlighted" style={{ marginLeft: '12rem' }}>Video&nbsp;<br />Production</h2>
 						<div className="description">
 							<div className="imessage">
 								<p className="from-me">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-							</div>
-						</div>
-						<div className="logos">
-							<img src={LaravelLogo} alt="Laravel" />
-							<img src={LumenLogo} alt="Lumen" />
-							<img src={ReactLogo} alt="React" />
-							<img src={jsLogo} alt="JavaScript" />
-							<img src={tsLogo} alt="TypeScript" />
-							<img src={htmlLogo} alt="HTML & CSS" />
-							<img src={phpLogo} alt="php" />
-						</div>
-					</div>
-					<div className="image">
-						<img src={Webdev} alt="Web Development" />
-					</div>
-				</section>
-				<section className="design left">
-					<div className="image">
-						<img src={Webdev} alt="Web Development" />
-					</div>
-					<div className="title">
-						<h2 className="name highlighted">&nbsp; Off-Work<br />Freelancing</h2>
-						<div className="description">
-							<div className="imessage">
-								<p className="from-them">
-									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+									I make videos that keep the viewer's attention and build up atmosphere that is required for just about any scenario. Special effects, fast cuts, custom audio and a lot of energy.
 								</p>
 							</div>
 						</div>
@@ -253,38 +251,16 @@ const About = () => {
 							<img src={vegasLogo} alt="VEGAS Pro 19.0" />
 						</div>
 					</div>
-				</section>
-				{/*
-				<section>
-					<div className="skills">
-
-						<div className="skill">
-							<div className="skill-name">PHP</div>
-							<div className="skill-bar">
-								<div className="skill-per" data-per="95%" style={{ maxWidth: '95%' }}></div>
-							</div>
-						</div>
-						<div className="skill">
-							<div className="skill-name">JavaScript</div>
-							<div className="skill-bar">
-								<div className="skill-per" data-per="75%" style={{ maxWidth: '75%' }}></div>
-							</div>
-						</div>
-						<div className="skill">
-							<div className="skill-name">React.js</div>
-							<div className="skill-bar">
-								<div className="skill-per" data-per="65%" style={{ maxWidth: '65%' }}></div>
-							</div>
-						</div>
-						<div className="skill">
-							<div className="skill-name">Laravel</div>
-							<div className="skill-bar">
-								<div className="skill-per" data-per="50%" style={{ maxWidth: '50%' }}></div>
-							</div>
-						</div>
+					<div className="image">
+						<img src={Webdev} alt="Web Development" />
 					</div>
 				</section>
-				*/}
+				<section className="customers">
+					<h3>Customers</h3>
+				</section>
+				<section className="portfolio">
+
+				</section>
 			</section>
 		</>
 	);

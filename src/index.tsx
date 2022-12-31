@@ -6,8 +6,4 @@ const root = ReactDOM.createRoot(
   document.getElementById('app') as HTMLElement
 );
 
-root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-);
+root.render(<App />);

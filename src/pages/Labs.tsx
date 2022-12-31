@@ -8,7 +8,7 @@ const Labs = () => {
 
 	const animate = () => {
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(30,40,65,1) 80%)'
+			backgroundImage: 'none'
 		});
 
 		gsap.fromTo('.labs', {

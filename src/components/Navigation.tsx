@@ -12,6 +12,8 @@ const Navigation = () => {
 		if(navigating) return;
 		setNavigating(true);
 
+		(e.target as HTMLElement).classList.add('active');
+
 		gsap.to(e.target, {
 			autoAlpha: 0,
 			repeat: 2,
@@ -24,17 +26,14 @@ const Navigation = () => {
 			delay: .3
 		});
 
-
 	};
 
 
-	const [ rememberBackground, setRememberBackground ] = useState('');
+	const hoverItem = () => {
+		if(navigating) return;
 
-	const hoverItem = (e: React.MouseEvent) => {
 		const content = document.querySelector('.main');
 		const footer = document.querySelector('footer');
-
-		setRememberBackground(document.body.style.backgroundImage);
 
 		gsap.to(content, {
 			autoAlpha: .5,
@@ -45,11 +44,6 @@ const Navigation = () => {
 		gsap.to(footer, {
 			autoAlpha: .5,
 			ease: 'power2',
-			duration: .3
-		});
-
-		gsap.to('body', {
-			backgroundImage: (e.target as HTMLAnchorElement).getAttribute('data-colour') as string,
 			duration: .3
 		});
 	};
@@ -73,14 +67,14 @@ const Navigation = () => {
 			ease: 'power2',
 			duration: .3
 		});
-
-		gsap.to('body', {
-			backgroundImage: (rememberBackground === '' ? 'none' : rememberBackground),
-			duration: .3
-		});
 	};
 
 	const items = [
+		{
+			title: 'AI',
+			url: 'ai',
+			colour: 'none'
+		},
 		{
 			title: 'Design Labs',
 			url: 'labs',
@@ -92,15 +86,10 @@ const Navigation = () => {
 			colour: 'none'
 		},
 		{
-			title: 'About',
+			title: 'About Me',
 			url: 'about',
 			colour: 'none'
-		},
-		{
-			title: 'Hire me',
-			url: 'hire',
-			colour: 'none'
-		},
+		}
 	];
 
 	return (
