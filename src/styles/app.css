@@ -49,10 +49,11 @@ img {
  =================================== */
 
 .logo {
-	margin: 50px 0 45px;
+	margin: 50px 0 40px;
 }
 
 .logo a {
+	padding: 50px 0;
 	color: inherit;
 	text-decoration: none;
 }
@@ -63,18 +64,25 @@ img {
 	transition: none;
 }
 
-.logo img:hover {
-	opacity: 1;
+.logo a:hover {
 	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
 }
 
-.logo img:focus,
-.logo img:active {
-	cursor: pointer;
+.logo a:hover img {
+	opacity: 1;
+}
+
+.logo a:focus img,
+.logo a:active img {
 	border: 1px solid #999999;
 	padding: 10px 15px 15px;
 	margin: -11px 0 -16px -16px;
 	transition: none;
+}
+
+.logo a:focus,
+.logo a:active {
+	cursor: pointer;
 }
 
 
@@ -84,7 +92,7 @@ img {
 /* Headings */
 
 @font-face {
-	font-family: 'Shark Grotesk DB Cyr Medium 22';
+	font-family: 'Sharp Grotesk DB Cyr Medium 22';
 	src: url("../static/fonts/Sharp-Grotesk-DB-Cyr-Medium.otf") format("opentype");
 }
 
@@ -665,7 +673,7 @@ header {
 .portfolio .intro .title h1 {
 	position: relative;
 
-	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-size: 132pt;
 	max-width: 780px;
 	line-height: 125pt;
@@ -1008,7 +1016,7 @@ header {
 }
 
 .story .header .author p {
-	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-weight: normal;
 	display: inline-block;
 	margin: 0 17px;
@@ -1049,7 +1057,7 @@ header {
 }
 
 .story .readmore h3 {
-	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-weight: normal;
 	font-size: 45pt;
 	margin: 0;
@@ -1110,7 +1118,7 @@ header {
 }
 
 .story .meta > div .details h3 {
-	font-family: 'Shark Grotesk DB Cyr Medium 22', sans-serif;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-weight: normal;
 	font-size: 25pt;
 	padding: 0;
@@ -1622,25 +1630,14 @@ p.from-them::after {
 @media (max-width: 1920px) {
 	.container {
 		max-width: 1325px;
-		margin: 0 auto;
 	}
 
 	.container-wide {
 		max-width: 1620px;
-		margin: 0 auto;
-	}
-
-	.promo {
-		margin-bottom: -3rem;
 	}
 
 	.promo h1 {
-		font-size: 70pt;
-		margin: 10rem 0 10rem 2rem;
-		padding-bottom: 0;
-		line-height: 120pt;
-		max-width: 1300px;
-		padding-left: 10px;
+		font-size: 55pt;
 	}
 
 	.dashboard .card {
@@ -1652,7 +1649,7 @@ p.from-them::after {
 	}
 
 	.dashboard .card h2 {
-		font-size: 55pt;
+		font-size: 48pt;
 		line-height: 58pt;
 	}
 

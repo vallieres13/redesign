@@ -24,12 +24,10 @@ import Footer from './components/Footer';
 /* Images */
 import Logo from "./static/logo.png";
 
-
 const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="altcursor"></div>
             <header className="container">
                 <div className="logo">
                     <NavLink to="/">
