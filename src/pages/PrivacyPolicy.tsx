@@ -4,9 +4,12 @@ import gsap from 'gsap';
 const PrivacyPolicy = () => {
 
 	useEffect(() => {
+		/* Document Title */
+		document.title = 'Privacy Policy' + process.env.REACT_APP_TITLE;
+
 		/* Change Background colour */
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(black)'
+			backgroundImage: 'none'
 		});
 	});
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import gsap from "gsap";
 
 const Hire = () => {
@@ -6,6 +6,11 @@ const Hire = () => {
 	/* Change Background colour */
 	gsap.to('body', {
 		backgroundImage: 'none'
+	});
+
+	useEffect(() => {
+		/* Document Title */
+		document.title = 'Hire Me' + process.env.REACT_APP_TITLE;
 	});
 
 	return (

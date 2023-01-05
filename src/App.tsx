@@ -22,7 +22,7 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 /* Images */
-import Logo from "./static/logo.png";
+import Logo from "./static/logo.svg";
 
 const App = () => {
 

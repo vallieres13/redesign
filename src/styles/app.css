@@ -14,7 +14,7 @@ body {
 	background-image: none;
 	/* background-image: linear-gradient(90deg, rgb(44, 32, 38) 0%, rgb(91, 98, 107) 100%); */
 
-	transition: background-color .3s ease-in-out;
+	transition: background-color .3s ease-out;
 	color: white;
 	min-height: 100vh;
 
@@ -59,7 +59,7 @@ img {
 }
 
 .logo img {
-	max-height: 30px;
+	max-height: 45px;
 	opacity: .7;
 	transition: none;
 }
@@ -75,8 +75,8 @@ img {
 .logo a:focus img,
 .logo a:active img {
 	border: 1px solid #999999;
-	padding: 10px 15px 15px;
-	margin: -11px 0 -16px -16px;
+	padding: 10px 15px 8px;
+	margin: -11px 0 -9px -16px;
 	transition: none;
 }
 
@@ -123,100 +123,77 @@ img {
  =================================== */
 
 .promo {
-	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
 	background: none;
-
 	border-radius: 15px;
 	margin: 1rem auto 3rem;
 	padding: 40px 0;
-
 	position: relative;
 	z-index: 49;
 }
 
-.promo.switching {
-	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
-}
-
-.promo:active,
-.promo:focus {
-	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
-}
-
-.promo.visible {
-	background:
-		/* top, transparent black, faked with gradient */
-		linear-gradient(
-			rgba(0, 0, 0, 0.6),
-			rgba(0, 0, 0, 0.6)
-		),
-		/* bottom image  */
-		url('../static/images/promo/landing2.png');
-}
-
-.promo.visible {
-	background-position: 0 1650px;
-	background-repeat: no-repeat;
-}
-
-.promo.ready {
-	background-repeat: repeat !important;
-}
-
-.promo.ready:hover {
-	background:
-		/* top, transparent black, faked with gradient */
-		linear-gradient(
-			rgba(0, 0, 0, 0.62),
-			rgba(0, 0, 0, 0.62)
-		),
-		/* bottom image  */
-		url('../static/images/promo/landing2.png');
-}
-
-
-/*
-.promo:hover {
-	outline: 4px solid rgba(255, 255, 255, .15);
-	transition: .2s;
-}
-*/
-
 .promo h1 {
-	visibility: hidden;
-
 	position: relative;
 	overflow: hidden;
-
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', serif;
-
-	font-size: 60pt;
+	font-size: 95pt;
 	font-weight: bold;
-	line-height: 65pt;
-	padding: 6rem .25em .15em 50px;
-
-	margin: 0;
-	max-width: 850px;
-
+	line-height: 105pt;
+	padding: 10vh 0 .15em;
+	margin: 0 auto;
+	text-align: center;
 	color: white;
+	display: block;
+	max-width: 1100px;
 }
 
-.promo h1 span {
+.promo h1 .word:nth-child(3),
+.promo h1 .word:nth-child(4) {
+	color: #e191d7;
+}
+
+.promo h1 .word:nth-child(5) {
+	margin-left: -2rem;
+}
+
+.promo h1 .word {
+	display: inline-block;
+}
+
+.promo h1 .coloured {
 	color: #e191d7;
 }
 
 .promo button {
-	visibility: hidden;
+	font-size: 16pt;
 	text-transform: none;
-
-	margin: 2rem 0 6rem 50px;
-	background-color: #FAEBF8;
+	padding: 15px 30px;
+	margin: 2rem 0 10vh;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #ffffff;
 }
 
 .promo button img {
-	height: 1rem;
-	margin-bottom: -0.08rem;
+	height: 1.2rem;
+	margin-bottom: -.11rem;
 	margin-left: .25rem;
+}
+
+.promo button:hover {
+	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+	opacity: .8;
+}
+
+.promo button:active,
+.promo button:focus {
+	opacity: .4;
+}
+
+.promo > img {
+	position: absolute;
+	margin: -32.5rem 0 0 36rem;
+	transform: scaleX(-1) scale(1.3);
 }
 
 
@@ -578,6 +555,25 @@ header {
 	text-shadow: none;
 }
 
+.nav ul li a:hover sup {
+	background-color: white;
+	transform: translateY(-2px);
+	transition: transform .2s;
+}
+
+.nav ul li a sup {
+	background-color: #C6C6C6;
+	color: black;
+	font-size: 9pt;
+	letter-spacing: .1pt;
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	padding: 4px 8px;
+	border-radius: 4px;
+	margin: -1.6rem 0 0 6.6rem;
+	position: absolute;
+	transition: transform .15s;
+}
+
 /* -- Change font for active item
 .nav ul li a.active::before,
 .nav ul li a.active span {
@@ -644,13 +640,13 @@ header {
 
 .portfolio .intro {
 	display: flex;
-	margin: 7.5rem 0 0 13rem;
+	margin: 7.5rem 0 0 21rem;
 }
 
 .portfolio .intro img {
-	width: 37.5%;
-	height: auto;
-	filter: grayscale(1);
+	width: 35rem;
+	height: 100%;
+	filter: grayscale(.5);
 	overflow: hidden;
 	position: relative;
 	display: inline-block;
@@ -666,7 +662,7 @@ header {
 }
 
 .portfolio .intro .title {
-	margin-left: 4rem;
+	margin-left: -6rem;
 	margin-top: -5rem;
 }
 
@@ -674,9 +670,9 @@ header {
 	position: relative;
 
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
-	font-size: 132pt;
+	font-size: 115pt;
 	max-width: 780px;
-	line-height: 125pt;
+	line-height: 117pt;
 }
 
 .portfolio .intro .title h1 .letter {
@@ -685,23 +681,13 @@ header {
 
 .portfolio .intro .title p.roles {
 	position: relative;
-	margin-top: -7rem;
-	margin-left: 2.5rem;
+	margin-top: -6rem;
+	margin-left: .75rem;
 
 	font-family: 'SF Pro Display Thin', sans-serif;
-	font-size: 35pt;
+	font-size: 32pt;
 	letter-spacing: .15rem;
 	text-transform: uppercase;
-}
-
-.portfolio .intro .title p:before {
-	position: absolute;
-	content: '';
-	margin: .65rem 0 0 -2rem;
-	border-left: 2px solid;
-	border-color: var(--borderColor);
-	height: 2100%;
-	z-index: 0;
 }
 
 .portfolio .intro .title p .role {
@@ -727,25 +713,23 @@ header {
 
 /* Portfolio Sections */
 
-.portfolio > section {
-	margin: 20rem 0;
+.portfolio > section.intro {
+	margin-bottom: -20rem;
 }
 
 .portfolio > section:not(.intro) {
 	display: flex;
-	margin-top: 10rem;
-	margin-bottom: 10rem;
-	padding: 120px 0;
+	height: 30rem;
+	margin-top: 40rem;
 }
 
 .portfolio > section:not(.intro) .image img {
 	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
-
-	width: 100%;
-	filter: grayscale(1);
+	width: 35rem;
+	height: auto;
+	filter: grayscale(.5);
 	transition: .2s filter;
 	border-radius: 15px;
-
 }
 
 .portfolio > section:not(.intro) .image img:hover {
@@ -753,20 +737,18 @@ header {
 	transition: .2s filter;
 }
 
-.portfolio > section:not(.intro) .title {
-	z-index: 99;
-}
-
 .portfolio > section:not(.intro) .title h2 {
-	position: absolute;
-	font-family: 'Aesthico', sans-serif;
-	font-size: 90pt;
-	line-height: 125pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 85pt;
+	letter-spacing: -.05rem;
+	line-height: 85pt;
+	margin-top: 3rem;
 }
 
 .portfolio > section:not(.intro) .title .description {
-	margin-top: 33rem;
+	display: inline-block;
 	font-size: 20pt;
+	margin-top: -1rem;
 	font-family: 'SF Pro Display Regular', sans-serif;
 }
 
@@ -774,6 +756,18 @@ header {
 	padding: 10px 15px;
 	max-height: 60px;
 	width: auto;
+}
+
+.portfolio > section:not(.intro) .title .logo-disclaimer {
+	text-transform: uppercase;
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	color: #666666;
+	display: block;
+	margin: 0 0 1rem;
+}
+
+.portfolio > section.webdev .title .logos img:hover {
+	filter: grayscale(.25) drop-shadow(0 0 15px rgba(153, 153, 153, .4));
 }
 
 .portfolio > section:last-child {
@@ -792,21 +786,26 @@ header {
 }
 
 .portfolio .right .title {
-	margin: 3rem 1.5rem 0 0;
+	padding: 0 5rem;
 }
 
 .portfolio .right .title h2 {
 	text-align: right;
-	margin-left: 4rem;
 }
 
 .portfolio .right .title .description {
 	color: #DFDFDF;
 	float: right;
+	margin-right: -1.25rem;
+}
+
+.portfolio .right .title .logo-disclaimer {
+	text-align: right;
+	padding-right: 1rem;
 }
 
 .portfolio .right .title .logos {
-	margin: 2.5rem 2rem 0 0;
+	margin: 2.5rem .5rem 0 0;
 	float: right;
 }
 
@@ -815,28 +814,28 @@ header {
 
 .portfolio .left {
 	display: flex;
-	margin-left: 10rem;
+	margin-left: 20rem;
 }
 
 .portfolio .left .image {
-	width: 47.5rem;
+	width: 36rem;
 }
 
 .portfolio .left .title {
-	margin: 3rem 0 0 3rem;
-}
-
-.portfolio .left .title h2 {
-	margin-left: -10rem;
+	padding: 0 5rem;
 }
 
 .portfolio .left .title .description {
-	margin-left: 5rem;
+	margin-left: 4.6rem;
 	color: #DFDFDF;
 }
 
+.portfolio .left .title .logo-disclaimer {
+	padding-left: 1rem;
+}
+
 .portfolio .left .title .logos {
-	margin: 2.5rem 0 0 1rem;
+	margin: 2.5rem 0 0 -.3rem;
 }
 
 .portfolio .left .title .logos img {
@@ -847,17 +846,95 @@ header {
 
 /* Portfolio Section: Customers */
 
-.portfolio .customers {
+.portfolio section.customers,
+.portfolio section.impressions {
 	position: relative;
 	display: block;
 	width: 100%;
 }
 
-.portfolio .customers h3 {
-	font-family: 'Aesthico', sans-serif;
-	font-size: 32pt;
+.portfolio section.customers h3,
+.portfolio section.impressions h3{
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 45pt;
+	text-align: center;
+	margin: 0 0 2.5rem;
+}
+
+.portfolio section.customers ul {
+	list-style-type: none;
+	max-width: 1000px;
+	margin: 0 auto;
 	text-align: center;
 }
+
+.portfolio section.customers ul li {
+	display: inline-block;
+	opacity: .7;
+	padding: 30px 30px;
+	transition: transform .125s;
+}
+
+.portfolio section.customers ul li:hover {
+	opacity: 1;
+	transform: translateY(-6px);
+	transition: transform .125s;
+}
+
+.portfolio section.customers ul li img {
+	height: 80px;
+	width: auto;
+}
+
+.portfolio section.customers h4 {
+	margin: 8rem 0 1rem;
+	text-align: center;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	color: #D6D6D6;
+	font-size: 21pt;
+	font-weight: normal;
+}
+
+.portfolio section.customers p {
+	text-align: center;
+	font-family: 'SF Pro Display Regular', sans-serif;
+	color: #888888;
+	font-size: 16pt;
+	font-weight: normal;
+}
+
+.portfolio section.customers button {
+	font-size: 16pt;
+	text-transform: none;
+	padding: 15px 30px;
+	margin: 2rem 0 10vh;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #ffffff;
+}
+
+.portfolio section.customers button img {
+	height: 1.2rem;
+	margin-bottom: -.11rem;
+	margin-left: .25rem;
+}
+
+.portfolio section.customers button:hover {
+	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+	opacity: .8;
+}
+
+.portfolio section.customers button:active,
+.portfolio section.customers button:focus {
+	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
+	opacity: .4;
+}
+
+
+/* Portfolio Section: Impressions */
+
+
 
 
 /* STORIES
@@ -1165,12 +1242,14 @@ header {
 }
 
 .labs .header h1 {
-	font-family: 'Aesthico', sans-serif;
-	font-size: 48pt;
+	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
+	font-size: 69pt;
+	letter-spacing: -.1rem;
 	color: white;
 	mix-blend-mode: overlay;
 	text-align: right;
-	margin-bottom: 2.5rem;
+	padding-top: 1.25rem;
+	margin-bottom: 2rem;
 }
 
 .labs .header p {
@@ -1211,7 +1290,7 @@ header {
 	line-height: 115pt;
 
 	max-width: 1000px;
-	margin-top: 8rem;
+	margin-top: 6rem;
 	margin-bottom: 0;
 }
 
@@ -1236,16 +1315,25 @@ header {
 }
 
 .climate .logos {
-	margin: 2rem 0 7rem -10px;
+	margin: 2rem 0 8rem -10px;
 }
 
 .climate .logos img {
 	padding: 10px 15px;
 	max-height: 60px;
 	width: auto;
+	opacity: .8;
 }
 
+.climate .logos img:hover {
+	opacity: 1;
+}
 
+.climate .dashboard .card:hover,
+.climate .dashboard .card:active,
+.climate .dashboard .card:active {
+	cursor: default;
+}
 
 
 /* NOTFOUND
@@ -1408,6 +1496,28 @@ small {
 	margin: 0;
 	font-size: 10pt;
 	color: #888888;
+}
+
+
+/* TOOLTIPS
+ =================================== */
+
+.tooltip {
+	width: auto;
+	background-color: #444444;
+	color: white;
+	text-align: center;
+	padding: 5px 20px;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 999;
+	margin: 5.5rem 0 0 0;
+	font-family: 'SF Pro Display Regular', sans-serif;
+	letter-spacing: .05rem;
+}
+
+.tooltip:hover {
+	pointer-events: none;
 }
 
 
@@ -1627,7 +1737,9 @@ p.from-them::after {
 /* RESPONSIVE DESIGN
  =================================== */
 
+/* -- Full HD */
 @media (max-width: 1920px) {
+	/* General */
 	.container {
 		max-width: 1325px;
 	}
@@ -1636,10 +1748,7 @@ p.from-them::after {
 		max-width: 1620px;
 	}
 
-	.promo h1 {
-		font-size: 55pt;
-	}
-
+	/* Dashboard */
 	.dashboard .card {
 		min-height: 300px;
 	}
@@ -1663,6 +1772,10 @@ p.from-them::after {
 	}
 
 	/* Portfolio */
+	.portfolio .intro {
+		margin: 5rem 0 0 16rem;
+	}
+
 	.portfolio .intro .intro_container {
 		margin-top: 15rem;
 	}
@@ -1677,5 +1790,13 @@ p.from-them::after {
 		margin-right: 20rem;
 	}
 
+	.portfolio .right {
+		margin-left: -4rem;
+	}
+
+	.portfolio .left {
+		display: flex;
+		margin-left: 12rem;
+	}
 
 }

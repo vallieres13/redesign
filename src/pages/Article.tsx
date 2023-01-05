@@ -88,10 +88,6 @@ const Article = () => {
 		});
 
 
-
-
-
-
 		/* Hover effect for article image */
 		const articleImage = document.querySelector('.story .header .image') as HTMLDivElement;
 		articleImage.addEventListener('mouseover', () => {
@@ -201,19 +197,24 @@ const Article = () => {
 			.then(async (data) => {
 				setPost(data);
 
+				/* Document Title Update */
+				document.title = data.title.rendered.replace(/&#8217;/ig, '\'') + process.env.REACT_APP_TITLE;
+
 				await Request.get('/media/' + data.featured_media)
 					.then(response => response.json())
 					.then((data) => {
 						setPostImage(data.source_url);
 					});
 
-				await loadPosts().then(() => {
-
-				});
+				await loadPosts().then(() => { });
 			});
 	};
 
 	useEffect(() => {
+
+		/* Document Title Init */
+		document.title = 'Loading …' + process.env.REACT_APP_TITLE;
+
 		setEndpointCalled(false);
 		loadPost().then(() => {
 			setEndpointCalled(true);

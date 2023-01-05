@@ -28,7 +28,6 @@ const Navigation = () => {
 
 	};
 
-
 	const hoverItem = () => {
 		if(navigating) return;
 
@@ -71,12 +70,7 @@ const Navigation = () => {
 
 	const items = [
 		{
-			title: 'AI',
-			url: 'ai',
-			colour: 'none'
-		},
-		{
-			title: 'Design Labs',
+			title: 'AI Canvas',
 			url: 'labs',
 			colour: 'none'
 		},
@@ -89,6 +83,11 @@ const Navigation = () => {
 			title: 'About Me',
 			url: 'about',
 			colour: 'none'
+		},
+		{
+			title: 'Hire Me',
+			url: 'hire',
+			colour: 'none'
 		}
 	];
 
@@ -100,7 +99,7 @@ const Navigation = () => {
 						return (
 							<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
 								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
-									<span>{items.title}</span>
+									<span>{items.title}</span>{items.url === 'hire' ? <sup>Looking!</sup> : <></>}
 								</NavLink>
 							</li>
 						);

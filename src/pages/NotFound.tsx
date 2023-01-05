@@ -41,6 +41,9 @@ const NotFound = () => {
 	};
 
 	useEffect(() => {
+		/* Document Title */
+		document.title = '404' + process.env.REACT_APP_TITLE;
+
 		animate();
 	});
 

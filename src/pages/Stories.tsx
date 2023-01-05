@@ -126,6 +126,10 @@ const Stories = () => {
 	};
 
 	useEffect(() => {
+
+		/* Document Title */
+		document.title = 'Stories' + process.env.REACT_APP_TITLE;
+
 		setEndpointCalled(false);
 		loadPosts().then(() => {
 			setEndpointCalled(true);

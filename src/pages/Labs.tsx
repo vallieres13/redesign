@@ -20,6 +20,10 @@ const Labs = () => {
 	};
 
 	useEffect(() => {
+
+		/* Document Title */
+		document.title = 'AI Canvas' + process.env.REACT_APP_TITLE;
+
 		animate();
 	});
 

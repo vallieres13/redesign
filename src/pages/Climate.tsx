@@ -10,8 +10,8 @@ import KoalaImage from '../static/images/future/koala.png';
 import Windmillimage from '../static/images/future/windmill.png';
 
 /* Logos */
-import WWFLogo from '../static/images/logos/climate/wwf.png';
-import TreesLogo from '../static/images/logos/climate/trees.png';
+import WWFLogo from '../static/images/logos/wwf.png';
+import TreesLogo from '../static/images/logos/trees.png';
 
 
 const Climate = () => {
@@ -68,6 +68,10 @@ const Climate = () => {
 	};
 
 	useEffect(() => {
+
+		/* Document Title */
+		document.title = 'Our Future' + process.env.REACT_APP_TITLE;
+
 		animate();
 	});
 
