@@ -1,5 +1,4 @@
 :root {
-	--borderColor: transparent;
 	--opacityArticleTitle: 0;
 }
 
@@ -691,21 +690,22 @@ header {
 }
 
 .portfolio .intro .title p .role {
-	opacity: 0;
 	position: relative;
 	display: block;
+	visibility: hidden;
 }
 
 .portfolio .intro .title p .role a {
 	text-decoration: none;
 	color: inherit;
 	opacity: .6;
-	display: inline-block;
+	display: block;
 	transition: .2s transform;
 }
 
 .portfolio .intro .title p .role a:hover,
 .portfolio .intro .title p .role a.active {
+	color: white;
 	transform: translateX(10px);
 	transition: .2s transform;
 }
@@ -721,6 +721,7 @@ header {
 	display: flex;
 	height: 30rem;
 	margin-top: 40rem;
+	transition: transform .5s;
 }
 
 .portfolio > section:not(.intro) .image img {
@@ -767,7 +768,7 @@ header {
 }
 
 .portfolio > section.webdev .title .logos img:hover {
-	filter: grayscale(.25) drop-shadow(0 0 15px rgba(153, 153, 153, .4));
+	filter: grayscale(.25);
 }
 
 .portfolio > section:last-child {
@@ -854,7 +855,7 @@ header {
 }
 
 .portfolio section.customers h3,
-.portfolio section.impressions h3{
+.portfolio section.impressions h3 {
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-size: 45pt;
 	text-align: center;
@@ -934,7 +935,103 @@ header {
 
 /* Portfolio Section: Impressions */
 
+.portfolio section.impressions {
+	margin: 35rem 0 20rem;
+}
 
+.portfolio section.impressions .carousel {
+	list-style-type: none;
+	white-space: nowrap;
+	overflow-x: hidden;
+	padding: 0;
+	margin: 4rem 0;
+}
+
+.portfolio section.impressions .carousel::-webkit-scrollbar {
+	width: 10px;
+}
+
+.portfolio section.impressions .carousel::-webkit-scrollbar-track {
+	background-color: #111111;
+	border-radius: 15px;
+	margin: 0 32rem;
+}
+
+.portfolio section.impressions .carousel::-webkit-scrollbar-thumb {
+	background: #444444;
+}
+
+.portfolio section.impressions .carousel::-webkit-scrollbar-thumb:hover {
+	background: #555555;
+}
+
+.portfolio section.impressions .carousel li {
+	display: inline-block;
+	background-color: gray;
+	height: 400px;
+	width: 750px;
+	margin: 25px -5px 75px;
+	transform: scale(.95);
+
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	padding: 30px 45px;
+	transition: .15s;
+
+	opacity: .4;
+}
+
+.portfolio section.impressions .carousel li:first-child {
+	margin-left: 0;
+}
+
+.portfolio section.impressions .carousel li:last-child {
+	margin-right: 0;
+}
+
+.portfolio section.impressions .carousel li.active {
+	transform: scale(1.1);
+	margin-left: 60px;
+	margin-right: 60px;
+	opacity: 1;
+	transition: opacity .15s;
+}
+
+.portfolio section.impressions .carousel li.previous:hover {
+	cursor: url("../static/images/cursors/cursor_left.svg") 60 60, auto;
+}
+
+.portfolio section.impressions .carousel li.next:hover {
+	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
+}
+
+.portfolio section.impressions .carousel li:hover {
+	opacity: .45;
+}
+
+.portfolio section.impressions .carousel li.active:hover {
+	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	opacity: .9;
+}
+
+.portfolio section.impressions .carousel li h5 {
+	padding: 30px 45px;
+	margin: 0;
+	font-weight: normal;
+	font-family: 'SF Pro Display Heavy', sans-serif;
+	color: white;
+	letter-spacing: .25pt;
+	text-transform: uppercase;
+	font-size: 13pt;
+
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	text-shadow: 0 0 20px black;
+}
 
 
 /* STORIES

@@ -12,7 +12,12 @@ const Footer = () => {
 	const handleClick = (e: React.MouseEvent) => {
 		e.preventDefault();
 		const href = (e.target as HTMLAnchorElement).getAttribute('href') as string;
-		navigate(href);
+
+		if(href.startsWith('https://') || href.startsWith('http://')) {
+			window.open(href, '_blank')!.focus();
+		} else {
+			navigate(href);
+		}
 	};
 
 	useEffect(() => {
@@ -39,7 +44,7 @@ const Footer = () => {
 			<div className="right">
 				<ul>
 					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
-					<li><a href="/rss" onClick={handleClick}>RSS Feed</a></li>
+					<li><a href="http://backend.cynthia.sec.aqui.vscx.eu/feed/" onClick={handleClick}>RSS Feed</a></li>
 					<li><a href="/sitemap" onClick={handleClick}>Sitemap</a></li>
 					<li><a href="/contact" onClick={handleClick}>Contact</a></li>
 					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>

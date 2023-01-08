@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, BrowserRouter, Routes, Route } from "react-router-dom";
+import gsap from "gsap";
 
 /* Styles */
 import './styles/app.css';
@@ -25,6 +26,13 @@ import Footer from './components/Footer';
 import Logo from "./static/logo.svg";
 
 const App = () => {
+
+    /* GSAP Configuration */
+    gsap.config({
+        autoSleep: 60,
+        force3D: false,
+        nullTargetWarn: false
+    });
 
     return (
         <BrowserRouter>

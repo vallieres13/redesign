@@ -39,11 +39,20 @@ import ragbitLogo from '../static/images/logos/ragbit.png';
 import stortrecLogo from '../static/images/logos/stortrec.png';
 import ArrowRight from "../static/images/icons/arrow-right.png";
 
+/* Impressions */
+import Impression02 from "../static/images/impressions/friendello.png";
+import Impression3 from "../static/images/impressions/ers.png";
+import Impression4 from "../static/images/impressions/stapp.png";
+import Impression6 from "../static/images/impressions/stapp-logo.jpg";
+import Impression7 from "../static/images/impressions/deineit.com.png";
+
+
 /* GSAP Register */
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const About = () => {
 
+	/* Constants */
 	const navigate = useNavigate();
 
 	const roles = [
@@ -123,12 +132,6 @@ const About = () => {
 		}, 750);
 
 
-		/* Fade in vertical line */
-		setTimeout(() => {
-			root.style.setProperty('--borderColor', '#111111');
-		}, 1000);
-
-
 		let hoverElement: null|HTMLDivElement = null;
 
 		/* Init hover effect for software logos */
@@ -179,20 +182,92 @@ const About = () => {
 		});
 
 
-		/* Cleanup */
-		return () => {
-			gsap.to('.person', {
-				autoAlpha: 0,
-				yPercent: 20
+
+		/* Simple Parallax for section titles only */
+
+		const sections = document.querySelectorAll('.portfolio section:not(.intro)') as NodeListOf<HTMLElement>;
+
+		const spacingMultiplier = 1.3;
+		let approxSectionSpacing = 500;
+
+		sections.forEach((section: HTMLElement) => {
+			if(!section.querySelector(':scope > .title')) return;
+
+			const title = section.querySelector(':scope > .title') as HTMLDivElement;
+			title.style.marginTop = approxSectionSpacing + 'px';
+
+			approxSectionSpacing = approxSectionSpacing * spacingMultiplier;
+		});
+
+		window.addEventListener('scroll', () => {
+			const body = document.body,
+				  html = document.documentElement;
+			const height = Math.max( body.scrollHeight, body.offsetHeight,
+				  html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+			const current = window.scrollY;
+			const per = (current / height);
+			let speed = 1400;
+
+			sections.forEach((section: HTMLElement) => {
+				if(!section.querySelector(':scope > .title')) return;
+				const title = section.querySelector(':scope > .title') as HTMLDivElement;
+				title.style.transform = 'translateY(-' + (per * speed + 200) + 'px)';
+				speed = speed - 100;
+			});
+		});
+
+
+		/* References Carousel */
+
+		const carousel = document.querySelector('.carousel') as HTMLUListElement;
+		const singleSlideDistance = 850;
+
+		/* Slide Carousel on Mouse Click */
+		const carouselCards = carousel.querySelectorAll(':scope > li') as NodeListOf<HTMLLIElement>;
+
+		const resetCarouselHoverCursors = (card: HTMLLIElement) => {
+			carouselCards.forEach((carouselCard: HTMLLIElement) => {
+				if(carouselCard.className.includes('next')) carouselCard.classList.remove('next');
+				if(carouselCard.className.includes('previous')) carouselCard.classList.remove('previous');
 			});
 
-			gsap.to('.role', {
-				autoAlpha: 0,
-				yPercent: 40
+			/* Check if hovered card is before or after the active one. */
+			if(card.nextSibling) {
+				(card.nextSibling as HTMLLIElement).classList.add('next');
+			}
+			if(card.previousSibling) {
+				(card.previousSibling as HTMLLIElement).classList.add('previous');
+			}
+		}
+
+		const slideCarousel = (item: number) => {
+			const cardActive = carousel.querySelector(':scope > li.active') as HTMLLIElement;
+			const cardNew = carousel.querySelector(':scope > li[data-slide="' + item + '"]') as HTMLLIElement;
+
+			cardActive.classList.remove('active');
+			cardNew.classList.add('active');
+
+			gsap.to(carousel, {
+				scrollTo: {
+					x: (500 + (singleSlideDistance * (item - 1)))
+				},
+				duration: .5
 			});
 
+			resetCarouselHoverCursors(cardNew);
 		};
-	});
+
+		carouselCards.forEach((card: HTMLLIElement) => {
+			card.addEventListener('click', () => {
+				slideCarousel(Number(card.getAttribute('data-slide')));
+			});
+		});
+
+		/* 2 Slides in as Default */
+		carousel.scrollBy(1350, 0);
+
+	}, []);
 
 
 	const root = document.querySelector(':root') as HTMLElement;
@@ -264,7 +339,7 @@ const About = () => {
 							{roles.map(({ title, section }, index) => {
 								return (
 									<span className="role" onClick={handleClickRole} onMouseOver={handleHoverRole} onMouseLeave={handleUnhoverRole} key={index}>
-										<a href="#!" className="nocursor" data-section={section}>{title}</a><br />
+										<a href="#!" className="nocursor" data-section={section}>{title}</a>
 									</span>
 								);
 							})}
@@ -345,12 +420,12 @@ const About = () => {
 				<section className="customers">
 					<h3>I worked together with …</h3>
 					<ul>
-						<li><img src={ladadiLogo} alt="Landkreis Darmstadt, Dieburg" /></li>
-						<li><img src={odenwaldLogo} alt="Odenwaldkreis" /></li>
-						<li><img src={offenbachLogo} alt="Odenwaldkreis" /></li>
-						<li><img src={deineitLogo} alt="DeineIT.com" /></li>
-						<li><img src={ragbitLogo} alt="RAGBIT®NET" /></li>
-						<li><img src={stortrecLogo} alt="StorTrec AG" /></li>
+						<li><a href="https://www.ladadi.de/" target="_blank" rel="noopener noreferrer nofollow"><img src={ladadiLogo} alt="Landkreis Darmstadt, Dieburg" /></a></li>
+						<li><a href="https://www.odenwaldkreis.de/" target="_blank" rel="noopener noreferrer nofollow"><img src={odenwaldLogo} alt="Odenwaldkreis" /></a></li>
+						<li><a href="https://www.kreis-offenbach.de/" target="_blank" rel="noopener noreferrer nofollow"><img src={offenbachLogo} alt="Kreis Offenbach" /></a></li>
+						<li><a href="https://deineit.com/" target="_blank" rel="noopener noreferrer nofollow"><img src={deineitLogo} alt="DeineIT.com" /></a></li>
+						<li><a href="https://ragbit.net/" target="_blank" rel="noopener noreferrer nofollow"><img src={ragbitLogo} alt="RAGBIT®NET" /></a></li>
+						<li><a href="https://www.stortrec.de/" target="_blank" rel="noopener noreferrer nofollow"><img src={stortrecLogo} alt="StorTrec AG" /></a></li>
 					</ul>
 					<h4>Ready to add your name to the list?</h4>
 					<p>Let's work on your new project, together.</p>
@@ -358,7 +433,13 @@ const About = () => {
 				</section>
 				<section className="impressions">
 					<h3>Impressions</h3>
-					<p>// TODO: Add carousel with impression images</p>
+					<ul className="carousel">
+						<li style={{ backgroundImage: 'url(' + Impression02 + ')' }} data-slide="0"><h5>Social Media Network</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression3 + ')' }} data-slide="1" className="previous"><h5>Gesamtschule</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression4 + ')' }} data-slide="2" className="active"><h5>Wanderschäfer Homepage</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression6 + ')' }} data-slide="3" className="next"><h5>Logo für moderne Schäferei</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression7 + ')' }} data-slide="4"><h5>Corperate Webseite</h5></li>
+					</ul>
 				</section>
 			</section>
 		</>
