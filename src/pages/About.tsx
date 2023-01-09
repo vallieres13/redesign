@@ -248,12 +248,7 @@ const About = () => {
 			cardActive.classList.remove('active');
 			cardNew.classList.add('active');
 
-			gsap.to(carousel, {
-				scrollTo: {
-					x: (500 + (singleSlideDistance * (item - 1)))
-				},
-				duration: .5
-			});
+			cardNew.scrollIntoView({ behavior: "smooth", inline: "center" });
 
 			resetCarouselHoverCursors(cardNew);
 		};
@@ -435,9 +430,9 @@ const About = () => {
 					<h3>Impressions</h3>
 					<ul className="carousel">
 						<li style={{ backgroundImage: 'url(' + Impression02 + ')' }} data-slide="0"><h5>Social Media Network</h5></li>
-						<li style={{ backgroundImage: 'url(' + Impression3 + ')' }} data-slide="1" className="previous"><h5>Gesamtschule</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression3 + ')' }} data-slide="1" className="previous"><h5>Middle- / Highscool</h5></li>
 						<li style={{ backgroundImage: 'url(' + Impression4 + ')' }} data-slide="2" className="active"><h5>Wanderschäfer Homepage</h5></li>
-						<li style={{ backgroundImage: 'url(' + Impression6 + ')' }} data-slide="3" className="next"><h5>Logo für moderne Schäferei</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression6 + ')' }} data-slide="3" className="next"><h5>Logo for modern Shepherd</h5></li>
 						<li style={{ backgroundImage: 'url(' + Impression7 + ')' }} data-slide="4"><h5>Corperate Webseite</h5></li>
 					</ul>
 				</section>

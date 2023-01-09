@@ -45,8 +45,8 @@ const Footer = () => {
 				<ul>
 					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
 					<li><a href="http://backend.cynthia.sec.aqui.vscx.eu/feed/" onClick={handleClick}>RSS Feed</a></li>
-					<li><a href="/sitemap" onClick={handleClick}>Sitemap</a></li>
-					<li><a href="/contact" onClick={handleClick}>Contact</a></li>
+					<li><a href="http://localhost:3000/sitemap.xml" onClick={handleClick}>Sitemap</a></li>
+					<li><a href="/hire" onClick={handleClick}>Contact</a></li>
 					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>
 					<li><a href="/imprint" onClick={handleClick}>Imprint</a></li>
 				</ul>

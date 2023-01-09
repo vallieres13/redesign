@@ -389,7 +389,7 @@ img {
 
 .dashboard > .card.article h3 {
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
-	font-size: 32pt;
+	font-size: 31pt;
 
 	margin: 1.25rem 0;
 	line-height: 42pt;
@@ -942,7 +942,7 @@ header {
 .portfolio section.impressions .carousel {
 	list-style-type: none;
 	white-space: nowrap;
-	overflow-x: hidden;
+	overflow-x: scroll;
 	padding: 0;
 	margin: 4rem 0;
 }
@@ -1445,11 +1445,28 @@ header {
 /* META
  =================================== */
 
+.page-text p::selection,
+.page-text p a::selection,
+.page-text h3::selection {
+	background-color: #D6D6D6;
+}
+
 .page-text h1 {
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	text-align: center;
 	font-size: 62pt;
 	margin: 40px 0 20px;
+}
+
+.page-text h1 .letter {
+	display: inline-block;
+}
+
+.page-text p img {
+	height: 20px;
+	width: auto;
+	vertical-align: -.3rem;
+	padding-right: .5rem;
 }
 
 ul.breadcrumbs,
@@ -1496,6 +1513,10 @@ ul.breadcrumbs li:not(:last-child)::after,
 	transition: background 150ms ease;
 	background-size: auto 175%;
 	padding: 0 2px;
+}
+
+.page-text a.white {
+	background-image: linear-gradient(white 50%, rgb(211, 211, 211) 50%);
 }
 
 .notfound a:hover,
@@ -1562,10 +1583,22 @@ ul.breadcrumbs li:not(:last-child)::after,
 	background-color: white;
 	padding: 20px 50px;
 	color: black;
+	margin-bottom: 1.5rem;
+}
+
+.page-text .page-text-content.paper h3 {
+	color: black;
+	text-transform: uppercase;
+	font-family: 'SF Pro Display Heavy', sans-serif;
 }
 
 .page-text .page-text-content.paper p {
 	color: black;
+	text-align: left;
+}
+
+.page-text .page-text-content.paper .react-pdf__Document div > div {
+	display: none;
 }
 
 
