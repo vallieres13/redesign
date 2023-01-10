@@ -84,7 +84,6 @@ const About = () => {
 		document.title = 'About Me' + process.env.REACT_APP_TITLE;
 
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-		root.style.setProperty('--borderColor', 'transparent');
 
 		/* Change Background colour */
 		gsap.to('body', {
@@ -102,21 +101,30 @@ const About = () => {
 			duration: .5
 		});
 
-		let name = document.querySelector('.name') as HTMLHeadingElement;
-		name.innerHTML = name.textContent!.replace(/\S/g, '<span class="letter">$&</span>');
-		let nameLetters = name.querySelectorAll(':scope .letter');
+		let names = document.querySelectorAll('h1.name') as NodeListOf<HTMLHeadingElement>;
+		let stagger = 1;
 
-		gsap.fromTo(nameLetters, {
-			opacity: 0,
-			xPercent: 40
-		}, {
-			opacity: 1,
-			xPercent: 0,
-			duration: .2,
-			stagger: .025,
-			ease: 'power1',
-			delay: .4
+		names.forEach((name: HTMLHeadingElement) => {
+			name.innerHTML = name.textContent!.replace(/\S/g, '<span class="letter">$&</span>');
+			let nameLetters = name.querySelectorAll(':scope .letter');
+
+			setTimeout(() => {
+				gsap.fromTo(nameLetters, {
+					opacity: 0,
+					xPercent: 40
+				}, {
+					opacity: 1,
+					xPercent: 0,
+					duration: .2,
+					stagger: .025,
+					ease: 'power1',
+					delay: .4
+				});
+			}, stagger);
+
+			stagger = 200;
 		});
+
 
 		setTimeout(() => {
 			gsap.fromTo('.role', {
@@ -182,7 +190,6 @@ const About = () => {
 		});
 
 
-
 		/* Simple Parallax for section titles only */
 
 		const sections = document.querySelectorAll('.portfolio section:not(.intro)') as NodeListOf<HTMLElement>;
@@ -207,7 +214,7 @@ const About = () => {
 
 			const current = window.scrollY;
 			const per = (current / height);
-			let speed = 1400;
+			let speed = 1500;
 
 			sections.forEach((section: HTMLElement) => {
 				if(!section.querySelector(':scope > .title')) return;
@@ -221,7 +228,6 @@ const About = () => {
 		/* References Carousel */
 
 		const carousel = document.querySelector('.carousel') as HTMLUListElement;
-		const singleSlideDistance = 850;
 
 		/* Slide Carousel on Mouse Click */
 		const carouselCards = carousel.querySelectorAll(':scope > li') as NodeListOf<HTMLLIElement>;
@@ -264,16 +270,11 @@ const About = () => {
 
 	}, []);
 
-
-	const root = document.querySelector(':root') as HTMLElement;
-
 	const handleHoverRole = (e: React.MouseEvent) => {
 		gsap.to(e.target, {
 			autoAlpha: 1,
 			duration: .1
 		});
-
-		root.style.setProperty('--borderColor', '#333333');
 	};
 
 	const handleUnhoverRole = (e: React.MouseEvent) => {
@@ -281,8 +282,6 @@ const About = () => {
 			autoAlpha: .6,
 			duration: .1
 		});
-
-		root.style.setProperty('--borderColor', '#111111');
 	};
 
 	const handleClickRole = (e: React.MouseEvent) => {
@@ -329,7 +328,8 @@ const About = () => {
 				<section className="intro">
 					<img src={Person} className="person" alt="Felix Hebgen" />
 					<div className="title">
-						<h1 className="name">Felix &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hebgen</h1>
+						<h1 className="name">Felix</h1>
+						<h1 className="name">Hebgen</h1>
 						<p className="roles">
 							{roles.map(({ title, section }, index) => {
 								return (
@@ -347,7 +347,7 @@ const About = () => {
 						<div className="description">
 							<div className="imessage">
 								<p className="from-me">
-									I'm a Full-Stack Developer. From database management, to complex interface design with JavaScript libraries, to writing an API from scratch or using Backend frameworks like Kotlin with Bootspring. I've done just about everything.
+									I'm a Full-Stack Developer. From database management, to complex interface design with JavaScript libraries, to writing an API from scratch or using Backend frameworks like Kotlin with Bootspring. I've done it.
 								</p>
 							</div>
 						</div>
@@ -391,7 +391,7 @@ const About = () => {
 				</section>
 				<section className="video right">
 					<div className="title">
-						<h2 className="name highlighted" style={{ marginLeft: '12rem' }}>Video Production</h2>
+						<h2 className="name highlighted">Video Production</h2>
 						<div className="description">
 							<div className="imessage">
 								<p className="from-me">

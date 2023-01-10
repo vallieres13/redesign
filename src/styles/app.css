@@ -81,7 +81,7 @@ img {
 
 .logo a:focus,
 .logo a:active {
-	cursor: pointer;
+	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
 }
 
 
@@ -538,6 +538,119 @@ header {
 	margin: -5px -20px 0 0;
 }
 
+
+.nav .hamburger {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin: .35rem .5rem 0 0;
+	cursor: pointer;
+	transform: scale(-1.2, 1.2);
+	z-index: 999;
+	display: none;
+}
+
+.nav .hamburger div {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 22px;
+	height: 12px;
+	pointer-events: none;
+}
+
+.nav .hamburger span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 3px;
+	background-color: #D8D8D8;
+	border-radius: 1px;
+	transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+}
+
+.nav .hamburger span:first-of-type {
+	top: 0;
+}
+
+.nav .hamburger span:last-of-type {
+	bottom: 0;
+}
+
+.nav .hamburger.active {
+	position: fixed;
+	right: 48px;
+}
+
+.nav .hamburger.active span:first-of-type {
+	transform: rotate(45deg);
+	top: 5px;
+	background-color: white;
+}
+
+.nav .hamburger.active span:last-of-type {
+	transform: rotate(-45deg);
+	bottom: 4px;
+	background-color: white;
+}
+
+.nav .hamburger.active:hover span:first-of-type,
+.nav .hamburger.active:hover span:last-of-type {
+	width: 22px;
+}
+
+.nav .hamburger:hover span {
+	background-color: white;
+}
+
+@media (min-width: 1024px) {
+	.nav .hamburger:hover span:first-of-type {
+		width: 24px;
+	}
+	.nav .hamburger:hover span:last-of-type {
+		width: 14px;
+	}
+}
+
+.mobile-nav {
+	display: none;
+	position: fixed;
+	transform: translateX(475px);
+	background-color: rgba(34, 34, 34, .4);
+	backdrop-filter: blur(44px);
+	padding: 7rem 12rem 0 2rem;
+	height: 100%;
+	right: 0;
+	overflow: hidden;
+	z-index: 399;
+}
+
+.mobile-nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.mobile-nav ul li {
+	padding: 0;
+	margin: 0;
+}
+
+.mobile-nav ul li a {
+	color: #F0F0F0;
+	display: block;
+	text-decoration: none;
+	font-family: 'SF Pro Display Medium', sans-serif;
+	font-size: 18pt;
+	letter-spacing: .1rem;
+	padding: 25px;
+	text-transform: uppercase;
+}
+
+
 .nav ul li {
 	display: inline-block;
 }
@@ -560,6 +673,7 @@ header {
 	transition: transform .2s;
 }
 
+.mobile-nav ul li a sup,
 .nav ul li a sup {
 	background-color: #C6C6C6;
 	color: black;
@@ -572,6 +686,12 @@ header {
 	position: absolute;
 	transition: transform .15s;
 }
+
+.mobile-nav ul li a sup {
+	margin: .18rem 0 0 1rem;
+	background-color: #F0F0F0;
+}
+
 
 /* -- Change font for active item
 .nav ul li a.active::before,
@@ -665,6 +785,10 @@ header {
 	margin-top: -5rem;
 }
 
+.portfolio .intro .title h1:last-of-type {
+	margin-top: -10rem;
+}
+
 .portfolio .intro .title h1 {
 	position: relative;
 
@@ -676,6 +800,7 @@ header {
 
 .portfolio .intro .title h1 .letter {
 	display: inline-block;
+	opacity: 0;
 }
 
 .portfolio .intro .title p.roles {
@@ -1044,14 +1169,12 @@ header {
 
 .notfound .header h1,
 .stories .header h1 {
-	position: relative;
 	display: inline-block;
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
 	font-size: 92pt;
 	background-color: black;
 	padding: 0 75px;
 	margin-left: -75px;
-	z-index: 99;
 }
 
 .notfound .header h1 .letter,
@@ -1123,14 +1246,11 @@ header {
 }
 
 .story .header .image {
-	position: absolute;
 	border-radius: 15px;
 	margin-left: 30rem;
 	margin-top: -45rem;
-	z-index: 199;
 	transition: filter .2s;
 	filter: grayscale(.3);
-
 	width: 1150px;
 	height: 765px;
 	object-fit: cover;
@@ -1210,7 +1330,7 @@ header {
 }
 
 .story .article-content {
-	padding-top: 15rem;
+	padding-top: 5rem;
 	margin: 5rem 5rem;
 	font-family: 'SF Pro Display Thin', sans-serif;
 	font-size: 18pt;
@@ -1308,6 +1428,11 @@ header {
 	font-size: 13pt;
 }
 
+/* Read more section */
+
+.stories.readmore {
+	margin: 7rem auto 4rem;
+}
 
 /* DESIGN LABS
  =================================== */
@@ -1680,7 +1805,12 @@ button:hover {
  =================================== */
 
 .preloader {
-	margin: 35vh auto 45vh;
+	margin: 0 auto;
+	padding: 35vh 0 45vh;
+}
+
+.preloader:hover {
+	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
 }
 
 .preloader .spinner {
@@ -1714,7 +1844,6 @@ button:hover {
  =================================== */
 
 footer {
-	position: relative;
 	z-index: 99;
 	font-family: 'SF Pro Display Medium', sans-serif;
 	padding: 80px 0;
@@ -1927,6 +2056,732 @@ p.from-them::after {
 	.portfolio .left {
 		display: flex;
 		margin-left: 12rem;
+	}
+
+	/* Hire Document */
+	.page-text .page-text-content.resume > div {
+		margin-left: -4rem;
+		margin-top: -2rem;
+		transform: scale(.95);
+	}
+
+}
+
+/* -- 1620vw */
+@media (max-width: 1620px) {
+
+	/* Container Wide */
+	.container-wide {
+		max-width: 1420px;
+	}
+
+}
+
+/* -- 1400vw */
+@media (max-width: 1400px) {
+
+	/* Mobile Navigation */
+	.logo {
+		margin-left: 1rem;
+	}
+
+	.nav ul {
+		display: none;
+	}
+
+	.nav .hamburger {
+		display: block;
+	}
+
+	.mobile-nav {
+		display: block;
+	}
+
+	/* Grid System */
+	.grid {
+		display: block;
+	}
+
+	.grid > * {
+		margin: 2rem 0;
+	}
+
+	.grid.article-big > .thumbnail,
+	.article > .thumbnail {
+		background-image: inherit;
+		height: 30rem !important;
+		margin: -40px 0 !important;
+		background-size: cover !important;
+	}
+
+	.grid > .scrolldown {
+		width: 100px;
+		margin: 0 auto;
+		transform: scale(1, -1);
+	}
+
+	/* Portfolio */
+	.portfolio .intro {
+		margin-left: 6rem;
+		padding-bottom: 50rem;
+	}
+
+	.portfolio .intro .title .roles span:last-of-type {
+		display: none;
+	}
+
+	.portfolio > section:not(.intro) {
+		display: block;
+		margin: -15rem 0;
+	}
+
+	.portfolio > section.customers {
+		margin: -30rem 0 30rem;
+	}
+
+	.portfolio > section.impressions {
+		display: none;
+	}
+
+	.portfolio > section:not(.intro) .title h2 {
+		text-align: center;
+	}
+
+	.portfolio > section:not(.intro) .title .description {
+		margin: 0 auto;
+		padding-left: 125px;
+		display: block;
+		float: none;
+	}
+
+	.portfolio > section:not(.intro) .title .logos .logo-disclaimer {
+		text-align: center;
+		padding: 0 0 20px;
+	}
+
+	.portfolio > section:not(.intro) .title .logos {
+		margin: 3rem auto 0;
+		display: block;
+		width: 600px;
+		float: none;
+		text-align: center;
+	}
+
+	.portfolio > section:not(.intro) .title .logos img {
+		padding: 0 20px 30px;
+	}
+
+	.portfolio > section:not(.intro) .image {
+		display: none;
+	}
+
+	/* Articles */
+	.article {
+		padding: 0 !important;
+		margin: 6rem 0 3.5rem;
+	}
+
+	.article-big {
+		margin-top: 0;
+	}
+
+	.article-big > .thumbnail {
+		border-radius: 15px 15px 0 0 !important;
+	}
+
+	.article-big .span-1 h3 {
+		margin: 0 -2.5rem !important;
+		background-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	.article-big .span-1 {
+		padding: 20px 50px 30px !important;
+	}
+
+	.article-big .span-1,
+	.article > div:not(.thumbnail) {
+		padding: 20px 50px 60px;
+	}
+
+	.article h3 {
+		font-size: 28pt !important;
+		line-height: 34pt !important;
+	}
+
+	/* Article */
+	.story .header .phantom {
+		display: none;
+	}
+
+	.story .header h1 {
+		position: static;
+		font-size: 64pt;
+		display: block;
+		width: 100%;
+		margin: -2rem 0 2rem 0;
+	}
+
+	.story .header .author {
+		margin: 1rem 0 2rem;
+		display: inline-block;
+		position: relative;
+	}
+
+	.story .header .image {
+		display: block;
+		margin: 0;
+		width: 100%;
+	}
+
+	.story .article-content {
+		margin: -2rem 2rem 4.5rem;
+	}
+
+	.story .meta {
+		margin: 3rem .75rem 8rem;
+	}
+
+	.story .meta > div {
+		margin: 0 0 20px 20px;
+		position: static;
+	}
+
+	.story .meta .author-card img {
+		height: 55px;
+		width: 55px;
+		vertical-align: -.25rem;
+	}
+
+	.story .meta .author-card .details {
+		margin-left: 1.75rem;
+	}
+
+	.story .meta > div .details h3 {
+		font-size: 18pt;
+	}
+
+	.story .meta > div .details p {
+		font-size: 11pt;
+	}
+
+	.stories.readmore {
+		margin-left: 3.5rem;
+		margin-right: 3.5rem;
+	}
+
+	/* Page Content */
+	.page-text-content {
+		margin: 0 3rem 2rem !important;
+	}
+
+	/* Hire Document */
+	.page-text .page-text-content.resume > div {
+		margin-left: 7rem;
+		margin-top: 7.5rem;
+		padding-bottom: 6.5rem;
+		transform: scale(1.2);
+	}
+
+	/* Container */
+	.container {
+		margin: 0 3rem;
+	}
+
+	/* Dashboard */
+	.dashboard .card {
+		min-height: 0px;
+	}
+
+}
+
+/* -- 1250vw */
+@media (max-width: 1250px) {
+
+	/* Portfolio */
+	.portfolio .intro {
+		display: block;
+	}
+
+	.portfolio .intro img {
+		display: block;
+		width: 85%;
+		object-fit: cover;
+	}
+
+	.portfolio .intro .title {
+		margin: -24rem 0 0 0;
+	}
+
+	.portfolio .intro .title .name {
+		margin: 8rem 0;
+	}
+
+	.portfolio .intro .title .name .letter {
+		font-size: 77pt;
+		line-height: 67pt;
+		background-color: black;
+		padding: 30px 0;
+		margin: -30px 0;
+	}
+
+	.portfolio .intro .title .name .letter:last-of-type {
+		padding-right: 35px;
+	}
+
+	.portfolio .intro .title .roles span {
+		font-size: 28pt;
+	}
+
+}
+
+/* -- 1080vw */
+@media (max-width: 1080px) {
+
+	/* Mobile Navigation */
+	.logo {
+		margin-left: .5rem;
+	}
+
+	/* Promo */
+	.promo h1 {
+		font-size: 69pt;
+		line-height: 80pt;
+	}
+
+	.promo button {
+		font-size: 14pt;
+	}
+
+	.promo button img {
+		height: 18px;
+	}
+
+	/* Dashboard */
+	.dashboard .card h2 {
+		font-size: 40pt;
+		line-height: 50pt;
+	}
+
+	/* Header */
+	.stories .header {
+		height: 300px;
+	}
+
+	.stories .header h1 {
+		margin: 4rem 0 2rem;
+		padding: 0;
+		display: block;
+		font-size: 55pt;
+		text-align: center;
+		z-index: 1;
+	}
+
+	.stories .header hr {
+		display: none;
+	}
+
+	.stories .header .breadcrumbs {
+		display: block;
+		margin: 0;
+		float: none;
+	}
+
+	/* Portfolio */
+	.portfolio > section:not(.intro) .title h2 {
+		font-size: 55pt;
+		line-height: 65pt;
+	}
+
+	.portfolio > section:not(.intro) .title .description {
+		padding-left: 65px;
+	}
+
+	.portfolio > section:not(.intro) .title .description p {
+		font-size: 14pt;
+	}
+
+	/* Page Content */
+	.page-text h1 {
+		font-size: 40pt;
+	}
+
+	/* Hire Document */
+	.page-text .page-text-content.resume > div {
+		margin-left: -3rem;
+		margin-top: -5rem;
+		margin-bottom: -10rem;
+		transform: scale(.9);
+	}
+
+	/* Footer */
+	footer {
+		padding: 25px 0 3.5rem;
+	}
+
+	footer .left,
+	footer .right {
+		display: block;
+		float: none;
+	}
+
+	footer .right ul {
+		padding: 0;
+		margin-bottom: 1.5rem;
+	}
+
+	footer .right ul li {
+		padding: 0 20px 15px 0;
+	}
+
+}
+
+/* -- 800vw */
+@media (max-width: 800px) {
+
+	/* Promo */
+	.promo h1 {
+		margin-top: -5rem;
+		max-width: 80%;
+		font-size: 40pt;
+		line-height: 55pt;
+	}
+
+	.promo h1 .word:nth-child(5) {
+		margin-left: -1rem;
+	}
+
+	.promo button {
+		font-size: 11pt;
+		padding: 12px 25px;
+		margin-bottom: 6rem;
+	}
+
+	.promo button img {
+		height: 13px;
+	}
+
+	/* Container */
+	.container {
+		margin: 0 1.5rem;
+	}
+
+	/* Dashboard */
+	.dashboard .card h2 {
+		font-size: 30pt;
+		line-height: 40pt;
+	}
+
+	.dashboard .card p {
+		font-size: 13pt;
+	}
+
+	.dashboard button {
+		position: relative;
+		display: block;
+		margin-top: 2rem !important;
+		width: 100%;
+		font-size: 12pt;
+		padding: 8px 16px;
+	}
+
+	/* Portfolio */
+	.portfolio .intro {
+		margin: 2rem 0 0 3rem;
+	}
+
+	.portfolio .intro img {
+		width: 93%;
+	}
+
+	.portfolio .intro .title {
+		margin-top: -21rem;
+	}
+
+	.portfolio .intro .title .name {
+		margin: 6.5rem 0;
+	}
+
+	.portfolio .intro .title .name:last-of-type {
+		margin-bottom: 8rem;
+	}
+
+	.portfolio .intro .title .name .letter {
+		font-size: 57pt;
+		line-height: 57pt;
+		padding: 25px 0;
+		margin: -25px 0;
+	}
+
+	.portfolio .intro .title .roles span {
+		font-size: 22pt;
+	}
+
+	/* Portfolio Sections */
+	.portfolio > section:not(.intro) .title {
+		padding: 0 1rem;
+	}
+
+	.portfolio > section:not(.intro) .title h2 {
+		font-size: 40pt;
+		line-height: 48pt;
+	}
+
+	.portfolio > section:not(.intro) .title .description {
+		padding-left: 65px;
+	}
+
+	.portfolio > section:not(.intro) .title .description p {
+		font-size: 13pt;
+	}
+
+	.portfolio > section:not(.intro) .title .logos {
+		max-width: 100%;
+	}
+
+	.portfolio > section.customers h3 {
+		font-size: 26pt;
+	}
+
+	.portfolio > section.customers ul li a img {
+		height: 60px;
+		width: auto;
+	}
+
+	/* Article */
+
+	.story .header h1 {
+		font-size: 50pt;
+		text-align: center;
+	}
+
+	.story .header .author {
+		position: static;
+		width: 250px;
+		display: block;
+		margin: 0 auto 2rem;
+	}
+
+	.story .header .image {
+		height: 550px;
+	}
+
+	/* Page Content */
+	.page-text-content {
+		margin: 0 1rem 2rem !important;
+	}
+
+	/* Hire Document */
+	.page-text .page-text-content.resume {
+		display: none;
+	}
+
+}
+
+/* -- 550vw Mobile Large */
+@media (max-width: 525px) {
+
+	/* Portfolio Sections */
+	.portfolio > section.customers {
+		margin-bottom: 50rem;
+	}
+
+	/* Logo */
+	.logo img {
+		height: 35px;
+		margin-top: 5px;
+	}
+
+	.logo a:focus img,
+	.logo a:active img {
+		padding: 15px 15px 8px;
+	}
+
+	/* Promo */
+	.promo {
+		margin: 0;
+	}
+
+	.promo h1 {
+		margin: 0 auto;
+		font-size: 36pt;
+		line-height: 39pt;
+	}
+
+	.promo h1 .word:nth-child(5) {
+		margin-left: -.8rem;
+	}
+
+	.promo button {
+		padding: 10px 20px;
+		font-size: 11.5pt;
+		text-transform: uppercase;
+	}
+
+	.promo button img {
+		height: 13px;
+	}
+
+	/* Dashboard */
+	.dashboard .card h2 {
+		font-size: 23pt;
+		line-height: 33pt;
+	}
+
+	.dashboard .card p {
+		font-size: 12pt;
+	}
+
+	/* Header */
+	.stories .header {
+		height: 250px;
+	}
+
+	/* Articles */
+	.dashboard > .card.article > div.thumbnail {
+		height: 15rem !important;
+	}
+
+	.article-big .span-1,
+	.article > div:not(.thumbnail) {
+		padding: 5px 40px 30px !important;
+	}
+
+	.dashboard > .card.article .details ul.tags li {
+		padding: 5px 15px;
+		font-size: 9pt;
+		margin: 0 10px 10px 0;
+	}
+
+	.dashboard > .card.article h3 {
+		font-size: 22pt !important;
+		line-height: 30pt !important;
+	}
+
+	/* Article */
+	.story .header h1 {
+		font-size: 28pt;
+	}
+
+	.story .header .author {
+		width: 90%;
+	}
+
+	.story .header .image {
+		height: 300px;
+	}
+
+	.story .article-content {
+		font-size: 14pt;
+		line-height: 22pt;
+		margin: -4rem .8rem 4rem;
+	}
+
+	.story .meta {
+		margin: 3rem 0 8rem;
+	}
+
+	.story .meta > div {
+		display: block;
+		width: 79%;
+		max-width: 79%;
+		margin: 0 0 1rem;
+	}
+
+	.stories.readmore {
+		margin-left: 2rem;
+		margin-right: 2rem;
+	}
+
+	.stories.readmore .dashboard .card {
+		margin: 4rem 0;
+	}
+
+	.story .readmore h3 {
+		font-size: 30pt;
+		display: block;
+		text-align: center;
+		padding: 0;
+	}
+
+	.story .readmore hr {
+		display: none;
+	}
+
+	/* Portfolio */
+	.portfolio > section:not(.intro) .title h2 {
+		font-size: 32pt;
+		line-height: 40pt;
+		padding: 0 0 15px;
+	}
+
+	.portfolio > section:not(.intro) .title .description {
+		margin-left: 2rem;
+	}
+
+	.portfolio > section:not(.intro) .title .description p {
+		font-size: 12pt;
+	}
+
+	.portfolio > section:not(.intro) .title .logos img {
+		max-height: 40px;
+		padding: 0 12px 20px;
+	}
+
+	.portfolio > section.customers h3 {
+		font-size: 22pt;
+		line-height: 35pt;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	.portfolio section.customers ul {
+		padding: 20px 0;
+	}
+
+	.portfolio section.customers ul li {
+		display: block;
+		padding: 1.5rem 0;
+	}
+
+	.portfolio section.customers h4 {
+		font-size: 20pt;
+		line-height: 30pt;
+		max-width: 300px;
+		margin: 4rem auto 0;
+	}
+
+	.portfolio section.customers p {
+		font-size: 13pt;
+	}
+
+	.portfolio section.customers button {
+		font-size: 13pt;
+		text-transform: uppercase;
+		padding: 13px 25px;
+	}
+
+	.portfolio section.customers button img {
+		height: 15px;
+	}
+
+	/* Footer */
+	footer {
+		font-size: 9pt;
+	}
+
+	footer .right {
+		font-size: 12pt;
+	}
+
+}
+
+/* -- 450vw */
+@media (max-width: 450px) {
+
+	/* Portfolio Sections */
+	.portfolio > section:not(.intro) .title .description {
+		padding-left: 0;
 	}
 
 }

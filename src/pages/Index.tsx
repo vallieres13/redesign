@@ -72,7 +72,7 @@ const Index = () => {
 				cards.forEach((elx) => {
 					if(elx === el) return;
 					gsap.to(elx, {
-						autoAlpha: .5,
+						autoAlpha: .6,
 						duration: .2
 					});
 				});
@@ -207,8 +207,8 @@ const Index = () => {
 				<Card go="/stories">
 					<h2>Stories.</h2>
 					<div className="description">
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr. 💯😅 Lorem ipsum dolor sit amet, sed diam voluptua ...</p>
-						<p>Lorem ipsum dolor sit amet ...</p>
+						<p>Read my latest thoughts on a bunch of different things, ranging from 💾💻 AI development to the review of gadgets and other technologies 📷📡 &hellip;</p>
+						<p>There's no comment section yet.</p>
 						<p className="tags">#blog #articles #updates #tech</p>
 						<Button>Visit the blog</Button>
 					</div>

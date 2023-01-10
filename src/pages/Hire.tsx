@@ -69,13 +69,13 @@ const Hire = () => {
 				<div className="page-text-content paper">
 					<h3 style={{ marginBottom: '1rem' }}>Information</h3>
 					<p>Are you looking for a developer? Download my CV or checkout the <a href="/about" className="white">About Me</a> page for more about myself.</p>
-					<p>I've already proven my knowledge and qualifications as a developer through projects in which I was allowed to work with like-minded people. The spectrum of my work so far goes from database management, designing drafts and prototyping, teaching basic web design in schools to developing API interfaces from scratch.</p>
-					<p>I'm ready to move to a different place, because that's been my plan all along anyways. I prefer Darmstadt, Hessen as my next destination, but that decision hasn't been made fully.</p>
+					<p>I've proven my qualifications as a developer through collaborative projects in which I worked with other software engineers. The spectrum of my work so far goes from database management, designing drafts and prototyping, teaching basic web design in schools and developing API interfaces from scratch.</p>
+					<p>I'm ready to move to a different place, because I've been planning to do that anyways. I was eyeing Darmstadt as the new place to be, but that's mostly up to my employer.</p>
 					<p>Do you have any questions or would you like to call? I am motivated to introduce myself again in person so we can get to know each other better.</p>
-					<p><img src={pdfIcon} alt="Download File" /><a href="#!" className="white">Download CV</a></p>
+					<p><img src={pdfIcon} alt="Download File" /><a href="/lebenslauf.pdf" className="white">Download CV</a></p>
 					<p><img src={rightArrowIcon} alt="Visit Page" /><a href="/about" className="white">Visit Portfolio</a></p>
 				</div>
-				<div className="page-text-content paper">
+				<div className="page-text-content paper resume">
 					<Document file={{ url: '/lebenslauf.pdf' }}>
 						<Page pageNumber={1} scale={1.475} />
 					</Document>

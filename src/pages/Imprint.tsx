@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import gsap from "gsap";
 
 const Imprint = () => {
@@ -30,11 +30,11 @@ const Imprint = () => {
 					</p>
 					<p>
 						<b>Represented by</b><br />
-						Felix Hebgen
+						Felix Hebgen &lt;mail@felixhebgen.de&gt;
 					</p>
 					<p>
-						<b>Webmaster</b><br />
-						administrative@visualstatic.net
+						<b>Technical Contact</b><br />
+						webmaster@felixhebgen.de
 					</p>
 
 					<h2>Accountability for Content</h2>

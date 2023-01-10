@@ -13,7 +13,7 @@ const Footer = () => {
 		e.preventDefault();
 		const href = (e.target as HTMLAnchorElement).getAttribute('href') as string;
 
-		if(href.startsWith('https://') || href.startsWith('http://')) {
+		if(href.startsWith('https://')) {
 			window.open(href, '_blank')!.focus();
 		} else {
 			navigate(href);
@@ -35,21 +35,21 @@ const Footer = () => {
 
 	return (
 		<footer className="container">
-			<div className="left">
-				<div className="copyright">
-					Copyright &copy; 2012 — 2022 Felix Hebgen. All Rights Reserved.<br />
-					Made in Höchst im Odenwald, Hessen, Germany. 🌳🌲
-				</div>
-			</div>
 			<div className="right">
 				<ul>
 					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
-					<li><a href="http://backend.cynthia.sec.aqui.vscx.eu/feed/" onClick={handleClick}>RSS Feed</a></li>
-					<li><a href="http://localhost:3000/sitemap.xml" onClick={handleClick}>Sitemap</a></li>
+					<li><a href="https://backend.felixhebgen.de/feed" onClick={handleClick}>RSS Feed</a></li>
+					<li><a href="https://www.felixhebgen.de/sitemap.xml" onClick={handleClick}>Sitemap</a></li>
 					<li><a href="/hire" onClick={handleClick}>Contact</a></li>
 					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>
 					<li><a href="/imprint" onClick={handleClick}>Imprint</a></li>
 				</ul>
+			</div>
+			<div className="left">
+				<div className="copyright">
+					Copyright &copy; 2012 — 2022 Felix Hebgen. All Rights Reserved.<br />
+					Built with React & WordPress. Made in Germany. 🌳🌲
+				</div>
 			</div>
 		</footer>
 	);

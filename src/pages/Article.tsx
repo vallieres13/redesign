@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import gsap from 'gsap';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 /* Components */
 import Card from '../components/containers/Card';
@@ -12,7 +12,7 @@ import ArrowRight from '../static/images/icons/arrow-right.png';
 import Author from '../static/images/authors/author.png';
 
 /* Services */
-import Request from "../services/Request";
+import Request from '../services/Request';
 
 /* GSAP Register */
 gsap.registerPlugin(ScrollToPlugin);
@@ -295,7 +295,7 @@ const Article = () => {
 								<hr />
 							</div>
 						</section>
-						<section className="stories container" style={{ margin: '7rem auto 4rem' }}>
+						<section className="stories container readmore">
 							<section className="dashboard grid" style={{ marginTop: '-50px' }}>
 								{
 									posts.map((post: any, index: number) => {
