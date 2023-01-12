@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { Document, pdfjs, Page } from 'react-pdf';
+import { Link } from 'react-router-dom';
 
 /* Static */
 import pdfIcon from "../static/images/icons/pdf.png";
@@ -63,17 +64,17 @@ const Hire = () => {
 			<section className="page-text container">
 				<h1 className="title">Hire Me</h1>
 				<ul className="breadcrumbs">
-					<li><a href="#">Home</a></li>
+					<li><Link to="/">Home</Link></li>
 					<li>Hire Me</li>
 				</ul>
 				<div className="page-text-content paper">
 					<h3 style={{ marginBottom: '1rem' }}>Information</h3>
-					<p>Are you looking for a developer? Download my CV or checkout the <a href="/about" className="white">About Me</a> page for more about myself.</p>
+					<p>Are you looking for a developer? Download my CV or checkout the <Link to="/about">About Me</Link> page for more about myself.</p>
 					<p>I've proven my qualifications as a developer through collaborative projects in which I worked with other software engineers. The spectrum of my work so far goes from database management, designing drafts and prototyping, teaching basic web design in schools and developing API interfaces from scratch.</p>
 					<p>I'm ready to move to a different place, because I've been planning to do that anyways. I was eyeing Darmstadt as the new place to be, but that's mostly up to my employer.</p>
 					<p>Do you have any questions or would you like to call? I am motivated to introduce myself again in person so we can get to know each other better.</p>
-					<p><img src={pdfIcon} alt="Download File" /><a href="/lebenslauf.pdf" className="white">Download CV</a></p>
-					<p><img src={rightArrowIcon} alt="Visit Page" /><a href="/about" className="white">Visit Portfolio</a></p>
+					<p><img src={pdfIcon} alt="Download File" /><a href="/lebenslauf.pdf">Download CV</a></p>
+					<p><img src={rightArrowIcon} alt="Visit Page" /><Link to="/about">About Me</Link></p>
 				</div>
 				<div className="page-text-content paper resume">
 					<Document file={{ url: '/lebenslauf.pdf' }}>

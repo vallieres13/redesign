@@ -5,7 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useNavigate } from "react-router-dom";
 
 /* Images */
-import Person from '../static/images/about/portfolio.jpg';
+import Person from '../static/images/about/portfolio.jpeg';
 import Webdev from '../static/images/about/webdev.png';
 import Design from '../static/images/about/design.png';
 import Video from '../static/images/about/video.png';
@@ -45,7 +45,6 @@ import Impression3 from "../static/images/impressions/ers.png";
 import Impression4 from "../static/images/impressions/stapp.png";
 import Impression6 from "../static/images/impressions/stapp-logo.jpg";
 import Impression7 from "../static/images/impressions/deineit.com.png";
-
 
 /* GSAP Register */
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);

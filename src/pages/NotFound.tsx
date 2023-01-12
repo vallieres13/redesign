@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import gsap from "gsap";
+import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
 
@@ -54,7 +55,7 @@ const NotFound = () => {
 					<h1>404</h1>
 					<hr />
 					<ul className="breadcrumbs">
-						<li><a href="#">Home</a></li>
+						<li><Link to="/">Home</Link></li>
 						<li>Page Not Found</li>
 					</ul>
 				</section>

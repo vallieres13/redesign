@@ -74,14 +74,14 @@ img {
 .logo a:focus img,
 .logo a:active img {
 	border: 1px solid #999999;
-	padding: 10px 15px 8px;
-	margin: -11px 0 -9px -16px;
+	padding: 15px 20px 8px;
+	margin: -16px 5px -9px -21px;
 	transition: none;
 }
 
 .logo a:focus,
 .logo a:active {
-	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
 }
 
 
@@ -765,7 +765,7 @@ header {
 .portfolio .intro img {
 	width: 35rem;
 	height: 100%;
-	filter: grayscale(.5);
+	filter: grayscale(.2);
 	overflow: hidden;
 	position: relative;
 	display: inline-block;
@@ -781,7 +781,7 @@ header {
 }
 
 .portfolio .intro .title {
-	margin-left: -6rem;
+	margin-left: 5rem;
 	margin-top: -5rem;
 }
 
@@ -1439,13 +1439,13 @@ header {
 
 .labs .background {
 	position: absolute;
-	height: 100%;
+	height: 200%;
 	width: 100%;
+	right: 0;
+	top: -17rem;
 
-	background-position: -510px;
-	background-repeat: no-repeat;
+	background-position: -510px 60px;
 	background-size: 120%;
-	margin-top: -16.5rem;
 	z-index: -99;
 	filter: brightness(.8);
 }
@@ -1640,7 +1640,8 @@ ul.breadcrumbs li:not(:last-child)::after,
 	padding: 0 2px;
 }
 
-.page-text a.white {
+
+.page-text-content.paper a {
 	background-image: linear-gradient(white 50%, rgb(211, 211, 211) 50%);
 }
 
@@ -2026,13 +2027,19 @@ p.from-them::after {
 	}
 
 	.stories .dashboard .card h3 {
-		font-size: 18pt;
-		line-height: 40pt;
+		font-size: 22pt;
+		line-height: 30pt;
+		margin-top: .5rem;
+	}
+
+	.dashboard > .card.article.article-big h3 {
+		font-size: 32pt;
+		line-height: 42pt;
 	}
 
 	/* Portfolio */
 	.portfolio .intro {
-		margin: 5rem 0 0 16rem;
+		margin: 5vh 0 0 16rem;
 	}
 
 	.portfolio .intro .intro_container {
@@ -2065,6 +2072,54 @@ p.from-them::after {
 		transform: scale(.95);
 	}
 
+	 /* Story  */
+	.story .header {
+		margin: 0 10rem;
+	}
+
+	.story .header h1 {
+		font-size: 74pt;
+		margin-left: -15rem;
+	}
+
+	.story .header .phantom {
+		margin-left: -8rem;
+	}
+
+	.story .header .image {
+		margin-top: -40rem;
+		margin-left: 15rem;
+	}
+
+	.story .header .author {
+		margin: -5rem 0 0 -2.5rem;
+	}
+
+	.story .article-content {
+		margin: 0 2.5rem 5rem;
+	}
+
+	.story .meta {
+		margin: 2.5rem 2.5rem 8rem;
+	}
+
+	.dashboard > .card.article .details {
+		margin-bottom: 0;
+	}
+
+	.dashboard > .card.article .details ul.tags li {
+		margin-bottom: 15px;
+	}
+
+	.dashboard > .card.article .timestamp p {
+		font-size: 15pt;
+	}
+
+	/* Labs */
+	.labs .background {
+		top: -8rem;
+	}
+
 }
 
 /* -- 1620vw */
@@ -2073,6 +2128,16 @@ p.from-them::after {
 	/* Container Wide */
 	.container-wide {
 		max-width: 1420px;
+	}
+
+	/* Portfolio */
+	.portfolio .intro .title h1 {
+		font-size: 100pt;
+	}
+
+	/* Labs */
+	.labs .background {
+		background: none;
 	}
 
 }
@@ -2175,6 +2240,12 @@ p.from-them::after {
 		display: none;
 	}
 
+	/* Climate */
+	.climate .heading h1 {
+		font-size: 80pt;
+		line-height: 90pt;
+	}
+
 	/* Articles */
 	.article {
 		padding: 0 !important;
@@ -2210,6 +2281,10 @@ p.from-them::after {
 	}
 
 	/* Article */
+	.story .header {
+		margin: 2rem 0 0;
+	}
+
 	.story .header .phantom {
 		display: none;
 	}
@@ -2290,7 +2365,7 @@ p.from-them::after {
 
 	/* Dashboard */
 	.dashboard .card {
-		min-height: 0px;
+		min-height: 0;
 	}
 
 }
@@ -2548,8 +2623,17 @@ p.from-them::after {
 		width: auto;
 	}
 
-	/* Article */
+	/* Climate */
+	.climate .heading h1 {
+		font-size: 60pt;
+		line-height: 70pt;
+	}
 
+	.labs .header h1 {
+		font-size: 45pt;
+	}
+
+	/* Article */
 	.story .header h1 {
 		font-size: 50pt;
 		text-align: center;
@@ -2658,6 +2742,16 @@ p.from-them::after {
 		line-height: 30pt !important;
 	}
 
+	/* Labs */
+	.labs .header h1 {
+		font-size: 30pt;
+	}
+
+	.labs .disclaimer {
+		width: 80%;
+		font-size: 10pt;
+	}
+
 	/* Article */
 	.story .header h1 {
 		font-size: 28pt;
@@ -2709,6 +2803,14 @@ p.from-them::after {
 	}
 
 	/* Portfolio */
+	.portfolio .intro .title {
+		margin-top: -15rem;
+	}
+
+	.portfolio .intro .title .name .letter {
+		font-size: 45pt;
+	}
+
 	.portfolio > section:not(.intro) .title h2 {
 		font-size: 32pt;
 		line-height: 40pt;
@@ -2763,6 +2865,12 @@ p.from-them::after {
 
 	.portfolio section.customers button img {
 		height: 15px;
+	}
+
+	/* Climate */
+	.climate .heading h1 {
+		font-size: 40pt;
+		line-height: 50pt;
 	}
 
 	/* Footer */

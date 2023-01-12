@@ -103,7 +103,7 @@ const Climate = () => {
 						<img src={Windmillimage} alt="Windmills" id="cover_windmill" />
 					</Card>
 					<Card gradient="linear-gradient(#2F2F2F 0%, #222222 100%)">
-						<h2 style={{ fontSize: '55pt', lineHeight: '65pt', marginRight: '-20px' }}>Ads for <span>charity</span>.</h2>
+						<h2>Ads for <span>charity</span>.</h2>
 						<p>
 							As a recurring donator to the non-profit organisation <a href="https://www.wwf.de/" target="_blank" rel="noreferrer">WWF</a>, I continue to aim towards an ongoing contribution to the preseveration of our precious nature.<br />
 							<small>** Complementary advertisements will be placed carefully, no pop-ups, placements or promoted inline links.</small>

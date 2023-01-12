@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
 			<section className="page-text container">
 				<h1 className="title">Privacy Policy</h1>
 				<ul className="breadcrumbs">
-					<li><a href="#">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li>Privacy Policy</li>
 				</ul>
 				<div className="page-text-content">
