@@ -682,8 +682,8 @@ header {
 	font-family: 'SF Pro Display Heavy', sans-serif;
 	padding: 4px 8px;
 	border-radius: 4px;
-	margin: -1.6rem 0 0 6.6rem;
-	position: absolute;
+	vertical-align: .3rem;
+	margin-left: .75rem;
 	transition: transform .15s;
 }
 
@@ -2678,7 +2678,9 @@ p.from-them::after {
 
 	.logo a:focus img,
 	.logo a:active img {
-		padding: 15px 15px 8px;
+		padding: 16px 15px 8px;
+		margin-left: -16px;
+		margin-top: -12px;
 	}
 
 	/* Promo */
@@ -2866,6 +2868,13 @@ p.from-them::after {
 	.portfolio section.customers button img {
 		height: 15px;
 	}
+
+	/* Page Context Paper */
+	.page-text .page-text-content.paper {
+		padding: 20px 35px;
+		margin: 0 -1.5rem !important;
+	}
+
 
 	/* Climate */
 	.climate .heading h1 {

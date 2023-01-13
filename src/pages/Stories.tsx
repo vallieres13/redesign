@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { CSSPlugin } from 'gsap/CSSPlugin';
@@ -171,7 +172,7 @@ const Stories = () => {
 								<h1>Stories</h1>
 								<hr />
 								<ul className="breadcrumbs">
-									<li><a href="#">Home</a></li>
+									<li><Link to="/">Home</Link></li>
 									<li>Stories</li>
 								</ul>
 							</section>
