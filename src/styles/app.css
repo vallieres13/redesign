@@ -389,7 +389,7 @@ img {
 
 .dashboard > .card.article h3 {
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
-	font-size: 31pt;
+	font-size: 29pt;
 
 	margin: 1.25rem 0;
 	line-height: 42pt;
@@ -417,13 +417,13 @@ img {
 .dashboard > .card.article .details ul.tags {
 	display: inline-block;
 	list-style-type: none;
-	margin: 0;
+	margin: 0 0 -10px;
 	padding: 0;
 }
 
 .dashboard > .card.article .details ul.tags li {
 	display: inline-block;
-	margin-right: 10px;
+	margin: 0 10px 10px 0;
 	padding: 5px 15px;
 	background-color: rgba(255, 255, 255, .75);
 	color: black;
@@ -1215,7 +1215,14 @@ header {
 	margin-top: 10rem;
 	color: white;
 	z-index: 399;
-	max-width: 1100px;
+	max-width: 1150px;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* number of lines to show */
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .story .header .phantom {
@@ -1234,6 +1241,13 @@ header {
 	pointer-events: none;
 	user-select: none;
 	max-width: 1100px;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* number of lines to show */
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .story .header h1:after {
@@ -2039,7 +2053,7 @@ p.from-them::after {
 
 	/* Portfolio */
 	.portfolio .intro {
-		margin: 5vh 0 0 16rem;
+		margin: 5vh 0 0 10rem;
 	}
 
 	.portfolio .intro .intro_container {
@@ -2080,6 +2094,7 @@ p.from-them::after {
 	.story .header h1 {
 		font-size: 74pt;
 		margin-left: -15rem;
+		max-width: 1000px;
 	}
 
 	.story .header .phantom {

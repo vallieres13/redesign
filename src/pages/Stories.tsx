@@ -99,7 +99,7 @@ const Stories = () => {
 				let tagString = tags.map((tag: number) => { return tag; });
 				tagString.slice(0, -1);
 
-				await Request.get('/tags?include=' + tagString)
+				await Request.get('/tags?include=' + tagString + '&per_page=25')
 					.then(response => response.json())
 					.then(data => {
 						data.forEach((tagData: any) => {
