@@ -69,10 +69,10 @@ const Hire = () => {
 				</ul>
 				<div className="page-text-content paper">
 					<h3 style={{ marginBottom: '1rem' }}>Information</h3>
-					<p>Are you looking for a developer? Download my CV or checkout the <Link to="/about">About Me</Link> page for more about myself.</p>
-					<p>I've proven my qualifications as a developer through collaborative projects in which I worked with other software engineers. The spectrum of my work so far goes from database management, designing drafts and prototyping, teaching basic web design in schools and developing API interfaces from scratch.</p>
-					<p>I'm ready to move to a different place, because I've been planning to do that anyways. I was eyeing Darmstadt as the new place to be, but that's mostly up to my employer.</p>
-					<p>Do you have any questions or would you like to call? I am motivated to introduce myself again in person so we can get to know each other better.</p>
+					<p>Are you looking for a developer? Please feel free to review my CV or visit the <Link to="/about">About Me</Link> page to learn more about my background and qualifications.</p>
+					<p>I've demonstrated my proficiency as a developer through various collaborative projects with other software engineers. My experience ranges from database management, designing design drafts and prototyping, to teaching basic web design in schools, and developing API interfaces from scratch.</p>
+					<p>I'm open to relocating and had planned to do so in the near future. While Darmstadt, Mannheim and Frankfurt am Main are part of particular interest to me, the location is ultimately dependent on the employer.</p>
+					<p>If you have any further questions or would like to schedule a call, I'm more htan happy to introduce myself further and discuss any potential opportunities.</p>
 					<p><img src={pdfIcon} alt="Download File" /><a href="/lebenslauf.pdf">Download CV</a></p>
 					<p><img src={rightArrowIcon} alt="Visit Page" /><Link to="/about">About Me</Link></p>
 				</div>
