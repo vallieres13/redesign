@@ -29,9 +29,10 @@ const Index = () => {
 
 		/* Change Background colour */
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(345deg, rgba(0,0,0,1) 31%, rgba(9,9,9,1) 60%, rgba(20,17,20,1) 73%, rgba(38,22,38,1) 85%, rgba(60,29,51,1) 100%)',
+			backgroundImage: 'black',
 			duration: 1
 		});
+
 
 		/* Scroll Trigger for dashboard */
 		const tl = gsap.timeline({
@@ -89,6 +90,8 @@ const Index = () => {
 		});
 
 
+
+
 		/* Animate Promo Title */
 		const promo = document.querySelector('.promo') as HTMLElement;
 		const button = promo.querySelector(':scope > button') as HTMLButtonElement;
@@ -141,11 +144,11 @@ const Index = () => {
 		};
 
 		const titles = [
-			'Hi, I\'m Felix Hebgen .',
-			'I make modern websites .',
+			'Hi I\'m Felix Hebgen.',
+			'I make modern websites.',
 			'... and code REST APIs.',
-			'I also manage Databases .',
-			'I build Artificial Intelligence .'
+			'I manage Databases.',
+			'I build Artificial Intelligence.'
 		];
 
 		let currSlide = 0;
@@ -181,7 +184,7 @@ const Index = () => {
 	return (
 		<>
 			<section className="promo container">
-				<h1>Hi, I'm Felix Hebgen .</h1>
+				<h1>Hi, I'm Felix Hebgen.</h1>
 				<button onClick={() => navigate('/about')}><span className="coloured">Get To Know Me</span> <img src={ArrowRight} alt="" /></button>
 			</section>
 			<section className="dashboard container grid">

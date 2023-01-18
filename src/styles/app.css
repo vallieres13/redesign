@@ -122,36 +122,33 @@ img {
  =================================== */
 
 .promo {
+	position: relative;
 	background: none;
 	border-radius: 15px;
 	margin: 1rem auto 3rem;
 	padding: 40px 0;
-	position: relative;
 	z-index: 49;
+	height: calc(100vh - 240pt);
 }
 
 .promo h1 {
-	position: relative;
+	position: absolute;
+	text-align: left;
+	left: 0;
+	bottom: 0;
+	margin-bottom: 0;
+	font-size: 120pt;
+	line-height: 125pt;
+	max-width: 1100px;
+
+
+
 	overflow: hidden;
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', serif;
-	font-size: 95pt;
 	font-weight: bold;
-	line-height: 105pt;
 	padding: 10vh 0 .15em;
-	margin: 0 auto;
-	text-align: center;
 	color: white;
 	display: block;
-	max-width: 1100px;
-}
-
-.promo h1 .word:nth-child(3),
-.promo h1 .word:nth-child(4) {
-	color: #e191d7;
-}
-
-.promo h1 .word:nth-child(5) {
-	margin-left: -2rem;
 }
 
 .promo h1 .word {
@@ -163,6 +160,7 @@ img {
 }
 
 .promo button {
+	display: none;
 	font-size: 16pt;
 	text-transform: none;
 	padding: 15px 30px;
