@@ -73,7 +73,7 @@ const Index = () => {
 				cards.forEach((elx) => {
 					if(elx === el) return;
 					gsap.to(elx, {
-						autoAlpha: .6,
+						autoAlpha: .75,
 						duration: .2
 					});
 				});
@@ -111,21 +111,29 @@ const Index = () => {
 
 
 		/* Heading Title Slider */
-
 		const showTitle = () => {
 			const title = promo.querySelector(':scope > h1') as HTMLHeadingElement;
-			title.innerHTML = title.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
+			const splitTitle = title.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
+
+			const word = splitTitle.split('<span');
+			let doubleSplitTitle = '';
+			word.forEach((word: string) => {
+				doubleSplitTitle += '<span class="wordparent"><span' + word + '</span>';
+			});
+
+			title.innerHTML = doubleSplitTitle;
 
 			const words = document.querySelectorAll('.word');
 
 			gsap.fromTo(words, {
-				y: 50,
+				yPercent: 100,
 				autoAlpha: 0
 			}, {
-				y: 0,
 				autoAlpha: 1,
-				duration: .3,
-				stagger: .1
+				duration: 1,
+				stagger: .2,
+				yPercent: 0,
+				ease: 'power4',
 			});
 		};
 
