@@ -79,11 +79,6 @@ const Navigation = () => {
 
 	const items = [
 		{
-			title: 'AI Canvas',
-			url: 'labs',
-			colour: 'none'
-		},
-		{
 			title: 'Stories',
 			url: 'stories',
 			colour: 'none'

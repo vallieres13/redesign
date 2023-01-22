@@ -13,7 +13,6 @@ import DesignImage from '../static/images/landing/design.png';
 import StoryImage from '../static/images/landing/stories.png';
 import WindmillImage from "../static/images/future/windmill.png";
 import ArrowRight from '../static/images/icons/arrow-right.png';
-import ScrollDownGIF from '../static/images/landing/scroll.gif';
 
 /* GSAP Register */
 gsap.registerPlugin(ScrollTrigger);
@@ -29,9 +28,10 @@ const Index = () => {
 
 		/* Change Background colour */
 		gsap.to('body', {
-			backgroundImage: 'linear-gradient(345deg, rgba(0,0,0,1) 31%, rgba(9,9,9,1) 60%, rgba(20,17,20,1) 73%, rgba(38,22,38,1) 85%, rgba(60,29,51,1) 100%)',
+			backgroundImage: 'none',
 			duration: 1
 		});
+
 
 		/* Scroll Trigger for dashboard */
 		const tl = gsap.timeline({
@@ -67,27 +67,6 @@ const Index = () => {
 			clearProps: 'scale'
 		});
 
-		cards.forEach((el) => {
-			el.addEventListener('mouseenter', () => {
-				cards.forEach((elx) => {
-					if(elx === el) return;
-					gsap.to(elx, {
-						autoAlpha: .6,
-						duration: .2
-					});
-				});
-			});
-
-			el.addEventListener('mouseleave', () => {
-				cards.forEach((elx) => {
-					gsap.to(elx, {
-						autoAlpha: 1,
-						duration: .2
-					});
-				});
-			});
-		});
-
 
 		/* Animate Promo Title */
 		const promo = document.querySelector('.promo') as HTMLElement;
@@ -108,21 +87,29 @@ const Index = () => {
 
 
 		/* Heading Title Slider */
-
 		const showTitle = () => {
 			const title = promo.querySelector(':scope > h1') as HTMLHeadingElement;
-			title.innerHTML = title.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
+			const splitTitle = title.textContent!.replace(/\S+/g, '<span class="word">$&</span>');
+
+			const word = splitTitle.split('<span');
+			let doubleSplitTitle = '';
+			word.forEach((word: string) => {
+				doubleSplitTitle += '<span class="wordparent"><span' + word + '</span>';
+			});
+
+			title.innerHTML = doubleSplitTitle;
 
 			const words = document.querySelectorAll('.word');
 
 			gsap.fromTo(words, {
-				y: 50,
+				yPercent: 100,
 				autoAlpha: 0
 			}, {
-				y: 0,
 				autoAlpha: 1,
-				duration: .3,
-				stagger: .1
+				duration: 1,
+				stagger: .2,
+				yPercent: 0,
+				ease: 'power4',
 			});
 		};
 
@@ -141,11 +128,10 @@ const Index = () => {
 		};
 
 		const titles = [
-			'Hi, I\'m Felix Hebgen .',
-			'I make modern websites .',
-			'... and code REST APIs.',
-			'I also manage Databases .',
-			'I build Artificial Intelligence .'
+			'Heyya!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I\'m Felix Hebgen.',
+			'I make modern websites.',
+			'I\'ve got&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; >4 years of experience.',
+			'I build Artificial Intelligence.'
 		];
 
 		let currSlide = 0;
@@ -181,50 +167,28 @@ const Index = () => {
 	return (
 		<>
 			<section className="promo container">
-				<h1>Hi, I'm Felix Hebgen .</h1>
+				<h1>Heyaa!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I'm Felix Hebgen.</h1>
 				<button onClick={() => navigate('/about')}><span className="coloured">Get To Know Me</span> <img src={ArrowRight} alt="" /></button>
 			</section>
 			<section className="dashboard container grid">
-				<div className="span-3 scrolldown">
-					<img src={ScrollDownGIF} alt="Scroll Down" />
-				</div>
-				<Card className="span-2" gradient="linear-gradient(165deg, #2c4735 0%, #1d243e 60%, #101124 90%)" go="/labs">
-					<h2>Discover<br />stunning ideas.</h2>
+				<Card className="span-2" gradient="linear-gradient(90deg, rgb(45, 33, 38) 0%, rgb(28, 36, 44) 100%)" go="/article/40-how-i-built-this-website">
+					<h2>This Website<br />Is Open-Source.</h2>
 					<div className="description">
-						<p>Take a closer look at a collection of my public canvases of AI generated design and get inspired by new and innovative design choices you might have never seen before.</p>
-						<p className="tags">#design #ideas #inspiration #labs #ai</p>
-						<Button>Get inspired</Button>
+						<p>This website is hosted on GitHub pages and thus in a public open-source respository. Are you curious to know how I built it? Visit the blog to read more about it.</p>
+						<p className="tags">#opensource #github #react #typescript #source</p>
+						<Button>Learn more</Button>
 					</div>
 					<img src={DesignImage} alt="Design" id="cover_design" />
 				</Card>
-				<Card go="/about" gradient={`url('` + PersonDimmed + `')`}>
+				<Card className="span about" go="/about" gradient={`url('` + PersonDimmed + `')`}>
 					<h2>Hi👋</h2>
 					<div className="description">
 						<p style={{ maxWidth: "175px" }}>I’m Felix, a full-stack web and app dev.<br />I design mockups, code APIs and build software. Find out more in my portfolio.</p>
 						<Button>About Me</Button>
 					</div>
 				</Card>
-				<Card go="/stories">
-					<h2>Stories.</h2>
-					<div className="description">
-						<p>Read my latest thoughts on a bunch of different things, ranging from 💾💻 AI development to the review of gadgets and other technologies 📷📡 &hellip;</p>
-						<p>There's no comment section yet.</p>
-						<p className="tags">#blog #articles #updates #tech</p>
-						<Button>Visit the blog</Button>
-					</div>
-					<img src={StoryImage} alt="Stories" id="cover_stories" />
-				</Card>
-				<Card className="span-2" gradient="linear-gradient(90deg, rgb(45, 33, 38) 0%, rgb(28, 36, 44) 100%)" go="/article/14-im-impressed-by-this-new-macbook">
-					<h2>Supercharge<br />automation with AI.</h2>
-					<div className="description">
-						<p>I'm constantly looking out for new challenges. My non-professional projects currently revolve around the development of useful Artificial Intelligence.</p>
-						<p className="tags">#ai #intelligence #automation #science #experiments</p>
-						<Button>Read Article</Button>
-					</div>
-					{/* <img src={CodeImage} alt="Code" id="cover_webdev" /> */}
-				</Card>
-				<Card go="/future">
-					<h2>CO2 🌿<br />Neutral.</h2>
+				<Card className="future" go="/future">
+					<h2>CO<sub>2</sub> 🌿<br />Neutral.</h2>
 					<div className="description">
 						<p>
 							This website is run entirely on renewable energy and supports the vision of a green future for everyone.<br />
@@ -233,23 +197,22 @@ const Index = () => {
 					</div>
 					<img src={WindmillImage} alt="Windmills" id="cover_windmill" />
 				</Card>
-				<Card go="/hire">
-					<h2>Hire Me.</h2>
+				<Card go="/stories">
+					<h2>Stories.</h2>
 					<div className="description">
-						<p>I'm currently looking for a new job. Do you need someone for software engineering or web design? I might qualify.<br /><br />Drop me a message and I will get back to you a•s•a•p.</p>
+						<p>Read my latest thoughts on a bunch of different things, ranging from 💾💻 AI development to the review of gadgets and other technologies 📷📡 &hellip;</p>
+						<p className="tags">#blog #articles #updates #tech</p>
+						<Button>Visit the blog</Button>
+					</div>
+					<img src={StoryImage} alt="Stories" id="cover_stories" />
+				</Card>
+				<Card go="/hire">
+					<h2>Hiring?</h2>
+					<div className="description">
+						<p>I'm exploring new employment opportunities in web dev & desig and believe my skills and experience make me a strong candidate.<br /><br />Drop me a message and I'll make the effort to get back to you — a•s•a•p.</p>
 						<Button style={{ backgroundImage: 'linear-gradient(210deg, hsl(0deg 0% 80%) 0%, hsl(0deg 0% 74%) 38%, hsl(0deg 0% 50%) 100%)', color: 'rgba(0, 0, 0, .8)' }}>Download CV</Button>
 					</div>
 				</Card>
-				{/*
-				<Card go="/sayhi">
-					<h2>Say Hi!</h2>
-					<p className="cutoff black">
-						Is there anything else you would like to tell me? Drop me a message and I will get back to you.<br /><br />
-						<Button style={{ margin: '10px 0 0 -3px', backgroundColor: '#111111', color: '#888888', textTransform: 'none', width: '80%', textAlign: 'left' }}>Name</Button>
-						<Button style={{ margin: '10px 0 0 -3px', backgroundColor: '#111111', color: '#888888', textTransform: 'none', width: '80%', textAlign: 'left' }}>Message ...</Button>
-					</p>
-				</Card>
-				*/}
 			</section>
 
 		</>
