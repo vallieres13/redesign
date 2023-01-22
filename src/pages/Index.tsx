@@ -174,7 +174,7 @@ const Index = () => {
 				<Card className="span-2" gradient="linear-gradient(90deg, rgb(45, 33, 38) 0%, rgb(28, 36, 44) 100%)" go="/article/40-how-i-built-this-website">
 					<h2>This Website<br />Is Open-Source.</h2>
 					<div className="description">
-						<p>This website is hosted on GitHub pages and thus in a public open-source respository. Are you curious to know how I built it? Visit the blog to read more about it.</p>
+						<p>This website is hosted by Oracle but has its own open-source respository on GitHub. Are you curious to know how I built it? Visit the blog to read more about it.</p>
 						<p className="tags">#opensource #github #react #typescript #source</p>
 						<Button>Learn more</Button>
 					</div>

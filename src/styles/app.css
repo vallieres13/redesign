@@ -1131,15 +1131,25 @@ header {
 	margin-left: 60px;
 	margin-right: 60px;
 	opacity: 1;
-	transition: opacity .15s;
+	transition: opacity .15s, transform .5s;
 }
 
 .portfolio section.impressions .carousel li.previous:hover {
 	cursor: url("../static/images/cursors/cursor_left.svg") 60 60, auto;
 }
 
+.portfolio section.impressions .carousel li.previous:focus,
+.portfolio section.impressions .carousel li.previous:active {
+	cursor: url("../static/images/cursors/cursor_left_focus.svg") 60 60, auto;
+}
+
 .portfolio section.impressions .carousel li.next:hover {
 	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
+}
+
+.portfolio section.impressions .carousel li.next:focus,
+.portfolio section.impressions .carousel li.next:active {
+	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
 }
 
 .portfolio section.impressions .carousel li:hover {
@@ -1149,6 +1159,11 @@ header {
 .portfolio section.impressions .carousel li.active:hover {
 	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
 	opacity: .9;
+}
+
+.portfolio section.impressions .carousel li.active:active,
+.portfolio section.impressions .carousel li.active:focus {
+	cursor: url("../static/images/cursors/cursor_magnify_focus.svg") 60 60, auto;
 }
 
 .portfolio section.impressions .carousel li h5 {

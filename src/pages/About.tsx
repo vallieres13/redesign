@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 /* Images */
 import Person from '../static/images/about/portfolio.jpeg';
@@ -45,6 +45,13 @@ import Impression3 from "../static/images/impressions/ers.png";
 import Impression4 from "../static/images/impressions/stapp.png";
 import Impression6 from "../static/images/impressions/stapp-logo.jpg";
 import Impression7 from "../static/images/impressions/deineit.com.png";
+import Impression8 from "../static/images/impressions/schubert-search.png";
+import Impression9 from "../static/images/impressions/tls.png";
+import Impression11 from "../static/images/impressions/zachery.png";
+import Impression12 from "../static/images/impressions/dorothy.png";
+import Impression13 from "../static/images/impressions/duesterloh.de.png";
+import Impression14 from "../static/images/impressions/promofeet.png";
+import Impression15 from "../static/images/impressions/webdesign.png";
 
 /* GSAP Register */
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -432,7 +439,14 @@ const About = () => {
 						<li style={{ backgroundImage: 'url(' + Impression3 + ')' }} data-slide="1" className="previous"><h5>Middle- / Highscool</h5></li>
 						<li style={{ backgroundImage: 'url(' + Impression4 + ')' }} data-slide="2" className="active"><h5>Wanderschäfer Homepage</h5></li>
 						<li style={{ backgroundImage: 'url(' + Impression6 + ')' }} data-slide="3" className="next"><h5>Logo for modern Shepherd</h5></li>
-						<li style={{ backgroundImage: 'url(' + Impression7 + ')' }} data-slide="4"><h5>Corperate Webseite</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression8 + ')' }} data-slide="4"><h5>Car Dealership</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression7 + ')' }} data-slide="5"><h5>Corperate Webseite</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression9 + ')' }} data-slide="6"><h5>School Homepage</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression11 + ')' }} data-slide="7"><h5>Personal Homepage</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression12 + ')' }} data-slide="8"><h5>Illustrator Portfolio</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression13 + ')' }} data-slide="9"><h5>Industrial Homepage</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression14 + ')' }} data-slide="10"><h5>Promotional Landing</h5></li>
+						<li style={{ backgroundImage: 'url(' + Impression15 + ')' }} data-slide="11"><h5>Web Design Tutorial</h5></li>
 					</ul>
 				</section>
 			</section>
