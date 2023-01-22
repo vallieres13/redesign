@@ -781,6 +781,7 @@ header {
 	display: inline-block;
 	transition: .2s filter;
 	border-radius: 15px;
+	background-color: #444444;
 }
 
 .portfolio .intro img:hover {

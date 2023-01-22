@@ -24,13 +24,9 @@ const Imprint = () => {
 				<div className="page-text-content">
 					<p>Required information by § 5 German Telemediengesetz. <br />This website is hosted in Frankfurt am Main, Germany.</p>
 					<p>
-						<b>www.visualstatic.net</b><br />
+						<b>Felix Hebgen</b><br />
 						Breubergstraße 2<br />
 						64750 Lützelbach
-					</p>
-					<p>
-						<b>Represented by</b><br />
-						Felix Hebgen &lt;mail@felixhebgen.de&gt;
 					</p>
 					<p>
 						<b>Technical Contact</b><br />
