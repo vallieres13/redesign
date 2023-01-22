@@ -139,7 +139,7 @@ img {
 	margin: 0;
 	font-size: 120pt;
 	line-height: 125pt;
-	max-width: 1100px;
+	max-width: 1150px;
 	overflow: hidden;
 
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', serif;
@@ -220,17 +220,12 @@ img {
 .dashboard > .card {
 	background-color: #222222;
 	border-radius: 15px;
-	padding: 40px 50px;
+	padding: 40px 50px 45px;
 	transform: scale(1);
 }
 
 .dashboard > .card .description {
-	opacity: .6;
-	transition: opacity .2s;
-}
-
-.dashboard > .card:hover .description {
-	opacity: 1;
+	opacity: .7;
 	transition: opacity .2s;
 }
 
@@ -305,6 +300,15 @@ img {
 	text-transform: uppercase;
 }
 
+.dashboard > .card.about {
+	background-size: cover;
+}
+
+.dashboard > .card.future h2 {
+	padding-top: .75rem;
+	line-height: 3.75rem;
+}
+
 .dashboard > .card img#cover_webdev {
 	position: absolute;
 	top: 0;
@@ -370,8 +374,8 @@ img {
 
 .dashboard > .card h2 {
 	font-family: 'Sharp Grotesk DB Cyr Medium 22', sans-serif;
-	line-height: 65pt;
-	font-size: 50pt;
+	line-height: 57pt;
+	font-size: 45pt;
 	margin: 0;
 	hyphens: auto;
 	word-wrap: break-word;
@@ -627,7 +631,7 @@ header {
 	transform: translateX(475px);
 	background-color: rgba(34, 34, 34, .4);
 	backdrop-filter: blur(44px);
-	padding: 7rem 12rem 0 2rem;
+	padding: 7rem 6rem 0 2rem;
 	height: 100%;
 	right: 0;
 	overflow: hidden;
@@ -2536,11 +2540,20 @@ p.from-them::after {
 @media (max-width: 800px) {
 
 	/* Promo */
+	.promo {
+		height: 100%;
+	}
+
 	.promo h1 {
-		margin-top: -5rem;
-		max-width: 80%;
-		font-size: 40pt;
-		line-height: 55pt;
+		position: relative;
+		margin: 5rem 0;
+		max-width: 100%;
+		font-size: 50pt;
+		line-height: 44pt;
+	}
+
+	.promo h1 .wordparent {
+		padding: 0 20px 20px 0;
 	}
 
 	.promo h1 .word:nth-child(5) {
@@ -2706,13 +2719,13 @@ p.from-them::after {
 
 	/* Promo */
 	.promo {
-		margin: 0;
+		margin: 0 2rem;
 	}
 
 	.promo h1 {
 		margin: 0 auto;
-		font-size: 36pt;
-		line-height: 39pt;
+		font-size: 33pt;
+		line-height: 30pt;
 	}
 
 	.promo h1 .word:nth-child(5) {

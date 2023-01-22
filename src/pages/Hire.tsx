@@ -73,12 +73,14 @@ const Hire = () => {
 					<p>I've demonstrated my proficiency as a developer through various collaborative projects with other software engineers. My experience ranges from database management, designing design drafts and prototyping, to teaching basic web design in schools, and developing API interfaces from scratch.</p>
 					<p>I'm open to relocating and had planned to do so in the near future. While Darmstadt, Mannheim and Frankfurt am Main are part of particular interest to me, the location is ultimately dependent on the employer.</p>
 					<p>If you have any further questions or would like to schedule a call, I'm more htan happy to introduce myself further and discuss any potential opportunities.</p>
-					<p><img src={pdfIcon} alt="Download File" /><a href="/lebenslauf.pdf">Download CV</a></p>
+					<p><img src={pdfIcon} alt="Download File" /><a href="https://backend.felixhebgen.de/wp-content/uploads/2023/01/Lebenslauf-Felix-Hebgen.pdf">Download CV</a></p>
 					<p><img src={rightArrowIcon} alt="Visit Page" /><Link to="/about">About Me</Link></p>
 				</div>
 				<div className="page-text-content paper resume">
-					<Document file={{ url: '/lebenslauf.pdf' }}>
+					<Document file={{ url: 'lebenslauf.pdf' }}>
 						<Page pageNumber={1} scale={1.475} />
+						<Page pageNumber={2} scale={1.475} />
+						<Page pageNumber={3} scale={1.475} />
 					</Document>
 				</div>
 			</section>
