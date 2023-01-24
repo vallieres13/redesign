@@ -223,7 +223,7 @@ const Article = () => {
 	useEffect(() => {
 
 		/* Document Title Init */
-		document.title = 'Loading …' + process.env.REACT_APP_TITLE;
+		document.title = 'Loading …';
 
 		setEndpointCalled(false);
 		setEndpointCalledReadMore(false);

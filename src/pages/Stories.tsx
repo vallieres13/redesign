@@ -129,7 +129,7 @@ const Stories = () => {
 	useEffect(() => {
 
 		/* Document Title */
-		document.title = 'Loading …' + process.env.REACT_APP_TITLE;
+		document.title = 'Loading …';
 
 		setEndpointCalled(false);
 		loadPosts().then(() => {
