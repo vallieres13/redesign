@@ -1,0 +1,27 @@
+<svg id="a5964da7-df34-4da8-bf00-5229a720e5e9" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .f4105769-0b0f-4eec-9557-e13afee95425 {
+        opacity: 0.4;
+      }
+
+      .b07f3466-1890-4120-8587-bc0bf571a050 {
+        fill: #fff;
+      }
+
+      .ebb3b44b-df3e-41e7-bf31-3d12d3f2ef58 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 1.5px;
+        opacity: 0.75;
+      }
+    </style>
+  </defs>
+  <g class="f4105769-0b0f-4eec-9557-e13afee95425">
+    <circle class="b07f3466-1890-4120-8587-bc0bf571a050" cx="60" cy="60" r="59.5"/>
+    <path class="b07f3466-1890-4120-8587-bc0bf571a050" d="M60,1A59,59,0,1,1,1,60,59.066,59.066,0,0,1,60,1m0-1a60,60,0,1,0,60,60A60,60,0,0,0,60,0Z"/>
+  </g>
+  <line class="ebb3b44b-df3e-41e7-bf31-3d12d3f2ef58" x1="47.628" y1="83.669" x2="76.479" y2="59.842"/>
+  <line class="ebb3b44b-df3e-41e7-bf31-3d12d3f2ef58" x1="47.809" y1="35.582" x2="76.298" y2="59.842"/>
+</svg>

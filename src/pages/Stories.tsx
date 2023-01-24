@@ -129,10 +129,14 @@ const Stories = () => {
 	useEffect(() => {
 
 		/* Document Title */
-		document.title = 'Stories' + process.env.REACT_APP_TITLE;
+		document.title = 'Loading …' + process.env.REACT_APP_TITLE;
 
 		setEndpointCalled(false);
 		loadPosts().then(() => {
+
+			/* Document Title */
+			document.title = 'Stories' + process.env.REACT_APP_TITLE;
+
 			setEndpointCalled(true);
 
 			/* setTimeout required because the component will otherwise not render */

@@ -137,6 +137,7 @@ const Article = () => {
 	};
 
 	const [ endpointCalled, setEndpointCalled ] = useState(false);
+	const [ endpointCalledReadMore, setEndpointCalledReadMore ] = useState(false);
 	const [ post, setPost ] = useState({} as any);
 	const [ postImage, setPostImage ] = useState('');
 
@@ -204,9 +205,18 @@ const Article = () => {
 					.then(response => response.json())
 					.then((data) => {
 						setPostImage(data.source_url);
+
+						setEndpointCalled(true);
+
+						/* setTimeout required because the component will otherwise not render */
+						setTimeout(() => {
+							animate();
+						}, 0);
 					});
 
-				await loadPosts().then(() => { });
+				await loadPosts().then(() => {
+					setEndpointCalledReadMore(true);
+				});
 			});
 	};
 
@@ -216,14 +226,9 @@ const Article = () => {
 		document.title = 'Loading …' + process.env.REACT_APP_TITLE;
 
 		setEndpointCalled(false);
-		loadPost().then(() => {
-			setEndpointCalled(true);
+		setEndpointCalledReadMore(false);
+		loadPost().then(() => { });
 
-			/* setTimeout required because the component will otherwise not render */
-			setTimeout(() => {
-				animate();
-			}, 0);
-		});
 	}, [location]);
 
 	const getMonthName = (month: number) => {
@@ -295,36 +300,41 @@ const Article = () => {
 								<hr />
 							</div>
 						</section>
-						<section className="stories container readmore">
-							<section className="dashboard grid" style={{ marginTop: '-50px' }}>
-								{
-									posts.map((post: any, index: number) => {
-										return (
-											<Card className="article span-1" go={"/article/" + post.id + '-' + post.slug} key={index}>
-												<div className="thumbnail" style={{ backgroundImage: 'url(' + featuredMedia[post.featured_media] + ')' }}></div>
-												<div>
-													<div className="details">
-														<ul className="tags">
-															{
-																post.tags.map((tag: number, index: number) => {
-																	return (
-																		<li key={index}>{tagNames[tag]}</li>
-																	);
-																})
-															}
-														</ul>
-													</div>
-													<h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h3>
-													<div className="timestamp">
-														<p>{formatDate(post.date)}</p>
-													</div>
-												</div>
-											</Card>
-										);
-									})
-								}
-							</section>
-						</section>
+						{
+							endpointCalledReadMore ?
+								<section className="stories container readmore">
+									<section className="dashboard grid" style={{ marginTop: '-50px' }}>
+										{
+											posts.map((post: any, index: number) => {
+												return (
+													<Card className="article span-1" go={"/article/" + post.id + '-' + post.slug} key={index}>
+														<div className="thumbnail" style={{ backgroundImage: 'url(' + featuredMedia[post.featured_media] + ')' }}></div>
+														<div>
+															<div className="details">
+																<ul className="tags">
+																	{
+																		post.tags.map((tag: number, index: number) => {
+																			return (
+																				<li key={index}>{tagNames[tag]}</li>
+																			);
+																		})
+																	}
+																</ul>
+															</div>
+															<h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }}></h3>
+															<div className="timestamp">
+																<p>{formatDate(post.date)}</p>
+															</div>
+														</div>
+													</Card>
+												);
+											})
+										}
+									</section>
+								</section>
+							:
+								<Preloader height={50} />
+						}
 					</>
 				:
 					<Preloader />

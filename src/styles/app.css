@@ -20,6 +20,15 @@ body {
 	overflow-y: scroll;
 }
 
+body {
+	cursor: url("../static/images/cursors/cursor_new.svg") 7 7, default;
+}
+
+a:hover,
+button:hover {
+	cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, default;
+}
+
 img {
 	-webkit-user-drag: none;
 	user-select: none;
@@ -64,7 +73,7 @@ img {
 }
 
 .logo a:hover {
-	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
 }
 
 .logo a:hover img {
@@ -73,15 +82,11 @@ img {
 
 .logo a:focus img,
 .logo a:active img {
-	border: 1px solid #999999;
+	border: 1px double #444444;
 	padding: 15px 20px 8px;
 	margin: -16px 5px -9px -21px;
 	transition: none;
-}
-
-.logo a:focus,
-.logo a:active {
-	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_focus.svg") 60 60, auto;
 }
 
 
@@ -186,7 +191,7 @@ img {
 }
 
 .promo button:hover {
-	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
 	opacity: .8;
 }
 
@@ -230,13 +235,13 @@ img {
 }
 
 .dashboard > .card:hover {
-	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_right.svg") 60 60, auto;
 	z-index: 99;
 }
 
 .dashboard > .card:focus,
 .dashboard > .card:active {
-	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
 	z-index: 99;
 
 	transform: scale(.99);
@@ -719,12 +724,13 @@ header {
 }
 
 .nav ul li a:hover {
-	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
 }
 
+.nav ul li a.active,
 .nav ul li a:active,
 .nav ul li a:focus {
-	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new.svg") 30 30, auto;
 }
 
 .nav ul li a.active span,
@@ -785,7 +791,7 @@ header {
 }
 
 .portfolio .intro img:hover {
-	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_magnify.svg") 60 60, auto;
 
 	filter: none;
 	transition: .2s filter;
@@ -861,7 +867,7 @@ header {
 }
 
 .portfolio > section:not(.intro) .image img {
-	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_magnify.svg") 60 60, auto;
 	width: 35rem;
 	height: auto;
 	filter: grayscale(.5);
@@ -1057,17 +1063,6 @@ header {
 	margin-left: .25rem;
 }
 
-.portfolio section.customers button:hover {
-	cursor: url("../static/images/cursors/cursor_focus.svg") 60 60, auto;
-	opacity: .8;
-}
-
-.portfolio section.customers button:active,
-.portfolio section.customers button:focus {
-	cursor: url("../static/images/cursors/cursor.svg") 60 60, auto;
-	opacity: .4;
-}
-
 
 /* Portfolio Section: Impressions */
 
@@ -1136,21 +1131,11 @@ header {
 }
 
 .portfolio section.impressions .carousel li.previous:hover {
-	cursor: url("../static/images/cursors/cursor_left.svg") 60 60, auto;
-}
-
-.portfolio section.impressions .carousel li.previous:focus,
-.portfolio section.impressions .carousel li.previous:active {
-	cursor: url("../static/images/cursors/cursor_left_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_left.svg") 60 60, auto;
 }
 
 .portfolio section.impressions .carousel li.next:hover {
-	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, auto;
-}
-
-.portfolio section.impressions .carousel li.next:focus,
-.portfolio section.impressions .carousel li.next:active {
-	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_right.svg") 60 60, auto;
 }
 
 .portfolio section.impressions .carousel li:hover {
@@ -1158,13 +1143,8 @@ header {
 }
 
 .portfolio section.impressions .carousel li.active:hover {
-	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_magnify.svg") 60 60, auto;
 	opacity: .9;
-}
-
-.portfolio section.impressions .carousel li.active:active,
-.portfolio section.impressions .carousel li.active:focus {
-	cursor: url("../static/images/cursors/cursor_magnify_focus.svg") 60 60, auto;
 }
 
 .portfolio section.impressions .carousel li h5 {
@@ -1297,14 +1277,9 @@ header {
 }
 
 .story .header .image:hover {
-	cursor: url("../static/images/cursors/cursor_magnify.svg") 60 60, auto;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_magnify.svg") 60 60, auto;
 	filter: grayscale(0);
 	transition: filter .2s;
-}
-
-.story .header .image:focus,
-.story .header .image:active {
-	cursor: url("../static/images/cursors/cursor_magnify_focus.svg") 60 60, auto;
 }
 
 .story .header .author {
@@ -1319,7 +1294,6 @@ header {
 }
 
 .story .header .author:hover {
-	cursor: pointer;
 	background-color: rgba(31, 31, 31, 1);
 	transition: background-color .05s;
 }
@@ -1420,22 +1394,16 @@ header {
 }
 
 .story .meta > div:hover {
-	cursor: default;
 	background-color: #191919;
 }
 
 .story .meta > div:nth-child(1):hover {
-	cursor: url("../static/images/cursors/cursor_right.svg") 60 60, pointer;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_right.svg") 60 60, pointer;
 }
 
 .story .meta > div:focus,
 .story .meta > div:active {
 	transform: scale(.99);
-}
-
-.story .meta > div:nth-child(1):focus,
-.story .meta > div:nth-child(1):active {
-	cursor: url("../static/images/cursors/cursor_right_focus.svg") 60 60, pointer;
 }
 
 .story .meta .author-card img {
@@ -1594,7 +1562,7 @@ header {
 .climate .dashboard .card:hover,
 .climate .dashboard .card:active,
 .climate .dashboard .card:active {
-	cursor: default;
+	cursor: url("../static/images/cursors/cursor_new.svg") 7 7, default;
 }
 
 
@@ -1670,7 +1638,8 @@ ul.breadcrumbs li:not(:last-child)::after,
 }
 
 .notfound a,
-.page-text a {
+.page-text a,
+.story a {
 	color: inherit;
 	text-decoration: none;
 	background-position-y: 20%;
@@ -1686,7 +1655,8 @@ ul.breadcrumbs li:not(:last-child)::after,
 }
 
 .notfound a:hover,
-.page-text a:hover {
+.page-text a:hover,
+.story a:hover {
 	background-position-y: 80%;
 }
 
@@ -1750,6 +1720,11 @@ ul.breadcrumbs li:not(:last-child)::after,
 	padding: 20px 50px;
 	color: black;
 	margin-bottom: 1.5rem;
+	cursor: default;
+}
+
+.page-text .page-text-content.paper a {
+	cursor: pointer;
 }
 
 .page-text .page-text-content.paper h3 {
@@ -1833,8 +1808,7 @@ button {
 }
 
 button:hover {
-	cursor: pointer;
-	opacity: .8;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, pointer;
 }
 
 .dashboard .card button {
@@ -1847,11 +1821,7 @@ button:hover {
 
 .preloader {
 	margin: 0 auto;
-	padding: 35vh 0 45vh;
-}
-
-.preloader:hover {
-	cursor: url("../static/images/cursors/cursor_wait.svg") 60 60, auto;
+	padding: 35vh 0;
 }
 
 .preloader .spinner {
@@ -1932,6 +1902,7 @@ footer a {
 footer a:hover {
 	color: white;
 	border-bottom: 1px solid white;
+	cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, pointer;
 }
 
 footer a:active,
@@ -2039,6 +2010,13 @@ p.from-them::after {
 
 /* -- Full HD */
 @media (max-width: 1920px) {
+	/* Promo */
+	.promo h1 {
+		font-size: 100pt;
+		line-height: 100pt;
+		max-width: 1000px;
+	}
+
 	/* General */
 	.container {
 		max-width: 1325px;

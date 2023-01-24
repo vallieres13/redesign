@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 
-const Preloader = () => {
+interface componentProps {
+	height?: number,
+}
+
+const defaultProps: componentProps = {
+	height: undefined,
+};
+
+const Preloader = (props: componentProps = defaultProps) => {
 
 	useEffect(() => {
 		/* Change Background colour */
@@ -20,8 +28,15 @@ const Preloader = () => {
 		});
 	}, []);
 
+	let verticalPadding: number = 35;
+
+	/* Set the custom height prop */
+	if(props.height) {
+		verticalPadding = props.height / 2;
+	}
+
 	return (
-		<div className="preloader">
+		<div className="preloader" style={{ padding: verticalPadding + 'vh 0' }}>
 			<div className="spinner"></div>
 			<p>Loading ...</p>
 		</div>

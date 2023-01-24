@@ -1,0 +1,17 @@
+<svg id="be806f61-6481-49f4-ab7a-33f4de4f7cfc" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <style>
+      .e6addf68-3a14-44d2-9bca-00d5b572179f {
+        opacity: 0.5;
+      }
+
+      .b0b7e084-21a4-4abc-9d7d-3eda091dcfb9 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g class="e6addf68-3a14-44d2-9bca-00d5b572179f">
+    <circle class="b0b7e084-21a4-4abc-9d7d-3eda091dcfb9" cx="30" cy="30" r="29.5"/>
+    <path class="b0b7e084-21a4-4abc-9d7d-3eda091dcfb9" d="M30,1A29,29,0,1,1,1,30,29.032,29.032,0,0,1,30,1m0-1A30,30,0,1,0,60,30,30,30,0,0,0,30,0Z"/>
+  </g>
+</svg>
