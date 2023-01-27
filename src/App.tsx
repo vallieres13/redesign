@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, BrowserRouter, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 
