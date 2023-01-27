@@ -18,6 +18,7 @@ body {
 	min-height: 100vh;
 
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 body {
@@ -2163,12 +2164,12 @@ p.from-them::after {
 
 }
 
-/* -- 1440p / 1440w */
-@media (max-width: 1440px) {
+/* -- 1650vw */
+@media (max-width: 1600px) {
 
 	/* Story */
 	.story .header h1 {
-		margin-left: -10rem;
+		margin-left: -8.5rem;
 		font-size: 65pt;
 		max-width: 850px;
 	}
@@ -2176,11 +2177,12 @@ p.from-them::after {
 	.story .header .phantom {
 		font-size: 65pt;
 		max-width: 850px;
-		margin-top: -12rem;
+		margin-left: -6rem;
+		margin-top: -12.5rem;
 	}
 
 	.story .header .image {
-		width: 925px;
+		width: 900px;
 	}
 
 	.story .header .author {

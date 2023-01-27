@@ -209,7 +209,7 @@ const Index = () => {
 				<Card go="/hire">
 					<h2>Hiring?</h2>
 					<div className="description">
-						<p>I'm exploring new employment opportunities in web dev & desig and believe my skills and experience make me a strong candidate.<br /><br />Drop me a message and I'll make the effort to get back to you — a•s•a•p.</p>
+						<p>I'm exploring new employment opportunities in web dev & design and believe my skills and experience make me a strong candidate.<br /><br />Drop me a message and I'll make the effort to get back to you — a•s•a•p.</p>
 						<Button style={{ backgroundImage: 'linear-gradient(210deg, hsl(0deg 0% 80%) 0%, hsl(0deg 0% 74%) 38%, hsl(0deg 0% 50%) 100%)', color: 'rgba(0, 0, 0, .8)' }}>Download CV</Button>
 					</div>
 				</Card>
