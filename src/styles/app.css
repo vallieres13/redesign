@@ -2090,7 +2090,7 @@ p.from-them::after {
 		transform: scale(.95);
 	}
 
-	 /* Story  */
+	 /* Story */
 	.story .header {
 		margin: 0 10rem;
 	}
@@ -2106,8 +2106,10 @@ p.from-them::after {
 	}
 
 	.story .header .image {
-		margin-top: -40rem;
+		margin-top: -36rem;
 		margin-left: 15rem;
+		height: 650px;
+		width: 1000px;
 	}
 
 	.story .header .author {
@@ -2157,6 +2159,32 @@ p.from-them::after {
 	/* Labs */
 	.labs .background {
 		background: none;
+	}
+
+}
+
+/* -- 1440p / 1440w */
+@media (max-width: 1440px) {
+
+	/* Story */
+	.story .header h1 {
+		margin-left: -10rem;
+		font-size: 65pt;
+		max-width: 850px;
+	}
+
+	.story .header .phantom {
+		font-size: 65pt;
+		max-width: 850px;
+		margin-top: -12rem;
+	}
+
+	.story .header .image {
+		width: 925px;
+	}
+
+	.story .header .author {
+		margin-top: -3.5rem;
 	}
 
 }
