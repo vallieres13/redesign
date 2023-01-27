@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, BrowserRouter, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 
@@ -34,8 +34,84 @@ const App = () => {
         nullTargetWarn: false
     });
 
+
+    /* Move the cursor following circle */
+    let cursorInit = false;
+    let bloated = false;
+    let mouseFadeTimeout: ReturnType<typeof setTimeout>;
+
+    const handleMouseMove = (e: MouseEvent) => {
+        // Reset mouse fade timeout on mouse wake
+        clearTimeout(mouseFadeTimeout);
+
+        let circle = document.querySelector('.circle') as HTMLDivElement;
+
+        if(!cursorInit) {
+            gsap.to(circle, {
+                autoAlpha: 0,
+                x: e.pageX,
+                y: e.pageY,
+                transitionDuration: 0,
+                transitionTimingFunction: 'ease',
+                duration: .05,
+                onComplete: () => {
+                    cursorInit = true;
+                }
+            });
+            return;
+        }
+
+        gsap.to(circle, {
+            autoAlpha: 1,
+            x: e.pageX,
+            y: e.pageY
+        });
+
+        /*
+        * If user doesn't move their mose for a while, hide the circle.
+        * This prevents it from moving weirdly when scrolling.
+        */
+        mouseFadeTimeout = setTimeout(() => {
+            cursorInit = false;
+            gsap.to(circle, {
+                autoAlpha: (bloated ? 1 : 0)
+            });
+        }, 100);
+
+    }
+
+    document.body.addEventListener('mousemove', handleMouseMove);
+
+    const handleMouseOver = (e: MouseEvent) => {
+        if(!(e.target instanceof HTMLAnchorElement)) return;
+
+        let circle = document.querySelector('.circle') as HTMLDivElement;
+        const bloatScale = (e.target.classList.contains('small') ? 4 : 10)
+
+        bloated = true;
+        gsap.to(circle, {
+            scale: bloatScale,
+            duration: .4,
+            ease: 'power3'
+        });
+
+        const makeSmaller = () => {
+            gsap.to(circle, {
+                scale: 1,
+                duration: .4,
+                ease: 'power3'
+            });
+            bloated = false;
+        };
+
+        e.target.addEventListener('mouseleave', makeSmaller);
+    }
+
+    document.body.addEventListener('mouseover', handleMouseOver);
+
     return (
         <BrowserRouter>
+            <div className="circle"></div>
             <header className="container">
                 <div className="logo">
                     <NavLink to="/">

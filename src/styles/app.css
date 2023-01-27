@@ -25,9 +25,25 @@ body {
 	cursor: url("../static/images/cursors/cursor_new.svg") 7 7, default;
 }
 
+.circle {
+	visibility: hidden;
+
+	position: absolute;
+	height: 13px;
+	width: 13px;
+	background-color: rgba(255, 255, 255, .15);
+	border-radius: 50%;
+	z-index: 0;
+
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+	transform: translate(-50%, -50%);
+}
+
 a:hover,
 button:hover {
-	cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, default;
+	/* cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, default; */
+	cursor: none;
 }
 
 img {
@@ -74,7 +90,8 @@ img {
 }
 
 .logo a:hover {
-	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
+	/* cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto; */
+	cursor: none;
 }
 
 .logo a:hover img {
@@ -87,7 +104,8 @@ img {
 	padding: 15px 20px 8px;
 	margin: -16px 5px -9px -21px;
 	transition: none;
-	cursor: url("../static/images/cursors/cursor_new_backdrop_focus.svg") 60 60, auto;
+	/* cursor: url("../static/images/cursors/cursor_new_backdrop_focus.svg") 60 60, auto; */
+	cursor: none;
 }
 
 
@@ -725,7 +743,8 @@ header {
 }
 
 .nav ul li a:hover {
-	cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto;
+	/* cursor: url("../static/images/cursors/cursor_new_backdrop.svg") 60 60, auto; */
+	cursor: none;
 }
 
 .nav ul li a.active,
