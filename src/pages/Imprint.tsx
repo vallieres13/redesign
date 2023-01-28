@@ -18,7 +18,7 @@ const Imprint = () => {
 			<section className="page-text container">
 				<h1 className="title">Legal Notice</h1>
 				<ul className="breadcrumbs">
-					<li><a href="/">Home</a></li>
+					<li><a href="/" className="small">Home</a></li>
 					<li>Legal Notice</li>
 				</ul>
 				<div className="page-text-content">

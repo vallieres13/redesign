@@ -34,8 +34,92 @@ const App = () => {
         nullTargetWarn: false
     });
 
+
+    /* Move the cursor following circle */
+    let cursorInit = false;
+    let bloated = false;
+    let mouseFadeTimeout: ReturnType<typeof setTimeout>;
+
+    const handleMouseMove = (e: MouseEvent) => {
+        // Reset mouse fade timeout on mouse wake
+        clearTimeout(mouseFadeTimeout);
+
+        let circle = document.querySelector('.circle') as HTMLDivElement;
+
+        if(!cursorInit) {
+            gsap.to(circle, {
+                x: e.pageX,
+                y: e.pageY,
+                transitionDuration: 0,
+                transitionTimingFunction: 'ease',
+                duration: .05,
+                onComplete: () => {
+                    cursorInit = true;
+                    gsap.to(circle, {
+                        autoAlpha: 1
+                    });
+                }
+            });
+            return;
+        }
+
+        gsap.to(circle, {
+            x: e.pageX,
+            y: e.pageY
+        });
+
+        /*
+        * If user doesn't move their mose for a while, hide the circle.
+        * This prevents it from moving weirdly when scrolling.
+        */
+        mouseFadeTimeout = setTimeout(() => {
+            cursorInit = false;
+            gsap.to(circle, {
+                autoAlpha: (bloated ? 1 : 0)
+            });
+        }, 50);
+
+    }
+
+    document.body.addEventListener('mousemove', handleMouseMove);
+
+    const handleMouseOver = (e: MouseEvent) => {
+        if((e.target instanceof HTMLAnchorElement) || (e.target as HTMLElement).classList.contains('hover')) {
+            const target = e.target as HTMLElement;
+
+            let circle = document.querySelector('.circle') as HTMLDivElement;
+            const bloatScale = target.classList.contains('small') ? 5 : 10;
+
+            bloated = true;
+            gsap.to(circle, {
+                scale: bloatScale,
+                duration: .4,
+                ease: 'power3'
+            });
+
+            /* Make smaller on mouse leave */
+            target.addEventListener('mouseleave', () => {
+
+                gsap.to(circle, {
+                    scale: 1,
+                    duration: .4,
+                    ease: 'power3'
+                });
+
+                bloated = false;
+
+            }, {
+                once: true
+            });
+
+        }
+    }
+
+    document.body.addEventListener('mouseover', handleMouseOver);
+
     return (
         <BrowserRouter>
+            <div className="circle"></div>
             <header className="container">
                 <div className="logo">
                     <NavLink to="/">

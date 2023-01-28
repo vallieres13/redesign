@@ -332,7 +332,7 @@ const About = () => {
 		<>
 			<section className="portfolio container-wide">
 				<section className="intro">
-					<img src={Person} className="person" alt="Felix Hebgen" />
+					<img src={Person} className="person hover" alt="Felix Hebgen" />
 					<div className="title">
 						<h1 className="name">Felix</h1>
 						<h1 className="name">Hebgen</h1>
@@ -369,12 +369,12 @@ const About = () => {
 						</div>
 					</div>
 					<div className="image">
-						<img src={Webdev} alt="Web Development" />
+						<img src={Webdev} className="hover" alt="Web Development" />
 					</div>
 				</section>
 				<section className="design left">
 					<div className="image">
-						<img src={Design} alt="Interaction Design" />
+						<img src={Design} className="hover" alt="Interaction Design" />
 					</div>
 					<div className="title">
 						<h2 className="name highlighted">Interaction<br />Design</h2>
@@ -415,7 +415,7 @@ const About = () => {
 						</div>
 					</div>
 					<div className="image">
-						<img src={Video} alt="Video Production" />
+						<img src={Video} className="hover" alt="Video Production" />
 					</div>
 				</section>
 				<section className="customers">

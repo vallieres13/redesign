@@ -55,7 +55,7 @@ const NotFound = () => {
 					<h1>404</h1>
 					<hr />
 					<ul className="breadcrumbs">
-						<li><Link to="/">Home</Link></li>
+						<li><Link to="/" className="small">Home</Link></li>
 						<li>Page Not Found</li>
 					</ul>
 				</section>

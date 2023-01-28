@@ -176,7 +176,7 @@ const Stories = () => {
 								<h1>Stories</h1>
 								<hr />
 								<ul className="breadcrumbs">
-									<li><Link to="/">Home</Link></li>
+									<li><Link to="/" className="small">Home</Link></li>
 									<li>Stories</li>
 								</ul>
 							</section>
