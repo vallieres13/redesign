@@ -37,12 +37,12 @@ const Footer = () => {
 		<footer className="container">
 			<div className="right">
 				<ul>
-					<li><a href="/future" onClick={handleClick}>Our Future</a></li>
-					<li><a href="https://backend.felixhebgen.de/feed" onClick={handleClick}>RSS Feed</a></li>
-					<li><a href="https://www.felixhebgen.de/sitemap.xml" onClick={handleClick}>Sitemap</a></li>
-					<li><a href="/hire" onClick={handleClick}>Contact</a></li>
-					<li><a href="/privacy-policy" onClick={handleClick}>Privacy Policy</a></li>
-					<li><a href="/imprint" onClick={handleClick}>Imprint</a></li>
+					<li><a href="/future" className="small" onClick={handleClick}>Our Future</a></li>
+					<li><a href="https://backend.felixhebgen.de/feed" className="small" onClick={handleClick}>RSS Feed</a></li>
+					<li><a href="https://www.felixhebgen.de/sitemap.xml" className="small" onClick={handleClick}>Sitemap</a></li>
+					<li><a href="/hire" className="small" onClick={handleClick}>Contact</a></li>
+					<li><a href="/privacy-policy" className="small" onClick={handleClick}>Privacy Policy</a></li>
+					<li><a href="/imprint" className="small" onClick={handleClick}>Imprint</a></li>
 				</ul>
 			</div>
 			<div className="left">

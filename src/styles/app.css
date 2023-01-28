@@ -804,6 +804,7 @@ header {
 	filter: grayscale(.2);
 	overflow: hidden;
 	position: relative;
+	z-index: 99;
 	display: inline-block;
 	transition: .2s filter;
 	border-radius: 15px;
@@ -812,7 +813,6 @@ header {
 
 .portfolio .intro img:hover {
 	cursor: url("../static/images/cursors/cursor_new_backdrop_magnify.svg") 60 60, auto;
-
 	filter: none;
 	transition: .2s filter;
 }
@@ -893,6 +893,9 @@ header {
 	filter: grayscale(.5);
 	transition: .2s filter;
 	border-radius: 15px;
+
+	position: relative;
+	z-index: 99;
 }
 
 .portfolio > section:not(.intro) .image img:hover {
@@ -1036,6 +1039,11 @@ header {
 	opacity: .7;
 	padding: 30px 30px;
 	transition: transform .125s;
+}
+
+.portfolio section.customers ul li a {
+	display: block;
+	height: 80px;
 }
 
 .portfolio section.customers ul li:hover {
@@ -1637,12 +1645,15 @@ ul.breadcrumbs,
 ul.breadcrumbs li,
 .page-text ul.breadcrumbs li {
 	display: inline-block;
+
 }
 
 ul.breadcrumbs li a,
 .page-text ul.breadcrumbs li a {
 	color: inherit;
 	text-decoration: none;
+	position: relative;
+	z-index: 99;
 }
 
 ul.breadcrumbs li a:hover,
@@ -1663,7 +1674,7 @@ ul.breadcrumbs li:not(:last-child)::after,
 	color: inherit;
 	text-decoration: none;
 	background-position-y: 20%;
-	background-image: linear-gradient(black 50%, rgb(47, 47, 47) 50%);
+	background-image: linear-gradient(transparent 50%, rgb(47, 47, 47) 50%);
 	transition: background 150ms ease;
 	background-size: auto 175%;
 	padding: 0 2px;
@@ -1875,6 +1886,7 @@ button:hover {
  =================================== */
 
 footer {
+	position: relative;
 	z-index: 99;
 	font-family: 'SF Pro Display Medium', sans-serif;
 	padding: 80px 0;
@@ -1922,7 +1934,8 @@ footer a {
 footer a:hover {
 	color: white;
 	border-bottom: 1px solid white;
-	cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, pointer;
+	/* cursor: url("../static/images/cursors/cursor_new_backdrop_small.svg") 30 30, pointer; */
+	cursor: none;
 }
 
 footer a:active,

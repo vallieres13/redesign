@@ -48,7 +48,6 @@ const App = () => {
 
         if(!cursorInit) {
             gsap.to(circle, {
-                autoAlpha: 0,
                 x: e.pageX,
                 y: e.pageY,
                 transitionDuration: 0,
@@ -56,13 +55,15 @@ const App = () => {
                 duration: .05,
                 onComplete: () => {
                     cursorInit = true;
+                    gsap.to(circle, {
+                        autoAlpha: 1
+                    });
                 }
             });
             return;
         }
 
         gsap.to(circle, {
-            autoAlpha: 1,
             x: e.pageX,
             y: e.pageY
         });
@@ -76,35 +77,42 @@ const App = () => {
             gsap.to(circle, {
                 autoAlpha: (bloated ? 1 : 0)
             });
-        }, 100);
+        }, 50);
 
     }
 
     document.body.addEventListener('mousemove', handleMouseMove);
 
     const handleMouseOver = (e: MouseEvent) => {
-        if(!(e.target instanceof HTMLAnchorElement)) return;
+        if((e.target instanceof HTMLAnchorElement) || (e.target as HTMLElement).classList.contains('hover')) {
+            const target = e.target as HTMLElement;
 
-        let circle = document.querySelector('.circle') as HTMLDivElement;
-        const bloatScale = (e.target.classList.contains('small') ? 4 : 10)
+            let circle = document.querySelector('.circle') as HTMLDivElement;
+            const bloatScale = target.classList.contains('small') ? 5 : 10;
 
-        bloated = true;
-        gsap.to(circle, {
-            scale: bloatScale,
-            duration: .4,
-            ease: 'power3'
-        });
-
-        const makeSmaller = () => {
+            bloated = true;
             gsap.to(circle, {
-                scale: 1,
+                scale: bloatScale,
                 duration: .4,
                 ease: 'power3'
             });
-            bloated = false;
-        };
 
-        e.target.addEventListener('mouseleave', makeSmaller);
+            /* Make smaller on mouse leave */
+            target.addEventListener('mouseleave', () => {
+
+                gsap.to(circle, {
+                    scale: 1,
+                    duration: .4,
+                    ease: 'power3'
+                });
+
+                bloated = false;
+
+            }, {
+                once: true
+            });
+
+        }
     }
 
     document.body.addEventListener('mouseover', handleMouseOver);

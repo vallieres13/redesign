@@ -64,7 +64,7 @@ const Hire = () => {
 			<section className="page-text container">
 				<h1 className="title">Hire Me</h1>
 				<ul className="breadcrumbs">
-					<li><Link to="/">Home</Link></li>
+					<li><Link to="/" className="small">Home</Link></li>
 					<li>Hire Me</li>
 				</ul>
 				<div className="page-text-content paper">
