@@ -6,6 +6,8 @@ import DropImage from '../static/images/labs/drop.jpg';
 
 const Labs = () => {
 
+	const __title = 'AI Canvas';
+
 	const animate = () => {
 		gsap.to('body', {
 			backgroundImage: 'none'
@@ -22,7 +24,7 @@ const Labs = () => {
 	useEffect(() => {
 
 		/* Document Title */
-		document.title = 'AI Canvas' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		animate();
 	});

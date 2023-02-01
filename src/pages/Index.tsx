@@ -19,12 +19,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
 
+	const __title = 'Home';
 	const navigate = useNavigate();
 
 	useEffect(() => {
 
 		/* Document Title */
-		document.title = 'Home' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		/* Change Background colour */
 		gsap.to('body', {

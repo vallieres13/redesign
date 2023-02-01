@@ -16,6 +16,8 @@ import TreesLogo from '../static/images/logos/trees.png';
 
 const Climate = () => {
 
+	const __title = 'Our Future';
+
 	const animate = () => {
 		/* Change Background colour */
 		gsap.to('body', {
@@ -70,7 +72,7 @@ const Climate = () => {
 	useEffect(() => {
 
 		/* Document Title */
-		document.title = 'Our Future' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		animate();
 	});
