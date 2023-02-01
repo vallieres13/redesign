@@ -1,7 +1,6 @@
 {
   "name": "redesign",
   "version": "0.1.0",
-  "homepage": "https://vallieres13.github.io/redesign",
   "private": true,
   "dependencies": {
     "@react-pdf/types": "^2.1.1",
