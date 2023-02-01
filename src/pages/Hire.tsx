@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 /* Static */
 import pdfIcon from "../static/images/icons/pdf.png";
 import rightArrowIcon from "../static/images/icons/arrow-right.png";
+import Breadcrumbs from "../components/Breadcrumbs";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Hire = () => {
+
+	/* Page Title */
+	const __title = 'Hire Me';
 
 	/* Change Background colour */
 	gsap.to('body', {
@@ -17,7 +21,7 @@ const Hire = () => {
 
 	useEffect(() => {
 		/* Document Title */
-		document.title = 'Hire Me' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		/* Animate Content */
 		const content = document.querySelectorAll('.page-text-content') as NodeListOf<HTMLDivElement>;
@@ -62,11 +66,8 @@ const Hire = () => {
 	return (
 		<>
 			<section className="page-text container">
-				<h1 className="title">Hire Me</h1>
-				<ul className="breadcrumbs">
-					<li><Link to="/" className="small">Home</Link></li>
-					<li>Hire Me</li>
-				</ul>
+				<h1 className="title">{__title}</h1>
+				<Breadcrumbs current={__title} />
 				<div className="page-text-content paper">
 					<h3 style={{ marginBottom: '1rem' }}>Information</h3>
 					<p>Are you looking for a developer? Please feel free to review my CV or visit the <Link to="/about">About Me</Link> page to learn more about my background and qualifications.</p>

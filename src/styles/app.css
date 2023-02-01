@@ -750,7 +750,8 @@ header {
 .nav ul li a.active,
 .nav ul li a:active,
 .nav ul li a:focus {
-	cursor: url("../static/images/cursors/cursor_new.svg") 30 30, auto;
+	/* cursor: url("../static/images/cursors/cursor_new.svg") 30 30, auto; */
+	cursor: none;
 }
 
 .nav ul li a.active span,

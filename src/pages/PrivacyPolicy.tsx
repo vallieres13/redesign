@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import gsap from 'gsap';
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const PrivacyPolicy = () => {
 
+	const __title = 'Privacy Policy';
+
 	useEffect(() => {
 		/* Document Title */
-		document.title = 'Privacy Policy' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		/* Change Background colour */
 		gsap.to('body', {
@@ -16,11 +19,8 @@ const PrivacyPolicy = () => {
 	return (
 		<>
 			<section className="page-text container">
-				<h1 className="title">Privacy Policy</h1>
-				<ul className="breadcrumbs">
-					<li><a href="/" className="small">Home</a></li>
-					<li>Privacy Policy</li>
-				</ul>
+				<h1 className="title">{__title}</h1>
+				<Breadcrumbs current={__title} />
 				<div className="page-text-content">
 					<p>We are very delighted that you have shown interest in our enterprise. Data protection is of a particularly high priority for the management of the www.visualstatic.net. The use of the Internet pages of the www.visualstatic.net is possible without any indication of personal data; however, if a data subject wants to use special enterprise services via our website, processing of personal data could become necessary. If the processing of personal data is necessary and there is no statutory basis for such processing, we generally obtain consent from the data subject.</p>
 					<p>The processing of personal data, such as the name, address, e-mail address, or telephone number of a data subject shall always be in line with the General Data Protection Regulation (GDPR), and in accordance with the country-specific data protection regulations applicable to the www.visualstatic.net. By means of this data protection declaration, our enterprise would like to inform the general public of the nature, scope, and purpose of the personal data we collect, use and process. Furthermore, data subjects are informed, by means of this data protection declaration, of the rights to which they are entitled.</p>

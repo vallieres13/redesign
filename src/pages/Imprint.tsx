@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import gsap from "gsap";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Imprint = () => {
+
+	/* Page Title */
+	const __title = 'Legal Notice';
 
 	/* Change Background colour */
 	gsap.to('body', {
@@ -10,17 +14,14 @@ const Imprint = () => {
 
 	useEffect(() => {
 		/* Document Title */
-		document.title = 'Imprint' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 	});
 
 	return (
 		<>
 			<section className="page-text container">
-				<h1 className="title">Legal Notice</h1>
-				<ul className="breadcrumbs">
-					<li><a href="/" className="small">Home</a></li>
-					<li>Legal Notice</li>
-				</ul>
+				<h1 className="title">{__title}</h1>
+				<Breadcrumbs current={__title} />
 				<div className="page-text-content">
 					<p>Required information by § 5 German Telemediengesetz. <br />This website is hosted in Frankfurt am Main, Germany.</p>
 					<p>

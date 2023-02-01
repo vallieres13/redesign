@@ -11,12 +11,16 @@ import Preloader from "../components/Preloader";
 
 /* Services */
 import Request from "../services/Request";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 /* gsap Register */
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(CSSPlugin);
 
 const Stories = () => {
+
+	/* Page Title */
+	const __title = 'Stories';
 
 	const animate = () => {
 
@@ -135,7 +139,7 @@ const Stories = () => {
 		loadPosts().then(() => {
 
 			/* Document Title */
-			document.title = 'Stories' + process.env.REACT_APP_TITLE;
+			document.title = __title + process.env.REACT_APP_TITLE;
 
 			setEndpointCalled(true);
 
@@ -173,12 +177,9 @@ const Stories = () => {
 					<>
 						<section className="stories container">
 							<section className="header">
-								<h1>Stories</h1>
+								<h1>{__title}</h1>
 								<hr />
-								<ul className="breadcrumbs">
-									<li><Link to="/" className="small">Home</Link></li>
-									<li>Stories</li>
-								</ul>
+								<Breadcrumbs current={__title} />
 							</section>
 							<section className="dashboard grid" style={{ marginTop: '-50px' }}>
 								<Card className="grid article article-big span-3" go={"/article/" + posts[0].id + '-' + posts[0].slug}>

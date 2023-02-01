@@ -1,6 +1,7 @@
 {
   "name": "redesign",
   "version": "0.1.0",
+  "homepage": "https://vallieres13.github.io/redesign",
   "private": true,
   "dependencies": {
     "@react-pdf/types": "^2.1.1",
@@ -26,6 +27,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@types/three": "^0.144.0"
+    "@types/three": "^0.144.0",
+    "gh-pages": "^5.0.0"
   }
 }

@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const NotFound = () => {
+
+	const __title = "Page Not Found";
 
 	const animate = () => {
 		/* Change Background colour */
@@ -43,7 +46,7 @@ const NotFound = () => {
 
 	useEffect(() => {
 		/* Document Title */
-		document.title = '404' + process.env.REACT_APP_TITLE;
+		document.title = __title + process.env.REACT_APP_TITLE;
 
 		animate();
 	});
@@ -54,10 +57,7 @@ const NotFound = () => {
 				<section className="header">
 					<h1>404</h1>
 					<hr />
-					<ul className="breadcrumbs">
-						<li><Link to="/" className="small">Home</Link></li>
-						<li>Page Not Found</li>
-					</ul>
+					<Breadcrumbs current={__title} />
 				</section>
 			</section>
 		</>
