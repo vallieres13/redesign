@@ -151,7 +151,7 @@ const Stories = () => {
 
 	const excerpt = (content: string, length: number = 440) => {
 		let excerpt: string;
-		excerpt = content.substr(0, length) + '…';
+		excerpt = content.substring(0, length) + '…';
 		excerpt = excerpt.replace(/&#8217;/gi, '\'');
 		return excerpt;
 	}

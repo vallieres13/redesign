@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
-import { Link } from 'react-router-dom';
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const NotFound = () => {
