@@ -233,7 +233,7 @@ const Article = () => {
 
 	const getMonthName = (month: number) => {
 		const date = new Date();
-		date.setMonth(month - 1);
+		date.setMonth(month);
 		return date.toLocaleString('en-GB', { month: 'long' });
 	}
 
