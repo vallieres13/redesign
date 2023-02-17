@@ -164,7 +164,7 @@ const Navigation = () => {
 						return (
 							<li onMouseOver={hoverItem} onMouseLeave={unhoverItem} onClick={clickedItem} key={index}>
 								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
-									<span>{items.title} {items.url === 'hire' ? <sup>Looking!</sup> : <></>}</span>
+									<span>{items.title} {items.url === 'hire' ? <sup>Occupied</sup> : <></>}</span>
 								</NavLink>
 							</li>
 						);
@@ -183,7 +183,7 @@ const Navigation = () => {
 						return (
 							<li onClick={clickedMobileItem} key={index}>
 								<NavLink to={'/' + items.url} className={({ isActive }) => (isActive ? 'active' : '')} data-colour={items.colour} data-hover={items.title}>
-									<span>{items.title} {items.url === 'hire' ? <sup>Looking!</sup> : <></>}</span>
+									<span>{items.title} {items.url === 'hire' ? <sup>Occupied</sup> : <></>}</span>
 								</NavLink>
 							</li>
 						);

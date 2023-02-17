@@ -207,6 +207,7 @@ const Index = () => {
 					</div>
 					<img src={StoryImage} alt="Stories" id="cover_stories" />
 				</Card>
+				{/*
 				<Card go="/hire">
 					<h2>Hiring?</h2>
 					<div className="description">
@@ -214,6 +215,7 @@ const Index = () => {
 						<Button style={{ backgroundImage: 'linear-gradient(210deg, hsl(0deg 0% 80%) 0%, hsl(0deg 0% 74%) 38%, hsl(0deg 0% 50%) 100%)', color: 'rgba(0, 0, 0, .8)' }}>Download CV</Button>
 					</div>
 				</Card>
+				*/}
 			</section>
 
 		</>
