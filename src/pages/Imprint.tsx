@@ -26,8 +26,8 @@ const Imprint = () => {
 					<p>Required information by § 5 German Telemediengesetz. <br />This website is hosted in Frankfurt am Main, Germany.</p>
 					<p>
 						<b>Felix Hebgen</b><br />
-						Breubergstraße 2<br />
-						64750 Lützelbach
+						Elisabethenstraße 68 A<br />
+						64283 Darmstadt
 					</p>
 					<p>
 						<b>Technical Contact</b><br />
