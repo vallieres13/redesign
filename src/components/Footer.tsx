@@ -4,6 +4,7 @@ import gsap from 'gsap';
 
 const Footer = () => {
 
+	const thisYear = new Date().getFullYear();
 	const location = useLocation();
 	const [ pastLocation, setPastLocation ] = useState('');
 
@@ -47,7 +48,7 @@ const Footer = () => {
 			</div>
 			<div className="left">
 				<div className="copyright">
-					Copyright &copy; 2012 — 2022 Felix Hebgen. All Rights Reserved.<br />
+					Copyright &copy; 2012 — {thisYear} Felix Hebgen. All Rights Reserved.<br />
 					Built with React & WordPress. Made in Germany. 🌳🌲
 				</div>
 			</div>
